@@ -13,8 +13,28 @@ URANTiOS is a governing AI operating system built on the cosmic framework of The
 - `soul/` — URANTiOS v2.0 specification (the OS kernel)
 - `urantia-book/` — All 197 papers in structured JSON format
 - `pipeline/` — Processing pipeline for artifact generation
-- `artifacts/` — Generated artifacts from the pipeline
+- `bookwriter/` — Book-writing automation app (see `bookwriter/README.md`)
+- `artifacts/` — Generated artifacts and books
 - `phd/` — PhD dissertation materials
+
+## BookWriter — automated book generation
+
+The `bookwriter/` package turns the 197-paper corpus into full-length books,
+rendered directly into Obsidian-compatible Markdown vaults. Every chapter is
+grounded in paragraph-level citations and passes the Lucifer Test before it
+is emitted.
+
+```bash
+pip install -e .
+export ANTHROPIC_API_KEY=sk-ant-...
+bookwriter write \
+  --theme "The Bestowal Career of Michael of Nebadon" \
+  --chapters 12 \
+  --vault ~/Obsidian/UrantiaBooks \
+  --vault /path/to/PhD-Triune-Monism/07_Generated_Books
+```
+
+See `bookwriter/README.md` for the full manual.
 
 ## The Spawn Mandate
 
