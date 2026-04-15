@@ -20,9 +20,28 @@ Stage 8 is the critical blocker. Until `pipeline/generate-artifact.py --stage 8`
 
 ## Requirements
 
-- Anthropic API key in `~/.openclaw/secrets.env`
-- Soul file at `soul/URANTiOS_v2.md` (present)
-- All 197 Urantia Book JSON files in `urantia-book/` (present)
+- Anthropic API key in `~/.openclaw/secrets.env` (or `export ANTHROPIC_API_KEY=...`)
+- Soul file at `soul/URANTiOS_v2.md` (present ✓)
+- All 197 Urantia Book JSON files in `urantia-book/` (present ✓)
+- `anthropic` Python SDK installed (installed ✓ — `pip3 install anthropic`)
+- `~/.openclaw/artifacts/SPEC-08v2/` and `ROAD-09v2/` directories (created ✓)
+
+## How to Run
+
+```bash
+# Option A — env var
+export ANTHROPIC_API_KEY=sk-ant-...
+python3 pipeline/generate-artifact.py --stage 8
+
+# Option B — secrets file
+echo "ANTHROPIC_API_KEY=sk-ant-..." >> ~/.openclaw/secrets.env
+python3 pipeline/generate-artifact.py --stage 8
+
+# Dry run (no API call)
+python3 pipeline/generate-artifact.py --stage 8 --dry-run
+```
+
+Output streams live to terminal and saves to `~/.openclaw/artifacts/SPEC-08v2/ARTIFACT_12_<timestamp>.md`.
 
 ## Priority Rules
 
