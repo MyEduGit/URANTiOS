@@ -70,6 +70,7 @@ services:
       QUEUE_BULL_REDIS_PASSWORD: ${REDIS_PASSWORD}
     volumes:
       - ./n8n/data:/home/node/.n8n
+      - ./obsidian:/files/obsidian
     ports:
       - "${BIND_ADDRESS:-127.0.0.1}:${N8N_PORT:-5678}:5678"
     depends_on:
