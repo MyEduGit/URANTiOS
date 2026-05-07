@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "type": "snapshot",
+  "writer": "claude-code",
+  "writer_model": "claude-opus-4-7",
+  "DO_NOT_TREAT_AS_LIVENESS": true,
+  "written_at_utc": "2026-05-07T13:00:00Z",
+  "expected_max_age_seconds": null,
+
+  "status": "WAITING_FOR_HUMAN",
+  "status_since_utc": "2026-05-07T13:00:00Z",
+
+  "active_task": null,
+
+  "last_completed_step": "Generated nemoclaw/workflows/first-proof.json (3-node n8n workflow: Manual Trigger -> Code build-binary -> readWriteFile write to /files/obsidian/test.md). NOT committed, NOT pushed, NOT executed.",
+  "last_completed_at_utc": "2026-05-07T13:00:00Z",
+
+  "waiting_for": "Human decision: (a) authorize commit + push of workflows/first-proof.json so iMac can git pull and import, OR (b) delegate task to Dispatch as user is considering, OR (c) different routing entirely.",
+  "waiting_for_actor": "human",
+  "waiting_since_utc": "2026-05-07T13:00:00Z",
+
+  "next_expected_event": "Human clarifies what 'give the job to Dispatch' means and authorizes next action.",
+  "next_expected_actor": "human",
+
+  "blockers": [
+    {
+      "id": "ambiguous-dispatch-reference",
+      "summary": "User mid-turn raised 'maybe we should give the job to Dispatch'. Term 'Dispatch' has multiple possible meanings (Claude Code Dispatch web feature? sub-agent? different tool?). Cannot proceed without disambiguation.",
+      "blocking_actions": ["commit + push first-proof.json", "any further work"]
+    },
+    {
+      "id": "imac-filesystem-unreachable",
+      "summary": "Claude session is in Linux sandbox; cannot write to ~/Documents/Urantia Research Wiki/... on user's iMac. Only path to iMac is git pull. workflows/first-proof.json must be committed+pushed first.",
+      "blocking_actions": ["materializing first-proof.json on iMac"]
+    }
+  ],
+
+  "deferred": [
+    {
+      "item": "ollama service",
+      "reason": "Docker pull blocked by sandbox proxy (CloudFront 403)",
+      "scope": "external network / proxy",
+      "action_owner": "human"
+    },
+    {
+      "item": "substrate watchdog",
+      "reason": "Authorization explicitly defers heartbeat sidecar",
+      "scope": "future scope",
+      "action_owner": "human"
+    },
+    {
+      "item": "first n8n workflow execution",
+      "reason": "Human has not yet imported and run any workflow; first-proof.json now exists in sandbox but not yet on iMac",
+      "scope": "human action required",
+      "action_owner": "human"
+    }
+  ],
+
+  "substrate_check_at_turn_end": {
+    "checked_at_utc": "2026-05-07T13:00:00Z",
+    "method": "not probed this turn",
+    "result": "not_probed",
+    "reason": "Turn focused on workflow JSON generation (sandbox file write only). Substrate state unchanged from last known good.",
+    "last_known_good_utc": "2026-05-07T12:22:00Z",
+    "last_known_good_state": {
+      "nemoclaw-postgres": "Up (healthy) - 127.0.0.1:5432",
+      "nemoclaw-redis": "Up (healthy) - 127.0.0.1:6379",
+      "nemoclaw-n8n": "Up - HTTP 200 on /healthz - 127.0.0.1:5678",
+      "nemoclaw-ollama": "deferred"
+    },
+    "interpretation": "Daemon may have been reaped between turns (sandbox lacks init system). Reader must `docker ps` to confirm before relying on this snapshot."
+  },
+
+  "git": {
+    "branch": "claude/nemoclaw-setup-GDKGy",
+    "head_commit": "b6813ac (state protocol commit)",
+    "uncommitted_files": ["nemoclaw/workflows/first-proof.json"],
+    "pr": "https://github.com/MyEduGit/URANTiOS/pull/9"
+  },
+
+  "scope_boundary_at_snapshot": {
+    "writable": ["/home/user/URANTiOS/nemoclaw/"],
+    "reachable_filesystems": ["sandbox /home/user/URANTiOS/"],
+    "unreachable_filesystems": ["user's iMac (~/Documents/Urantia Research Wiki/...) — no SSH, no shared mount"],
+    "untouched": [
+      "/home/user/URANTiOS/COVENANT.md",
+      "/home/user/URANTiOS/META_PROMPT_URANTIOS.md",
+      "/home/user/URANTiOS/README.md",
+      "/home/user/URANTiOS/.gitignore",
+      "/home/user/URANTiOS/pipeline/",
+      "/home/user/URANTiOS/soul/",
+      "/home/user/URANTiOS/urantia-book/"
+    ]
+  }
+}

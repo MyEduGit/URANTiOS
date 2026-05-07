@@ -1,0 +1,144 @@
+{
+  "manifest_version": 1,
+  "manifest_kind": "bootstrap",
+  "project": "nemoclaw",
+  "bootstrap_id": "2026-05-07T01:17:47Z",
+  "executed_at_utc": "2026-05-07T01:17:47Z",
+  "executor": {
+    "kind": "ai_worker",
+    "model": "claude-opus-4-7",
+    "harness": "claude-code"
+  },
+  "decision_record": {
+    "substrate_root": "/home/user/URANTiOS/nemoclaw/",
+    "rejected_alternatives": [
+      "/root/NemoClaw/ (no remote in MCP scope; no PR path)",
+      "/home/user/URANTiOS/ (would mix with unrelated URANTiOS files)"
+    ],
+    "authorizing_turn": "user message at 2026-05-07 authorizing /home/user/URANTiOS/nemoclaw/",
+    "archive_reference": "archive/conversations/2026-05-07-nemoclaw-bootstrap.md"
+  },
+  "git": {
+    "repo": "MyEduGit/URANTiOS",
+    "branch": "claude/nemoclaw-setup-GDKGy",
+    "parent_commit_sha": "0f34580f13234b8a9810ae0453e1c4203dcab9f8",
+    "git_init_run_in_subtree": false,
+    "rationale": "Subtree inherits parent repo. A separate inner repo would break auditability."
+  },
+  "verification_status": {
+    "tree_created": "verified (find listing)",
+    "files_written": "verified (sha256 enumeration)",
+    "bootstrap_sh_executable": "verified (chmod +x; ls -l shows -rwxr-xr-x)",
+    "containers_running": "partially verified — postgres healthy, redis healthy, n8n HTTP 200; ollama deferred",
+    "git_committed": "verified — commit 3d61724 on claude/nemoclaw-setup-GDKGy",
+    "git_pushed": "verified — pushed to origin; draft PR #9 open"
+  },
+  "runtime_status": {
+    "verified_at_utc": "2026-05-07T12:00:00Z",
+    "services": {
+      "postgres": { "container": "nemoclaw-postgres", "image": "postgres:16-alpine", "state": "running", "health": "healthy", "port": "127.0.0.1:5432" },
+      "redis":    { "container": "nemoclaw-redis",    "image": "redis:7-alpine",    "state": "running", "health": "healthy", "port": "127.0.0.1:6379" },
+      "n8n":      { "container": "nemoclaw-n8n",      "image": "n8nio/n8n:latest",  "state": "running", "health": "http_200_on_root_and_healthz", "port": "127.0.0.1:5678", "url": "http://127.0.0.1:5678/" },
+      "ollama":   { "container": "nemoclaw-ollama",   "image": "ollama/ollama:latest", "state": "deferred", "health": "n/a", "port": null }
+    },
+    "deferred_services": {
+      "ollama": {
+        "status": "deferred / network-blocked",
+        "reason": "10/10 docker pull attempts hit CloudFront 403 Forbidden on multi-hundred-MB blob layers; sandbox proxy too slow for short-lived pre-signed URLs",
+        "service_definition_in_compose": "intact, unchanged",
+        "remediation": "retry pull when proxy is healthier, or whitelist a registry mirror"
+      }
+    },
+    "resolved_blockers": [
+      {
+        "blocker": "docker daemon absent",
+        "resolution": "manually started containerd + dockerd on host; logs in /var/log/nemoclaw-host/",
+        "scope": "host, outside nemoclaw/"
+      },
+      {
+        "blocker": "Docker Hub 503/403 during compose pull",
+        "resolution": "bounded retry pre-pull (10 attempts per image); 3/4 cached, ollama deferred"
+      },
+      {
+        "blocker": "n8n EACCES on /home/node/.n8n/config",
+        "resolution": "chown -R 1000:1000 nemoclaw/n8n/data (host bind mount UID alignment with container 'node' user)"
+      },
+      {
+        "blocker": "n8n IPv6 bind failure (\"address '::' is not available\")",
+        "resolution": "added single line N8N_LISTEN_ADDRESS: \"0.0.0.0\" to docker-compose.yml n8n environment block"
+      }
+    ],
+    "compose_modifications": [
+      {
+        "service": "n8n",
+        "change": "environment += N8N_LISTEN_ADDRESS: \"0.0.0.0\"",
+        "rationale": "force IPv4 bind on bridge networks without IPv6"
+      }
+    ],
+    "host_side_actions": [
+      "started containerd and dockerd manually (no init system in sandbox)",
+      "chown -R 1000:1000 nemoclaw/n8n/data"
+    ],
+    "logs": {
+      "bootstrap": "logs/bootstrap.log",
+      "host_dockerd": "/var/log/nemoclaw-host/dockerd.log",
+      "host_containerd": "/var/log/nemoclaw-host/containerd.log",
+      "host_pulls": "/var/log/nemoclaw-host/pulls.log",
+      "per_container": "docker logs nemoclaw-{postgres,redis,n8n}"
+    }
+  },
+  "scope_boundary": {
+    "writable": ["/home/user/URANTiOS/nemoclaw/"],
+    "readable": ["/home/user/URANTiOS/"],
+    "untouched_paths": [
+      "/home/user/URANTiOS/COVENANT.md",
+      "/home/user/URANTiOS/META_PROMPT_URANTIOS.md",
+      "/home/user/URANTiOS/README.md",
+      "/home/user/URANTiOS/.gitignore",
+      "/home/user/URANTiOS/pipeline/",
+      "/home/user/URANTiOS/soul/",
+      "/home/user/URANTiOS/urantia-book/"
+    ]
+  },
+  "created_files": [
+    { "path": ".env.example", "sha256": "337da51c5c37a10c079a26e20c3d53c994922b65bcd8d1a87390e1487d558ea2" },
+    { "path": ".gitignore", "sha256": "db2211e67192dba50f2653b414b3acd9d46e8f72a5f9a5cef21380da093e0867" },
+    { "path": "CLAUDE.md", "sha256": "48d21cc02907fe65512aa23705a0cce6f5ce6a4ec6f8c037cd6498690008786e" },
+    { "path": "README.md", "sha256": "cdfa04678b65df7e3b4c1238c6d720a8edf003f29415098d1c9318f870a3632f" },
+    { "path": "archive/conversations/2026-05-07-nemoclaw-bootstrap.md", "sha256": "f6cc94717c5f2e9d486d6b8dce6798a6774f1a513c52c5ee08c056902b649265" },
+    { "path": "backups/.gitkeep", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    { "path": "bootstrap.sh", "sha256": "85a7984bc6031372cfd7e06ab9eb64e2cf1db2f26719b6e47c87bfed949a217e", "mode": "0755" },
+    { "path": "docker-compose.yml", "sha256": "df2379185d5acaccedbf208badc11ef54bc195c2f09ef42eefe68afd1406944f" },
+    { "path": "docs/ARCHITECTURE.md", "sha256": "ccbb94ac6f6d412a981ef7df87dd0928b29f7aa5c4412a6ff6a7253b7dea4df8" },
+    { "path": "docs/SECURITY.md", "sha256": "337d316438832d280a8cf3d2ad68feb2b3c4e3aaf9c2c5b6c1e9b3867af6d714" },
+    { "path": "docs/WORKFLOW_MODEL.md", "sha256": "d941f9a6ab02c47e4eeec781358839aa51ce7e13e8c42e0ac560d40eee7c5454" },
+    { "path": "logs/.gitkeep", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    { "path": "manifests/.gitkeep", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    { "path": "n8n/README.md", "sha256": "ec0a0907620ecd84b279943edd94203222e1517d99dc9bcb36302d73c472a79a" },
+    { "path": "nemo-core/README.md", "sha256": "823a97b8ecaaf772224348896d4ab0086bfa084c688c1bb0bea8ae41269256c0" },
+    { "path": "nemo-core/mcp_placeholders/README.md", "sha256": "a09813a814d31420819bc774f7ae7abac6bbdd807eafef87ac5eb1f3305823dd" },
+    { "path": "nemo-core/mcp_placeholders/browser/README.md", "sha256": "4090605fd01cee55b1ea086b9c2f2a58a68441543e16de1949758ccda6bc8520" },
+    { "path": "nemo-core/mcp_placeholders/filesystem/README.md", "sha256": "e427d9542d6efc28feb563262adfc6df72febb2cdd34c2961fa8bb9bc137ff04" },
+    { "path": "nemo-core/mcp_placeholders/github/README.md", "sha256": "06d25e8c81b0a7471761839b083df163cb9752a0e447e34871e4a4ba431e0279" },
+    { "path": "nemo-core/mcp_placeholders/obsidian/README.md", "sha256": "207fc647c9e8627995bbf196b53795bef5815f3cc4d4d602179d9d8b0391fc73" },
+    { "path": "nemo-core/mcp_placeholders/postgres/README.md", "sha256": "f847c8ea227020d007b8974f37e94e7b99304629a603820588a8b4bb4d514de9" },
+    { "path": "nemo-core/mcp_placeholders/telegram/README.md", "sha256": "a903bf8498d066ea0e83f2ec6cfdf89f9055adffa97da8072287ff52ce0d0673" },
+    { "path": "obsidian/README.md", "sha256": "6723d2a255285f1d5c71a2950fada75d939188af832057cad0e8b30b3802e295" },
+    { "path": "obsidian/conversations/.gitkeep", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    { "path": "obsidian/decisions/.gitkeep", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    { "path": "obsidian/topics/.gitkeep", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    { "path": "postgres/README.md", "sha256": "f756d5be3d12ef33b03ee2f729f539cc634bb96a8fa143423dec52f70dd9e9e7" },
+    { "path": "redis/README.md", "sha256": "f975741fc4a03f3af2680868bfb2dbf6f2f5e565c085c7434be8e691dcda18f7" },
+    { "path": "scripts/README.md", "sha256": "feb961fe9ea01cec6f499b2093da0735208e523eda311e268012be0e16ad1267" },
+    { "path": "workers/README.md", "sha256": "fbe967ca70f1e06065071fafd8a783c23fc04baaaaae9a43d4674c35d2927e01" },
+    { "path": "workers/claude_worker/README.md", "sha256": "c7fbf7fb04a625253ab45956e613277fa2f362796650e87f1500b28bdaf237a8" },
+    { "path": "workers/gpt_worker/README.md", "sha256": "5c3a46c2a8e23f4f5c16695156c0c626442f85fc15a223f428956050d3fab283" },
+    { "path": "workers/metadata_worker/README.md", "sha256": "f234130f16cc66acce893c4ebaf5a8d20aa4892397775d71f4bd3491fdf9f148" },
+    { "path": "workers/ollama_worker/README.md", "sha256": "6dcea87ef3df7178657c8d782e5111adb4dbae5513643f567d50804964f93d6f" },
+    { "path": "workers/transcript_worker/README.md", "sha256": "3a35ea3d3b5d5d782f467067523b80caa562b80bf5bf552a6ab37cc7a080724a" },
+    { "path": "workers/vision_worker/README.md", "sha256": "840c5e40b58cbfb63206456d3300a413c731e778129bb7140e3b04895d57333d" },
+    { "path": "workflows/.gitkeep", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" }
+  ],
+  "execution_log_path": "logs/bootstrap.log",
+  "next_recommended_step": "Human review of generated files; if approved, run `git add nemoclaw/` and commit on claude/nemoclaw-setup-GDKGy."
+}
