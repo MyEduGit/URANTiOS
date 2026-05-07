@@ -69,9 +69,77 @@ NemoClaw  →  Queue (Redis)  →  Worker  →  Artifact  →  Verification  →
 
 ---
 
+## State Reporting Protocol (mandatory)
+
+> **NO SILENT STATES. NO IMPLIED LIVENESS.**
+>
+> Conversational silence is not a state. Files under `state/` are.
+
+### Hard rules
+
+1. **Every Claude turn that mutates substrate or workspace state MUST end with
+   a write to `state/claude.json`.** No exceptions. The write happens before
+   the response that ends the turn.
+
+2. **`state/claude.json` is a snapshot, not a heartbeat.** The file MUST
+   include:
+   - `"type": "snapshot"`
+   - `"writer": "claude-code"`
+   - `"DO_NOT_TREAT_AS_LIVENESS": true`
+   - `"written_at_utc": "<ISO-8601 UTC>"`
+   - `"status"` ∈ {`ACTIVE`, `WAITING_FOR_HUMAN`, `BLOCKED`, `FAILED`, `PARKED`}
+   - `"waiting_for"`, `"waiting_for_actor"`, `"waiting_since_utc"` when status is `WAITING_FOR_HUMAN` or `PARKED`
+   - `"blockers"` (array; empty if none)
+   - `"next_expected_event"` and `"next_expected_actor"`
+   - `"substrate_check_at_turn_end"` with `checked_at_utc`, `method`, `result`,
+     and either `last_known_good_state` or a clear `could_not_probe` reason
+
+3. **Do not write `state/substrate.json`.** Claude is not the substrate. That
+   file is reserved for the (currently deferred) substrate watchdog. Touching
+   it is a protocol violation.
+
+4. **Do not invent freshness.** If the substrate cannot be probed at turn
+   end, record `result: "could_not_probe"` with the exact reason. Never
+   forge a healthy status.
+
+5. **No retroactive backdating.** `written_at_utc` is the actual UTC time the
+   snapshot was written. Do not stamp it with an earlier time to make a
+   sequence look smoother.
+
+6. **No mixing snapshot fields and heartbeat fields in the same file.** A
+   file is either a snapshot or a heartbeat, declared by its `"type"` field.
+
+### Reading discipline
+
+Anyone — Claude, ChatGPT, future agents, humans — reading `state/*` MUST:
+
+- Read the `writer` field first; trust nothing without it.
+- Compare `written_at_utc` against the reader's own staleness threshold.
+- Never combine fields across files into a single "system status" claim
+  without preserving each writer's identity.
+
+### When the protocol applies
+
+| Activity | Must write `claude.json`? |
+|---|---|
+| Mutating files in `nemoclaw/` | Yes |
+| Running containers / `docker compose` operations | Yes |
+| Git operations (commit, push, branch) | Yes |
+| Read-only investigation only | Optional, but recommended for long sessions |
+| Pure conversation, no tool calls | Not required |
+
+### See also
+
+- `state/README.md` — full protocol contract and writer responsibility boundaries
+- `docs/SECURITY.md` — how state files interact with approval gates
+- `docs/WORKFLOW_MODEL.md` — how worker state files (future) plug into the same protocol
+
+---
+
 ## When in doubt
 
 Stop. Ask. Surface the conflict. The cost of pausing is low; the cost of an
 unauthorized action is high.
 
-See also: `docs/SECURITY.md`, `docs/ARCHITECTURE.md`, `docs/WORKFLOW_MODEL.md`.
+See also: `docs/SECURITY.md`, `docs/ARCHITECTURE.md`, `docs/WORKFLOW_MODEL.md`,
+`state/README.md`.
