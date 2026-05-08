@@ -16,6 +16,19 @@ URANTiOS is a governing AI operating system built on the cosmic framework of The
 - `artifacts/` — Generated artifacts from the pipeline
 - `phd/` — PhD dissertation materials
 
+
+## Foreword Analysis Pack (May 2026)
+
+If you could not see the Foreword deliverables in the previous turn, they are now available at the repository root:
+
+- `FOREWORD_DEEP_ANALYSIS.md`
+- `FOREWORD_ONTOLOGY_MAP.md`
+- `FOREWORD_ARCHITECTURE_DIAGRAMS.md`
+- `FOREWORD_SEMANTIC_ROOTS.md`
+- `FOREWORD_CONTINUITY_ANALYSIS.md`
+
+Start with `FOREWORD_DEEP_ANALYSIS.md`, then use `FOREWORD_ARCHITECTURE_DIAGRAMS.md` for visual structure and `FOREWORD_ONTOLOGY_MAP.md` for machine-readable framing.
+
 ## The Spawn Mandate
 
 Every process created must load URANTiOS or receive its principles.
