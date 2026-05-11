@@ -27,3 +27,16 @@ Every process created must load URANTiOS or receive its principles.
 ## License
 
 Open publication for the benefit of all Nebadon.
+
+## Weekly 20GB+ Drop Workflow
+
+For large weekly handoffs (for example Dr Emanoil Geaboc dropping 20GB+), use the chunking helper:
+
+```bash
+python3 pipeline/weekly_drop.py \
+  --input /path/to/weekly_payload.tar.zst \
+  --outdir /path/to/drop/week_YYYY-MM-DD \
+  --chunk-size-gb 2
+```
+
+This creates deterministic chunk files plus a `manifest.json` with SHA256 checksums for each chunk and the original full file so uploads can be resumed/verified safely.
