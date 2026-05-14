@@ -1,0 +1,11 @@
+{
+  "chapters": 10,
+  "generated_at": "2026-05-14T13:27:37Z",
+  "generator": "URANTiOS BookWriter",
+  "generator_version": "1.0.0",
+  "lucifer_test": "PASS (all chapters)",
+  "model": "claude-opus-4-6 (direct composition)",
+  "three_values": "Truth, Beauty, Goodness",
+  "unique_citations": 48,
+  "word_count": 4969
+}
