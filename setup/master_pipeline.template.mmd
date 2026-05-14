@@ -1,0 +1,38 @@
+flowchart TD
+    %% Trigger
+    A[User triggers /doc <job>] --> B[DOC Skill]
+
+    %% DOC Skill Actions
+    B --> B1[Create standardized job folder in Obsidian]
+    B --> B2[Generate Mermaid .mmd]
+    B --> B3[Render SVG + PNG when mmdc available]
+    B --> B4[Regenerate master from template + jobs.json]
+    B --> B5[Update job.md with links]
+
+    %% Parallel Multi-AI Projects
+    subgraph Multi-AI Projects
+        MC[Claude Code]
+        PR1[ChatGPT / PR #1]
+        GK[Grok]
+        GM[Gemma4]
+    end
+
+    B1 --> MC
+    B1 --> PR1
+    B1 --> GK
+    B1 --> GM
+
+    %% Downstream
+    B5 --> G[Commit folder + diagrams to GitHub]
+    click G href "https://github.com/myedugit/phd-triune-monism/tree/claude/multi-ai-obsidian-integration-jkoI9" "Open GitHub branch"
+
+    G --> N[Create Notion page under Sovereign Dashboard]
+    click N href "https://www.notion.so/3328525a-b5a0-815d-886c-d5488593aa3d" "Open Notion page"
+    N --> N1[Embed public diagram URLs]
+    N --> N2[Include job.md content]
+
+    N --> Z{Zapier webhook configured?}
+    Z -->|Yes| Z1[Send daily digest email]
+    Z -->|Yes| Z2[Backup job folder to Google Drive]
+    Z -->|Yes| Z3[Add calendar reminders]
+    Z -->|No| Z4[Skip Zapier fan-out]
