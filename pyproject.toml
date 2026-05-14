@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "urantios-bookwriter"
+version = "1.0.0"
+description = "Automated book-writing app built on The Urantia Book corpus — governed by URANTiOS (Truth, Beauty, Goodness)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Open publication for the benefit of all Nebadon." }
+authors = [
+  { name = "Mircea Matthews" },
+]
+keywords = ["urantia", "urantios", "book", "llm", "obsidian", "ai-writing"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Religion",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Religion",
+  "Topic :: Text Processing",
+]
+dependencies = [
+  "anthropic>=0.40.0",
+]
+
+[project.scripts]
+bookwriter = "bookwriter.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools]
+packages = ["bookwriter", "bookwriter.prompts", "bookwriter.tests"]

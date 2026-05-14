@@ -13,7 +13,8 @@ URANTiOS is a governing AI operating system built on the cosmic framework of The
 - `soul/` — URANTiOS v2.0 specification (the OS kernel)
 - `urantia-book/` — All 197 papers in structured JSON format
 - `pipeline/` — Processing pipeline for artifact generation
-- `artifacts/` — Generated artifacts from the pipeline
+- `bookwriter/` — Book-writing automation app (see `bookwriter/README.md`)
+- `artifacts/` — Generated artifacts and books
 - `phd/` — PhD dissertation materials
 
 
