@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mircea KDP Business - Master Command Center</title>
+    <style>
+        :root {
+            --bg-color: #121214;
+            --panel-bg: #1e1e24;
+            --accent-gold: #f5a623;
+            --accent-green: #2ecc71;
+            --text-main: #f8f9fa;
+            --text-muted: #b3b3cc;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        h1 { color: var(--accent-gold); border-bottom: 2px solid var(--panel-bg); padding-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 3fr; gap: 20px; }
+        .sidebar { background: var(--panel-bg); padding: 15px; border-radius: 8px; height: fit-content; }
+        .main-content { background: var(--panel-bg); padding: 25px; border-radius: 8px; min-height: 500px; }
+        .tab-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #2a2a35;
+            color: var(--text-main);
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .tab-btn:hover { background: #3a3a4a; border-left: 4px solid var(--accent-gold); }
+        .tab-btn.active { background: var(--accent-gold); color: #000; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #3a3a4a; }
+        th { background: #2a2a35; color: var(--accent-gold); }
+        .copy-btn {
+            background: var(--accent-green);
+            color: #000;
+            border: none;
+            padding: 6px 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        .copy-btn:hover { opacity: 0.9; }
+        pre { background: #121214; padding: 15px; border-radius: 5px; overflow-x: auto; border-left: 3px solid var(--accent-gold); white-space: pre-wrap; }
+        .status-badge { background: #e74c3c; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; }
+        .status-badge.live { background: var(--accent-green); color: black; }
+    </style>
+</head>
+<body>
+
+    <h1>Mircea KDP Business - Master Command Center</h1>
+
+    <div class="grid">
+        <div class="sidebar">
+            <h3 style="color: var(--text-muted); margin-top:0;">NAVIGATE PANELS</h3>
+            <button class="tab-btn active" onclick="openTab(event, 'overview')">Catalog Overview</button>
+            <button class="tab-btn" onclick="openTab(event, 'metadata')">Copy-Paste Metadata</button>
+            <button class="tab-btn" onclick="openTab(event, 'endmatter')">End-Matter CTA</button>
+            <button class="tab-btn" onclick="openTab(event, 'n8n')">n8n Automation Node</button>
+            <button class="tab-btn" onclick="openTab(event, 'checklist')">Pre-Flight Checklist</button>
+        </div>
+
+        <div class="main-content">
+
+            <div id="overview" class="tab-content active">
+                <h2>Live Catalog Matrix</h2>
+                <p>Use this table to view pricing records and immediate upload goals at a glance.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Book Title</th>
+                            <th>Status</th>
+                            <th>Target Price</th>
+                            <th>Net Profit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Divine Partnership</b></td>
+                            <td><span class="status-badge live">LIVE EBOOK</span></td>
+                            <td>$12.99 (Paperback)</td>
+                            <td><strong>$5.64</strong> / sale</td>
+                        </tr>
+                        <tr>
+                            <td><b>God Never Said That</b></td>
+                            <td><span class="status-badge live">LIVE EBOOK</span></td>
+                            <td>$14.99 (Paperback)</td>
+                            <td><strong>$6.59</strong> / sale</td>
+                        </tr>
+                        <tr>
+                            <td><b>The Jesus Chronicles (Vol 1)</b></td>
+                            <td><span class="status-badge">DRAFT</span></td>
+                            <td>$11.99 (Paperback)</td>
+                            <td><strong>$5.04</strong> / sale</td>
+                        </tr>
+                        <tr>
+                            <td><b>Jesus: The Hidden Years</b></td>
+                            <td><span class="status-badge">DRAFT</span></td>
+                            <td>$3.99 (eBook)</td>
+                            <td><strong>$2.79</strong> / sale</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="metadata" class="tab-content">
+                <h2>Copy-Paste Metadata Packs</h2>
+                <p>Click copy buttons to instantly grab your target text fields for Amazon KDP.</p>
+
+                <h3>1. Divine Partnership</h3>
+                <button class="copy-btn" onclick="copyText('dp-desc')">Copy Description</button>
+                <div id="dp-desc">
+                    <h3><b>Unlock the ultimate alliance. You are never walking this path alone.</b></h3>
+                    <p>Deep within your consciousness resides a literal fragment of absolute reality&mdash;an indwelling spark sent to guide, transform, and elevate your soul. In Divine Partnership, you will discover how to transition into an active, living collaboration with your Inner God Fragment.</p>
+                </div>
+
+                <hr style="border-color:#3a3a4a; margin:20px 0;">
+
+                <h3>2. God Never Said That</h3>
+                <button class="copy-btn" onclick="copyText('gnst-desc')">Copy Description</button>
+                <div id="gnst-desc">
+                    <h3><b>The religious chains of fear are broken. Discover the God of unconditional light.</b></h3>
+                    <p>For millennia, humanity has been handed a version of God defined by anger, conditional love, and rigid dogmatic structures. In God Never Said That, the veil of traditional misconception is stripped away to reveal the pure Melchizedek Truth&mdash;a sovereign spiritual framework that restores your direct connection to the Source.</p>
+                </div>
+            </div>
+
+            <div id="endmatter" class="tab-content">
+                <h2>Cross-Platform End-Matter Text</h2>
+                <p>Paste this text into the final pages of your manuscript files to route storefront buyers to Gumroad or Payhip.</p>
+                <button class="copy-btn" onclick="copyText('endmatter-code')">Copy Block</button>
+                <pre id="endmatter-code">
+## Deepen Your Journey Into the Revelation
+
+The text you have just read is only one facet of a grander unfolding of cosmic truth. If your indwelling spark responded to these concepts, we invite you to explore the complete, unedited digital sanctuary.
+
+Digital Sanctuary Store 1: https://gumroad.com/mirceakdpbusiness
+Digital Sanctuary Store 2: https://payhip.com/mirceakdpbusiness
+                </pre>
+            </div>
+
+            <div id="n8n" class="tab-content">
+                <h2>n8n Workflow Automation JSON</h2>
+                <p>Copy this entire block, go to your n8n workspace canvas, and hit <b>Ctrl+V</b> to load your sales-and-tracking workflow.</p>
+                <button class="copy-btn" onclick="copyText('n8n-code')">Copy JSON Engine</button>
+                <pre id="n8n-code">{
+  "name": "Mircea KDP Business Automation",
+  "nodes": [
+    {
+      "parameters": {"httpMethod": "POST", "path": "digital-sale-webhook"},
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [100, 300]
+    }
+  ]
+}</pre>
+            </div>
+
+            <div id="checklist" class="tab-content">
+                <h2>Fail-Safe Upload Checklist</h2>
+                <p>Review these settings before pushing books live to ensure formatting remains pristine.</p>
+                <ul>
+                    <li style="margin-bottom:12px;"><b>Manuscript Trim Size:</b> Set explicitly to <b>6x9 Inches</b> inside KDP layout preferences.</li>
+                    <li style="margin-bottom:12px;"><b>Bleed Settings:</b> Choose <b>No Bleed</b> for textual standard interiors.</li>
+                    <li style="margin-bottom:12px;"><b>Pricing Tiers:</b> Match retail prices against your calculated margin sheets to lock in maximum 70% or 60% royalty brackets.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function openTab(event, tabId) {
+            const contents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+            const buttons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function copyText(elementId) {
+            const element = document.getElementById(elementId);
+            const textToCopy = (element.innerText || element.textContent).trim();
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('Copied to clipboard successfully!');
+            }).catch(err => {
+                console.error('Error copying text: ', err);
+                alert('Could not copy. Please copy manually.');
+            });
+        }
+    </script>
+</body>
+</html>
