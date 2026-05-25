@@ -7,4 +7,4 @@ from .vault import MultiVault
 from .config import Config, ThreeValues
 from .themes import ThemeIndex
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"

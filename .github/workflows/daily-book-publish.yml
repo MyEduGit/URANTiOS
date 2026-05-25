@@ -1,0 +1,83 @@
+name: Daily Book Publishing
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      theme:
+        description: 'Override theme (optional)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Dry run (no API calls)'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish-book:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout URANTiOS
+        uses: actions/checkout@v4
+        with:
+          ref: claude/daily-book-publishing-zeI2A
+
+      - name: Checkout PhD vault
+        uses: actions/checkout@v4
+        with:
+          repository: myedugit/PhD-Triune-Monism
+          ref: claude/daily-book-publishing-zeI2A
+          token: ${{ secrets.CROSS_REPO_PAT }}
+          path: phd-vault
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Run daily publisher
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BOOKWRITER_VAULTS: ${{ github.workspace }}/phd-vault/07_Generated_Books
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DAILY_DB_ID: ${{ secrets.NOTION_DAILY_DB_ID }}
+          DAILY_STATE_PATH: ${{ github.workspace }}/artifacts/daily-state.json
+        run: |
+          ARGS="daily"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ -n "${{ inputs.theme }}" ]; then
+            ARGS="$ARGS --theme '${{ inputs.theme }}'"
+          fi
+          python -m bookwriter $ARGS | tee /tmp/daily-result.json
+
+      - name: Commit state to URANTiOS
+        run: |
+          git config user.name "URANTiOS BookWriter"
+          git config user.email "bookwriter@urantios.dev"
+          git add artifacts/daily-state.json
+          git diff --cached --quiet || git commit -m "daily: update publishing state $(date -u +%Y-%m-%d)"
+          git push origin claude/daily-book-publishing-zeI2A
+
+      - name: Commit books to PhD vault
+        working-directory: phd-vault
+        run: |
+          git config user.name "URANTiOS BookWriter"
+          git config user.email "bookwriter@urantios.dev"
+          git add 07_Generated_Books/
+          TITLE=$(python3 -c "import json; print(json.load(open('/tmp/daily-result.json')).get('book',{}).get('title','untitled'))" 2>/dev/null || echo 'untitled')
+          git diff --cached --quiet || git commit -m "daily: ${TITLE} $(date -u +%Y-%m-%d)"
+          git push origin claude/daily-book-publishing-zeI2A

@@ -7,6 +7,7 @@ from .config import Config
 from .corpus import Corpus, Paragraph
 from .themes import ThemeIndex
 
+
 @dataclass
 class Chapter:
     number: int
@@ -15,6 +16,7 @@ class Chapter:
     key_refs: list[str] = field(default_factory=list)
     beats: list[str] = field(default_factory=list)
     def to_dict(self) -> dict: return asdict(self)
+
 
 @dataclass
 class Outline:
@@ -46,6 +48,7 @@ class Outline:
                       for i, c in enumerate(d.get("chapters", []))],
             evidence_refs=list(d.get("evidence_refs", [])))
 
+
 class OutlineBuilder:
     def __init__(self, *, corpus: Corpus, cfg: Config, theme_index: ThemeIndex | None = None):
         self.corpus = corpus
@@ -54,29 +57,82 @@ class OutlineBuilder:
 
     def build(self, *, theme: str, chapters: int | None = None, evidence_k: int = 60,
               **kw) -> Outline:
+        from .llm import make_client
         chapters = chapters or self.cfg.default_chapters
         evidence = self.theme_index.select_evidence(theme, k=evidence_k, diversify=True)
-        outline = Outline(theme=theme, title=f"Book on: {theme}", subtitle=None,
-                          epigraph=None, preface_sketch=None,
-                          chapters=[Chapter(number=i+1, title=f"Chapter {i+1}",
-                                           thesis="", key_refs=[], beats=[])
-                                    for i in range(chapters)],
-                          evidence_refs=[p.ref for p in evidence])
-        return outline
+        evidence_text = "\n".join(f"[{p.ref}] {p.content[:200]}" for p in evidence[:40])
+
+        client = make_client(self.cfg)
+        system = [{
+            "type": "text",
+            "text": (
+                f"{self.cfg.values.charter}\n\n"
+                "You are URANTiOS BookWriter. Create a book outline as JSON. "
+                "The book must be grounded in The Urantia Book with real paragraph references."
+            ),
+            "cache_control": {"type": "ephemeral"},
+        }]
+        prompt = (
+            f"Create a {chapters}-chapter book outline on the theme: \"{theme}\"\n\n"
+            f"EVIDENCE PARAGRAPHS:\n{evidence_text}\n\n"
+            "Return ONLY a JSON object with this structure:\n"
+            "{\n"
+            '  "title": "Book Title",\n'
+            '  "subtitle": "Optional subtitle",\n'
+            '  "epigraph": "Opening quote with (P:S.Par) citation",\n'
+            '  "preface_sketch": "2-3 sentence preface summary",\n'
+            '  "chapters": [\n'
+            "    {\n"
+            '      "number": 1,\n'
+            '      "title": "Chapter Title",\n'
+            '      "thesis": "One-sentence thesis",\n'
+            '      "key_refs": ["196:2.1", "1:0.3"],\n'
+            '      "beats": ["First point", "Second point"]\n'
+            "    }\n"
+            "  ]\n"
+            "}"
+        )
+        resp = client.complete(
+            system_blocks=system,
+            messages=[{"role": "user", "content": prompt}],
+            model=self.cfg.model,
+            max_tokens=self.cfg.max_tokens_outline,
+        )
+        try:
+            data = _parse_json(resp.text)
+            outline = Outline.from_dict(data, theme=theme)
+            outline.evidence_refs = [p.ref for p in evidence]
+            return outline
+        except (ValueError, KeyError):
+            return Outline(
+                theme=theme, title=f"Book on: {theme}", subtitle=None,
+                epigraph=None, preface_sketch=None,
+                chapters=[Chapter(number=i+1, title=f"Chapter {i+1}",
+                                  thesis="", key_refs=[], beats=[])
+                          for i in range(chapters)],
+                evidence_refs=[p.ref for p in evidence])
+
 
 _JSON_FENCE = re.compile(r"```(?:json)?\s*(.*?)```", re.DOTALL)
+
 def _parse_json(text: str) -> dict:
     text = text.strip()
     m = _JSON_FENCE.search(text)
-    if m: text = m.group(1).strip()
-    try: return json.loads(text)
-    except json.JSONDecodeError: pass
+    if m:
+        text = m.group(1).strip()
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
     start = text.find("{")
-    if start < 0: raise ValueError("No JSON found")
+    if start < 0:
+        raise ValueError("No JSON found")
     depth = 0
     for i in range(start, len(text)):
-        if text[i] == "{": depth += 1
+        if text[i] == "{":
+            depth += 1
         elif text[i] == "}":
             depth -= 1
-            if depth == 0: return json.loads(text[start:i+1])
+            if depth == 0:
+                return json.loads(text[start:i+1])
     raise ValueError("Unbalanced JSON")
