@@ -34,6 +34,26 @@ Regenerate the vault any time from the source JSON:
 python3 pipeline/build_obsidian_vault.py
 ```
 
+## Urantipedia
+
+`obsidian/Urantipedia/` is the encyclopedia of the Foreword and the 196 papers.
+Each entry takes a concept — *consciousness*, *personality*, *the Supreme* — and
+examines it from every angle: canonical definition, semantic roots, facets,
+ramifications, and the implicit meanings that are not directly evident. Every
+entry is anchored to its real appearances across all 197 papers, linked to the
+exact paragraph.
+
+- **Authored entries** (`Urantipedia/<Concept>.md`) are created once and never
+  overwritten by the generator — your writing is safe.
+- **Appearances** (`Urantipedia/_appearances/<Concept>.md`) are auto-harvested
+  every run and transcluded into each entry.
+
+Add a concept to `SEED_CONCEPTS` in `pipeline/build_urantipedia.py`, then:
+
+```bash
+python3 pipeline/build_urantipedia.py
+```
+
 
 ## Foreword Analysis Pack (May 2026)
 

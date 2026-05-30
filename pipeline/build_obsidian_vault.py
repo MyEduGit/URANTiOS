@@ -162,6 +162,7 @@ def render_home(papers: list[dict]) -> str:
     lines.append("Three Values: **Truth · Beauty · Goodness**")
     lines.append("")
     lines.append("- ⭐ **[[Foreword — Definitions Map|Start here — Foreword Definitions Map]]** — the term/concept mapping for the whole book")
+    lines.append("- 📚 [[Urantipedia — Home|Urantipedia]] — encyclopedia of concepts examined from every angle")
     lines.append("- 🧠 [[URANTiOS v2.0 Specification|The Soul — URANTiOS v2.0 kernel spec]]")
     lines.append(f"- 📖 The Urantia Book — {len(papers)} papers, fully linked below")
     lines.append("")
@@ -226,8 +227,11 @@ def render_foreword_map(foreword: dict) -> str:
 
 
 def main() -> None:
-    if VAULT.exists():
-        shutil.rmtree(VAULT)
+    # Only refresh the directories this script owns. Anything else in the vault
+    # (e.g. authored Urantipedia entries, the user's own notes) is preserved.
+    for owned in (PAPERS_DIR, SOUL_VAULT_DIR):
+        if owned.exists():
+            shutil.rmtree(owned)
     PAPERS_DIR.mkdir(parents=True)
     SOUL_VAULT_DIR.mkdir(parents=True)
 
