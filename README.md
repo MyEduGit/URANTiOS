@@ -12,9 +12,27 @@ URANTiOS is a governing AI operating system built on the cosmic framework of The
 
 - `soul/` — URANTiOS v2.0 specification (the OS kernel)
 - `urantia-book/` — All 197 papers in structured JSON format
+- `obsidian/` — Obsidian vault: all 197 papers + soul spec, fully linked (generated)
 - `pipeline/` — Processing pipeline for artifact generation
 - `artifacts/` — Generated artifacts from the pipeline
 - `phd/` — PhD dissertation materials
+
+## Obsidian Vault
+
+Open the `obsidian/` folder as a vault in [Obsidian](https://obsidian.md). It contains:
+
+- **Foreword — Definitions Map** — start here; the term/concept mapping for the whole book
+- **URANTiOS — Home** — Map of Content linking all 197 papers, grouped by the book's four Parts
+- **Papers/** — one note per paper, with every paragraph carrying a block ID
+  (e.g. `^p1-0-1`) so any single paragraph can be linked or transcluded with
+  `[[Paper 001 — The Universal Father#^p1-0-1]]`
+- **Soul/** — the URANTiOS v2.0 specification
+
+Regenerate the vault any time from the source JSON:
+
+```bash
+python3 pipeline/build_obsidian_vault.py
+```
 
 
 ## Foreword Analysis Pack (May 2026)
