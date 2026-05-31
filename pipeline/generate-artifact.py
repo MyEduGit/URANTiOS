@@ -5,18 +5,45 @@ import sys
 import json
 from datetime import datetime
 
-SOUL_PATH = os.path.expanduser("~/.openclaw/soul/v2/URANTiOS_v2.md")
-ARTIFACT_DIR = os.path.expanduser("~/.openclaw/artifacts")
-SECRETS_PATH = os.path.expanduser("~/.openclaw/secrets.env")
+# Resolve paths relative to the repo so the script runs from a fresh clone,
+# while still honouring a legacy ~/.openclaw install layout if present.
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Anthropic model used to generate artifacts. Override via the ANTHROPIC_MODEL
+# environment variable if you want a different model.
+MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-opus-4-8")
+
+
+def _first_existing(*candidates):
+    """Return the first path that exists, else the first candidate."""
+    for path in candidates:
+        if path and os.path.exists(path):
+            return path
+    return candidates[0]
+
+
+SOUL_PATH = _first_existing(
+    os.path.join(REPO_ROOT, "soul", "URANTiOS_v2.md"),
+    os.path.expanduser("~/.openclaw/soul/v2/URANTiOS_v2.md"),
+)
+ARTIFACT_DIR = os.path.join(REPO_ROOT, "artifacts")
+SECRETS_PATH = _first_existing(
+    os.path.expanduser("~/.openclaw/secrets.env"),
+    os.path.join(REPO_ROOT, ".env"),
+)
 
 def load_secrets():
     secrets = {}
-    with open(SECRETS_PATH) as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith('#') and '=' in line:
-                k, v = line.split('=', 1)
-                secrets[k.strip()] = v.strip()
+    if os.path.exists(SECRETS_PATH):
+        with open(SECRETS_PATH) as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#') and '=' in line:
+                    k, v = line.split('=', 1)
+                    secrets[k.strip()] = v.strip()
+    # Environment variable wins if set (e.g. exported in CI or the shell).
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        secrets["ANTHROPIC_API_KEY"] = os.environ["ANTHROPIC_API_KEY"]
     return secrets
 
 def load_soul():
@@ -70,7 +97,7 @@ RULES:
         print(f"=== DRY RUN: Stage {args.stage} ===")
         print(f"Prompt length: {len(prompt)} chars")
         print(f"Soul length: {len(soul)} chars")
-        print(f"Would call Anthropic API with claude-opus-4-6")
+        print(f"Would call Anthropic API with {MODEL}")
         return
     
     try:
@@ -79,19 +106,20 @@ RULES:
         
         print(f"Generating ARTIFACT_{args.stage + 4}...")
         response = client.messages.create(
-            model="claude-opus-4-6",
+            model=MODEL,
             max_tokens=16000,
             messages=[{"role": "user", "content": prompt}]
         )
-        
+
         output = response.content[0].text
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        
+
         if args.stage == 8:
             outpath = f"{ARTIFACT_DIR}/SPEC-08v2/ARTIFACT_12_{timestamp}.md"
         else:
             outpath = f"{ARTIFACT_DIR}/ROAD-09v2/ARTIFACT_13_{timestamp}.md"
-        
+
+        os.makedirs(os.path.dirname(outpath), exist_ok=True)
         with open(outpath, 'w') as f:
             f.write(output)
         
