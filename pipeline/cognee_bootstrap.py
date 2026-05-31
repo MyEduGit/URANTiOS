@@ -76,7 +76,12 @@ def paper_to_text(paper_data):
 
 
 async def ingest_papers(paper_files, verbose=True):
-    """Ingest papers into Cognee's knowledge graph."""
+    """Ingest papers into Cognee's knowledge graph.
+
+    Two phases, per Cognee's public API:
+      1. cognee.add(...)    — register each paper's text in the dataset
+      2. cognee.cognify(...) — build the knowledge graph from the dataset
+    """
     import cognee
 
     total = len(paper_files)
@@ -96,14 +101,26 @@ async def ingest_papers(paper_files, verbose=True):
             print(f"  [{i}/{total}] {label}: {paper_title} ({len(text)} chars)...")
 
         try:
-            await cognee.remember(
+            await cognee.add(
                 text,
                 dataset_name=DATASET_NAME,
             )
             succeeded += 1
         except Exception as e:
             failed += 1
-            print(f"  ERROR ingesting Paper {paper_index}: {e}")
+            print(f"  ERROR adding Paper {paper_index}: {e}")
+
+    # Build the graph from everything we just added. This is the expensive
+    # LLM-driven step and requires an LLM API key to be configured for Cognee.
+    if succeeded:
+        print()
+        print(f"Building knowledge graph from {succeeded} papers (cognify)...")
+        print("  This can take a while and needs an LLM API key configured.")
+        try:
+            await cognee.cognify(datasets=[DATASET_NAME])
+            print("  Graph build complete.")
+        except Exception as e:
+            print(f"  ERROR during cognify: {e}")
 
     return succeeded, failed
 
@@ -112,11 +129,17 @@ async def verify_graph():
     """Run a test query against the Cognee knowledge graph."""
     import cognee
 
+    # SearchType lives at the package root in recent Cognee, but fall back to
+    # the module path for older installs.
+    try:
+        from cognee import SearchType
+    except ImportError:
+        from cognee.modules.search.types import SearchType
+
     print("\nVerification query: 'What is the Universal Father?'")
-    results = await cognee.recall(
-        "What is the Universal Father?",
-        datasets=[DATASET_NAME],
-        top_k=3,
+    results = await cognee.search(
+        query_text="What is the Universal Father?",
+        query_type=SearchType.GRAPH_COMPLETION,
     )
     if results:
         print(f"  Found {len(results)} results.")
