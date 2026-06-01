@@ -163,6 +163,7 @@ def render_home(papers: list[dict]) -> str:
     lines.append("")
     lines.append("- ⭐ **[[Foreword — Definitions Map|Start here — Foreword Definitions Map]]** — the term/concept mapping for the whole book")
     lines.append("- 📚 [[Urantipedia — Home|Urantipedia]] — encyclopedia of concepts examined from every angle")
+    lines.append("- 🛠 [[Foreword — Digital Equivalence|Foreword Digital Equivalence]] — Phase 1: the Foreword mapped paragraph-by-paragraph into URANTiOS")
     lines.append("- 🧠 [[URANTiOS v2.0 Specification|The Soul — URANTiOS v2.0 kernel spec]]")
     lines.append(f"- 📖 The Urantia Book — {len(papers)} papers, fully linked below")
     lines.append("")

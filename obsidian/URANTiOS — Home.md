@@ -12,6 +12,7 @@ Three Values: **Truth · Beauty · Goodness**
 
 - ⭐ **[[Foreword — Definitions Map|Start here — Foreword Definitions Map]]** — the term/concept mapping for the whole book
 - 📚 [[Urantipedia — Home|Urantipedia]] — encyclopedia of concepts examined from every angle
+- 🛠 [[Foreword — Digital Equivalence|Foreword Digital Equivalence]] — Phase 1: the Foreword mapped paragraph-by-paragraph into URANTiOS
 - 🧠 [[URANTiOS v2.0 Specification|The Soul — URANTiOS v2.0 kernel spec]]
 - 📖 The Urantia Book — 197 papers, fully linked below
 

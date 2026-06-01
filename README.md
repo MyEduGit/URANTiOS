@@ -54,6 +54,23 @@ Add a concept to `SEED_CONCEPTS` in `pipeline/build_urantipedia.py`, then:
 python3 pipeline/build_urantipedia.py
 ```
 
+## Digital Equivalence (Phase 1: Foreword)
+
+`obsidian/Digital Equivalence/` implements Phase 1 of the URANTiOS meta prompt:
+the Foreword processed **one paragraph at a time** into a structured digital
+equivalent. Each of the 172 Foreword paragraphs has its own scaffold note with
+the full output contract (semantic extraction, digital-equivalence mapping, OS
+artifact emission, alignment & safety, integration delta, confidence ledger),
+and the source text is transcluded so canon is never re-typed or altered.
+
+- `Foreword — Digital Equivalence.md` — index with a per-section progress checklist
+- `Foreword/0.1.2.md` — a fully worked example (the definition of *Deity*)
+- Scaffolds are created once and never overwritten; re-running only refreshes the index.
+
+```bash
+python3 pipeline/build_digital_equivalence.py
+```
+
 
 ## Foreword Analysis Pack (May 2026)
 
