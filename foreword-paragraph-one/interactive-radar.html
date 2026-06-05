@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seven Aspects of Human Perception — Interactive Radar</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0a0a1a;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #FFD700;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+  }
+  canvas {
+    border-radius: 12px;
+    background: #111122;
+  }
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    min-width: 300px;
+  }
+  .slider-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .slider-group label {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .slider-group label .tier {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .tier-conscious { background: #4682B4; color: #fff; }
+  .tier-subconscious { background: #8B008B; color: #fff; }
+  .tier-unconscious { background: #696969; color: #fff; }
+  .tier-superconscious { background: #DAA520; color: #000; }
+  input[type=range] {
+    width: 100%;
+    accent-color: #FFD700;
+  }
+  .presets {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  button {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #FFD700;
+    background: transparent;
+    color: #FFD700;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+  }
+  button:hover { background: #FFD700; color: #000; }
+  .legend {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: #888;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+  .quote {
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: #aaa;
+    max-width: 650px;
+    text-align: center;
+    line-height: 1.6;
+    border-left: 3px solid #FFD700;
+    padding-left: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<h1>Seven Aspects of Human Perception</h1>
+<p class="subtitle">Derived from Foreword 0:0.1 of The Urantia Book.<br>
+Adjust each aspect to model different cognitive states.</p>
+
+<div class="container">
+  <canvas id="radar" width="500" height="500"></canvas>
+  <div class="controls" id="controls"></div>
+</div>
+
+<div class="presets">
+  <button onclick="setPreset('pre')">Pre-Revelation Mortal</button>
+  <button onclick="setPreset('post')">Post-Revelation Mortal</button>
+  <button onclick="setPreset('seeker')">Active Seeker</button>
+  <button onclick="setPreset('poverty')">Deep Poverty</button>
+  <button onclick="setPreset('balanced')">Balanced Awareness</button>
+</div>
+
+<p class="quote">
+  "IN THE MINDS of the mortals of Urantia — that being the name of your world —
+  there exists great confusion respecting the meaning of such terms as God,
+  divinity, and deity."
+</p>
+
+<p class="legend">
+  <strong>Tiers:</strong>
+  <span style="color:#4682B4">■ Conscious</span> · 
+  <span style="color:#8B008B">■ Subconscious</span> · 
+  <span style="color:#696969">■ Unconscious</span> · 
+  <span style="color:#DAA520">■ Superconscious</span>
+</p>
+
+<script>
+const aspects = [
+  { name: 'Mind',                  tier: 'conscious',      color: '#87CEEB', short: 'The Field of Awareness' },
+  { name: 'Meaning-Seeking',       tier: 'conscious',      color: '#4682B4', short: 'Active Conceptual Grasping' },
+  { name: 'Relational Perception', tier: 'subconscious',   color: '#DDA0DD', short: 'Pattern Recognition' },
+  { name: 'Conceptual Poverty',    tier: 'unconscious',    color: '#A0A0A0', short: 'The Unknown Unknown' },
+  { name: 'Ideational Confusion',  tier: 'subconscious',   color: '#DA70D6', short: 'Signal Noise' },
+  { name: 'Symbolic Mediation',    tier: 'conscious',      color: '#98FB98', short: 'Language as Bridge' },
+  { name: 'Revelatory Reception',  tier: 'superconscious', color: '#FFD700', short: 'Downreach of Truth' }
+];
+
+const presets = {
+  pre:      [60, 50, 25, 85, 80, 20, 5],
+  post:     [90, 85, 70, 15, 20, 80, 85],
+  seeker:   [75, 90, 45, 50, 55, 60, 30],
+  poverty:  [40, 30, 10, 95, 90, 10, 2],
+  balanced: [70, 70, 70, 30, 30, 70, 70]
+};
+
+let values = [...presets.pre];
+
+const tierClass = {
+  conscious: 'tier-conscious',
+  subconscious: 'tier-subconscious',
+  unconscious: 'tier-unconscious',
+  superconscious: 'tier-superconscious'
+};
+
+const controlsDiv = document.getElementById('controls');
+aspects.forEach((a, i) => {
+  const div = document.createElement('div');
+  div.className = 'slider-group';
+  div.innerHTML = `
+    <label>
+      <span>${i+1}. ${a.name}</span>
+      <span class="tier ${tierClass[a.tier]}">${a.tier}</span>
+    </label>
+    <input type="range" min="0" max="100" value="${values[i]}" id="s${i}"
+           oninput="values[${i}]=+this.value;draw()">
+  `;
+  controlsDiv.appendChild(div);
+});
+
+function setPreset(key) {
+  values = [...presets[key]];
+  aspects.forEach((_, i) => document.getElementById('s'+i).value = values[i]);
+  draw();
+}
+
+const canvas = document.getElementById('radar');
+const ctx = canvas.getContext('2d');
+const cx = canvas.width / 2;
+const cy = canvas.height / 2;
+const maxR = 200;
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const n = aspects.length;
+  const step = (Math.PI * 2) / n;
+  const offset = -Math.PI / 2;
+
+  // Grid rings
+  for (let ring = 1; ring <= 5; ring++) {
+    const r = (ring / 5) * maxR;
+    ctx.beginPath();
+    for (let i = 0; i <= n; i++) {
+      const angle = offset + i * step;
+      const x = cx + r * Math.cos(angle);
+      const y = cy + r * Math.sin(angle);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+    ctx.stroke();
+    // Ring label
+    ctx.fillStyle = 'rgba(255,255,255,0.15)';
+    ctx.font = '10px sans-serif';
+    ctx.fillText((ring * 20) + '%', cx + 4, cy - r + 12);
+  }
+
+  // Axis lines + labels
+  for (let i = 0; i < n; i++) {
+    const angle = offset + i * step;
+    const x = cx + maxR * Math.cos(angle);
+    const y = cy + maxR * Math.sin(angle);
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(x, y);
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+    ctx.stroke();
+
+    // Label
+    const lx = cx + (maxR + 28) * Math.cos(angle);
+    const ly = cy + (maxR + 28) * Math.sin(angle);
+    ctx.save();
+    ctx.fillStyle = aspects[i].color;
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText((i+1) + '. ' + aspects[i].name, lx, ly);
+    ctx.restore();
+  }
+
+  // Data polygon
+  ctx.beginPath();
+  for (let i = 0; i <= n; i++) {
+    const idx = i % n;
+    const angle = offset + idx * step;
+    const r = (values[idx] / 100) * maxR;
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(255, 215, 0, 0.15)';
+  ctx.fill();
+  ctx.strokeStyle = '#FFD700';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Data points
+  for (let i = 0; i < n; i++) {
+    const angle = offset + i * step;
+    const r = (values[i] / 100) * maxR;
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, Math.PI * 2);
+    ctx.fillStyle = aspects[i].color;
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Center dot
+  ctx.beginPath();
+  ctx.arc(cx, cy, 3, 0, Math.PI * 2);
+  ctx.fillStyle = '#FFD700';
+  ctx.fill();
+}
+
+draw();
+</script>
+</body>
+</html>

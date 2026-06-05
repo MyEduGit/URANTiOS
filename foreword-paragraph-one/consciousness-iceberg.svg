@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" font-family="Segoe UI, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#87CEEB" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4682B4" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#191970" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0a0a2e" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1000" fill="#0a0a1a"/>
+
+  <!-- Sky (Superconscious) -->
+  <rect x="0" y="0" width="800" height="250" fill="url(#sky)"/>
+
+  <!-- Water surface line -->
+  <line x1="0" y1="350" x2="800" y2="350" stroke="#4682B4" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
+  <text x="780" y="340" text-anchor="end" fill="#4682B4" font-size="11" opacity="0.7">— waterline of awareness —</text>
+
+  <!-- Water (Sub/Unconscious) -->
+  <rect x="0" y="350" width="800" height="650" fill="url(#water)"/>
+
+  <!-- Iceberg shape -->
+  <!-- Above water (conscious) -->
+  <polygon points="400,180 310,350 490,350" fill="#E0F0FF" opacity="0.85" stroke="#4682B4" stroke-width="1"/>
+  <!-- Below water (sub + unconscious) -->
+  <polygon points="310,350 490,350 550,500 560,650 520,800 280,800 240,650 250,500" fill="#B0C4DE" opacity="0.25" stroke="#4682B4" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- TIER LABELS (left side) -->
+  <text x="40" y="140" fill="#FFD700" font-size="16" font-weight="bold">SUPERCONSCIOUS</text>
+  <text x="40" y="160" fill="#DAA520" font-size="11">Above the iceberg — the sky</text>
+
+  <text x="40" y="290" fill="#87CEEB" font-size="16" font-weight="bold">CONSCIOUS</text>
+  <text x="40" y="310" fill="#4682B4" font-size="11">Visible above the waterline</text>
+
+  <text x="40" y="470" fill="#DDA0DD" font-size="16" font-weight="bold">SUBCONSCIOUS</text>
+  <text x="40" y="490" fill="#8B008B" font-size="11">Just below the surface</text>
+
+  <text x="40" y="730" fill="#A0A0A0" font-size="16" font-weight="bold">UNCONSCIOUS</text>
+  <text x="40" y="750" fill="#696969" font-size="11">Deep below — unseen</text>
+
+  <!-- ASPECT 7: Revelatory Reception (superconscious — sky) -->
+  <g filter="url(#glow)">
+    <circle cx="400" cy="100" r="8" fill="#FFD700"/>
+    <text x="400" y="75" text-anchor="middle" fill="#FFD700" font-size="14" font-weight="bold">7. Revelatory Reception</text>
+    <text x="400" y="125" text-anchor="middle" fill="#DAA520" font-size="11" font-style="italic">"Orvonton corps of truth revealers … translate"</text>
+  </g>
+  <!-- Arrow down from 7 to iceberg tip -->
+  <line x1="400" y1="110" x2="400" y2="175" stroke="#FFD700" stroke-width="1.5" marker-end="url(#arrowGold)"/>
+  <defs><marker id="arrowGold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <polygon points="0 0, 8 3, 0 6" fill="#FFD700"/>
+  </marker></defs>
+
+  <!-- ASPECT 1: Mind (conscious — iceberg tip) -->
+  <circle cx="400" cy="220" r="6" fill="#87CEEB"/>
+  <text x="540" y="215" fill="#87CEEB" font-size="13" font-weight="bold">1. Mind</text>
+  <text x="540" y="232" fill="#4682B4" font-size="10" font-style="italic">"IN THE MINDS of the mortals"</text>
+  <line x1="406" y1="220" x2="535" y2="220" stroke="#87CEEB" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ASPECT 2: Meaning-Seeking (conscious — mid iceberg above water) -->
+  <circle cx="370" cy="280" r="6" fill="#4682B4"/>
+  <text x="540" y="275" fill="#4682B4" font-size="13" font-weight="bold">2. Meaning-Seeking</text>
+  <text x="540" y="292" fill="#4682B4" font-size="10" font-style="italic">"meaning of … God, divinity, deity"</text>
+  <line x1="376" y1="280" x2="535" y2="280" stroke="#4682B4" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ASPECT 6: Symbolic Mediation (conscious — near waterline) -->
+  <circle cx="430" cy="330" r="6" fill="#98FB98"/>
+  <text x="540" y="325" fill="#98FB98" font-size="13" font-weight="bold">6. Symbolic Mediation</text>
+  <text x="540" y="342" fill="#228B22" font-size="10" font-style="italic">"word symbols … meanings attached"</text>
+  <line x1="436" y1="330" x2="535" y2="330" stroke="#98FB98" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ASPECT 3: Relational Perception (subconscious — below waterline) -->
+  <circle cx="360" cy="440" r="6" fill="#DDA0DD"/>
+  <text x="540" y="435" fill="#DDA0DD" font-size="13" font-weight="bold">3. Relational Perception</text>
+  <text x="540" y="452" fill="#8B008B" font-size="10" font-style="italic">"relationships of divine personalities"</text>
+  <line x1="366" y1="440" x2="535" y2="440" stroke="#DDA0DD" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ASPECT 5: Ideational Confusion (subconscious — deeper) -->
+  <circle cx="420" cy="560" r="6" fill="#DA70D6"/>
+  <text x="540" y="555" fill="#DA70D6" font-size="13" font-weight="bold">5. Ideational Confusion</text>
+  <text x="540" y="572" fill="#8B008B" font-size="10" font-style="italic">"ideational confusion"</text>
+  <line x1="426" y1="560" x2="535" y2="560" stroke="#DA70D6" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ASPECT 4: Conceptual Poverty (unconscious — deepest) -->
+  <circle cx="400" cy="740" r="8" fill="#696969"/>
+  <text x="540" y="735" fill="#A0A0A0" font-size="13" font-weight="bold">4. Conceptual Poverty</text>
+  <text x="540" y="752" fill="#696969" font-size="10" font-style="italic">"conceptual poverty"</text>
+  <line x1="408" y1="740" x2="535" y2="740" stroke="#696969" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- Title -->
+  <text x="400" y="940" text-anchor="middle" fill="#FFD700" font-size="18" font-weight="bold">The Consciousness Iceberg</text>
+  <text x="400" y="965" text-anchor="middle" fill="#888" font-size="12">Seven Aspects of Human Perception — Foreword 0:0.1</text>
+  <text x="400" y="985" text-anchor="middle" fill="#555" font-size="10">URANTiOS · Seven Aspects Visualization Project</text>
+</svg>

@@ -1,0 +1,141 @@
+technique_id,technique_name,family,aspect_1_mind,aspect_2_meaning_seeking,aspect_3_relational_perception,aspect_4_conceptual_poverty,aspect_5_ideational_confusion,aspect_6_symbolic_mediation,aspect_7_revelatory_reception
+A1,Concept Map / Mind Map,Static 2D Diagrammatic,1,1,1,1,1,1,1
+A2,Node-Link Diagram,Static 2D Diagrammatic,0,0,1,0,1,0,0
+A3,Sankey Diagram,Static 2D Diagrammatic,0,0,0,1,1,1,1
+A4,Chord Diagram,Static 2D Diagrammatic,0,0,1,0,1,0,0
+A5,Radial / Sunburst Tree,Static 2D Diagrammatic,1,1,1,1,1,1,1
+A6,Treemap,Static 2D Diagrammatic,0,1,0,1,1,0,0
+A7,Voronoi Tessellation,Static 2D Diagrammatic,1,1,1,1,1,1,1
+A8,Venn / Euler Diagram,Static 2D Diagrammatic,0,0,1,1,1,0,0
+A9,Hasse Diagram / Lattice,Static 2D Diagrammatic,1,1,1,1,1,1,1
+A10,Radar / Spider Chart,Static 2D Diagrammatic,1,1,1,1,1,1,1
+A11,Parallel Coordinates,Static 2D Diagrammatic,1,1,1,1,1,1,1
+A12,Heatmap / Matrix,Static 2D Diagrammatic,0,0,1,0,1,0,0
+A13,Scatter Plot (2D projection),Static 2D Diagrammatic,1,1,1,1,1,1,1
+A14,Small Multiples,Static 2D Diagrammatic,1,1,1,1,1,1,1
+A15,Isotype / Pictogram Chart,Static 2D Diagrammatic,1,1,1,1,1,1,1
+B1,Mandala,Static 2D Artistic,1,1,1,1,1,1,1
+B2,Yantra,Static 2D Artistic,1,1,1,1,1,1,1
+B3,Sephirotic Tree,Static 2D Artistic,1,1,1,1,1,1,1
+B4,Sigil Set,Static 2D Artistic,1,1,1,1,1,1,1
+B5,Heraldic Shield,Static 2D Artistic,1,1,1,1,1,1,1
+B6,Tarot Major Arcana,Static 2D Artistic,1,1,1,1,1,1,1
+B7,Illuminated Manuscript,Static 2D Artistic,1,1,1,1,1,1,1
+B8,Stained Glass Cartoon,Static 2D Artistic,1,1,1,1,1,1,1
+B9,Icon / Emoji Set,Static 2D Artistic,1,1,1,1,1,1,1
+B10,Concrete Poetry,Static 2D Artistic,1,1,1,1,1,1,1
+B11,Engraving / Etching,Static 2D Artistic,1,1,1,1,1,1,1
+B12,Infographic Poster,Static 2D Artistic,1,1,1,1,1,1,1
+B13,Comic / Graphic Novel Panels,Static 2D Artistic,1,1,1,1,1,1,1
+C1,Sculpture / Bas-Relief,Static 3D Physical,1,1,1,1,1,1,1
+C2,3D-Printed Manifold,Static 3D Physical,0,0,0,1,1,1,0
+C3,Origami / Paper Engineering,Static 3D Physical,1,1,1,1,1,1,1
+C4,Architectural Model,Static 3D Physical,1,1,1,1,1,1,1
+C5,Diorama,Static 3D Physical,1,1,1,1,1,1,1
+C6,Mechanical Orrery,Static 3D Physical,1,1,1,1,1,1,1
+C7,Lenticular Print,Static 3D Physical,1,1,1,1,1,1,1
+C8,Holographic Plate,Static 3D Physical,1,1,1,1,1,1,1
+C9,Tactile Relief / Braille,Static 3D Physical,1,1,1,1,1,1,1
+C10,Kinetic Sculpture,Static 3D Physical,1,0,0,1,0,0,1
+C11,Crystal / Glass Prism,Static 3D Physical,1,1,1,1,1,1,1
+D1,Kinetic Typography,Time-Based Motion,1,1,1,1,1,1,1
+D2,Motion-Graphics Explainer,Time-Based Motion,1,1,1,1,1,1,1
+D3,Generative Shader (GLSL),Time-Based Motion,0,0,1,0,1,0,0
+D4,Particle System Animation,Time-Based Motion,0,0,0,1,1,0,1
+D5,Morphing Mandala,Time-Based Motion,1,1,1,1,1,1,1
+D6,Stop-Motion (Claymation),Time-Based Motion,1,1,1,1,1,1,1
+D7,Rotoscoped Dance,Time-Based Motion,1,1,1,1,1,1,1
+D8,Time-Lapse Drawing,Time-Based Motion,1,1,1,1,1,1,1
+D9,Cinematic Montage,Time-Based Motion,1,1,1,1,1,1,1
+D10,Scrollytelling Web Page,Time-Based Motion,1,1,1,1,1,1,1
+E1,Interactive Radar Chart (D3),Interactive Digital,1,1,1,1,1,1,1
+E2,Force-Directed Graph,Interactive Digital,0,0,1,0,1,0,0
+E3,Knowledge-Graph Browser,Interactive Digital,1,1,1,1,1,1,1
+E4,Linked-View Dashboard,Interactive Digital,1,1,1,1,1,1,1
+E5,Interactive Manuscript,Interactive Digital,0,1,0,0,0,1,0
+E6,Branching Visual Novel,Interactive Digital,1,1,1,1,1,1,1
+E7,Scrollytelling (Svelte/React),Interactive Digital,1,1,1,1,1,1,1
+E8,3D Web Scene (Three.js),Interactive Digital,1,1,1,1,1,1,1
+E9,Jupyter / Observable Notebook,Interactive Digital,1,1,1,1,1,1,1
+E10,Zoomable Treemap,Interactive Digital,0,1,1,0,0,0,0
+F1,VR Scene (Unity/Unreal),Immersive Spatial,1,1,1,1,1,1,1
+F2,AR Overlay,Immersive Spatial,1,1,1,1,1,1,1
+F3,Dome / Planetarium Projection,Immersive Spatial,1,1,1,1,1,1,1
+F4,CAVE Installation,Immersive Spatial,1,1,1,1,1,1,1
+F5,Projection Mapping,Immersive Spatial,1,1,1,1,1,1,1
+F6,Mixed-Reality Table,Immersive Spatial,1,1,1,1,1,1,1
+F7,LED Light Installation,Immersive Spatial,1,0,0,1,0,0,1
+G1,Sonification,Sonic Synesthetic,1,1,1,1,1,1,1
+G2,Seven-Voice Fugue,Sonic Synesthetic,1,1,1,1,1,1,1
+G3,Binaural Soundscape,Sonic Synesthetic,1,1,1,1,1,1,1
+G4,Spectrogram Art,Sonic Synesthetic,1,1,1,1,1,1,1
+G5,Bell / Singing-Bowl Set,Sonic Synesthetic,1,1,1,1,1,1,1
+G6,Overtone Chanting,Sonic Synesthetic,0,0,0,0,0,0,1
+G7,Data-Music Composition,Sonic Synesthetic,1,1,1,1,1,1,1
+G8,Audio-Visual Fugue,Sonic Synesthetic,1,1,1,1,1,1,1
+H1,L-System / Fractal Tree,Generative Algorithmic,1,1,1,1,1,1,1
+H2,Cellular Automaton,Generative Algorithmic,0,0,0,1,0,0,1
+H3,Reaction-Diffusion Texture,Generative Algorithmic,0,0,1,0,1,0,0
+H4,Agent-Based Simulation,Generative Algorithmic,1,1,1,1,1,1,1
+H5,Neural-Network Embedding,Generative Algorithmic,1,1,1,1,1,1,1
+H6,Latent-Space Walk,Generative Algorithmic,1,1,1,1,1,1,1
+H7,Markov-Chain Text Generator,Generative Algorithmic,0,1,0,0,1,1,0
+H8,Genetic Algorithm,Generative Algorithmic,0,0,0,1,0,0,1
+H9,Strange Attractor,Generative Algorithmic,1,1,1,1,1,1,1
+I1,Force-Directed Graph,Network Graph,0,0,1,0,1,0,0
+I2,Hypergraph,Network Graph,1,1,1,1,1,1,1
+I3,Bipartite Graph,Network Graph,0,0,1,0,0,0,1
+I4,Knowledge Graph (RDF),Network Graph,1,1,1,1,1,1,1
+I5,Bayesian Network / DAG,Network Graph,1,1,1,1,1,1,1
+I6,Petri Net,Network Graph,0,0,0,1,1,1,1
+I7,Causal Loop Diagram,Network Graph,0,0,0,1,1,1,0
+J1,Hepteract Projection,Mathematical Topological,1,1,1,1,1,1,1
+J2,Poincare Disc,Mathematical Topological,0,0,1,0,0,0,0
+J3,Mobius Strip,Mathematical Topological,0,0,0,0,0,1,0
+J4,Klein Bottle,Mathematical Topological,0,0,0,1,0,0,0
+J5,Fiber Bundle,Mathematical Topological,1,1,1,1,1,1,1
+J6,Category-Theory Diagram,Mathematical Topological,1,1,1,1,1,1,1
+J7,Simplicial Complex,Mathematical Topological,1,1,1,1,1,1,1
+J8,Fourier Decomposition,Mathematical Topological,1,1,1,1,1,1,1
+K1,Mythic Map,Cartographic Spatial,1,1,1,1,1,1,1
+K2,Transit / Subway Map,Cartographic Spatial,1,1,1,1,1,1,1
+K3,Topographic Contour Map,Cartographic Spatial,1,1,1,1,1,1,1
+K4,Choropleth / Density Map,Cartographic Spatial,1,1,1,1,1,1,1
+K5,Star Chart / Constellation,Cartographic Spatial,1,1,1,1,1,1,1
+K6,Labyrinth / Maze,Cartographic Spatial,1,1,1,1,1,1,1
+L1,Seven-Movement Choreography,Performative Embodied,1,1,1,1,1,1,1
+L2,Theatrical Staging,Performative Embodied,1,1,1,1,1,1,1
+L3,Ritual / Liturgical Sequence,Performative Embodied,1,1,1,1,1,1,1
+L4,Tableau Vivant,Performative Embodied,1,1,1,1,1,1,1
+L5,Eurythmy,Performative Embodied,1,1,1,1,1,1,1
+L6,Butoh Sequence,Performative Embodied,0,0,0,1,1,0,1
+L7,Guided Meditation,Performative Embodied,1,1,1,1,1,1,1
+M1,Board Game,Game Puzzle Pedagogical,1,1,1,1,1,1,1
+M2,Card Deck (seven suits),Game Puzzle Pedagogical,1,1,1,1,1,1,1
+M3,Escape Room,Game Puzzle Pedagogical,1,1,1,1,1,1,1
+M4,Card-Sorting Exercise,Game Puzzle Pedagogical,1,1,1,1,1,1,1
+M5,Jigsaw Puzzle,Game Puzzle Pedagogical,1,1,1,1,1,1,1
+M6,Alternate Reality Game,Game Puzzle Pedagogical,1,1,1,1,1,1,1
+M7,Quiz / Self-Assessment,Game Puzzle Pedagogical,1,1,1,1,1,1,1
+N1,Variable Font (seven axes),Linguistic Typographic,0,0,0,0,0,1,0
+N2,Constructed Script,Linguistic Typographic,0,0,0,0,0,1,0
+N3,Concrete Poetry / Calligramme,Linguistic Typographic,1,1,1,1,1,1,1
+N4,Annotated / Interlinear,Linguistic Typographic,1,1,1,1,1,1,1
+N5,Word Cloud,Linguistic Typographic,0,1,0,0,0,1,0
+N6,Semantic Differential Scale,Linguistic Typographic,1,1,1,1,1,1,1
+O1,Scent Map,Olfactory Gustatory Haptic,1,1,1,1,1,1,1
+O2,Tasting Menu,Olfactory Gustatory Haptic,1,1,1,1,1,1,1
+O3,Tactile Relief Plate,Olfactory Gustatory Haptic,1,1,1,1,1,1,1
+O4,Vibrotactile Glove,Olfactory Gustatory Haptic,1,1,1,1,1,1,1
+P1,Pendulum Array,Data-Physical Installation,1,1,1,1,1,1,1
+P2,Water-Fountain Installation,Data-Physical Installation,1,1,1,1,1,1,1
+P3,Garden / Landscape Design,Data-Physical Installation,1,1,1,1,1,1,1
+P4,Heptagonal Pavilion,Data-Physical Installation,1,1,1,1,1,1,1
+P5,Woven Textile / Tapestry,Data-Physical Installation,1,1,1,1,1,1,1
+P6,Mosaic,Data-Physical Installation,1,1,1,1,1,1,1
+Q1,Iceberg Diagram (Freudian),Cognitive-Science Psychological,1,1,1,1,1,1,1
+Q2,Global Workspace Theory,Cognitive-Science Psychological,1,1,1,1,1,1,1
+Q3,Predictive-Processing Hierarchy,Cognitive-Science Psychological,1,0,0,1,1,0,1
+Q4,IIT Phi-Diagram,Cognitive-Science Psychological,1,1,1,1,1,1,1
+Q5,Default-Mode / Salience Network,Cognitive-Science Psychological,1,1,1,1,1,1,1
+Q6,Jungian Mandala,Cognitive-Science Psychological,1,1,1,1,1,1,1
