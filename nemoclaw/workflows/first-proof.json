@@ -1,0 +1,57 @@
+{
+  "name": "first-proof — write Hello from NemoClaw to obsidian/test.md",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "const buffer = Buffer.from('Hello from NemoClaw\\n', 'utf-8');\nconst binaryData = await this.helpers.prepareBinaryData(buffer, 'test.md', 'text/markdown');\nreturn [{ json: { path: '/files/obsidian/test.md', bytes: buffer.length, written_at_utc: new Date().toISOString() }, binary: { data: binaryData } }];"
+      },
+      "id": "build-binary-1",
+      "name": "Build binary payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/files/obsidian/test.md",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "id": "write-file-1",
+      "name": "Write File to Disk",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{ "node": "Build binary payload", "type": "main", "index": 0 }]]
+    },
+    "Build binary payload": {
+      "main": [[{ "node": "Write File to Disk", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "first-proof-v1",
+  "meta": {
+    "purpose": "First operational proof workflow for NemoClaw substrate",
+    "expected_output_path_in_container": "/files/obsidian/test.md",
+    "expected_output_path_on_host": "nemoclaw/obsidian/test.md",
+    "expected_content": "Hello from NemoClaw\n"
+  },
+  "tags": ["nemoclaw", "first-proof"]
+}

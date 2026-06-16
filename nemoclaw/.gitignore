@@ -1,0 +1,82 @@
+# NemoClaw scoped .gitignore
+# Inherits from parent /home/user/URANTiOS/.gitignore; adds NemoClaw-specific patterns.
+
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets/
+credentials/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.virtualenv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+.eggs/
+build/
+dist/
+.tox/
+
+# --- Docker ---
+docker-compose.override.yml
+docker-compose.local.yml
+.docker/
+
+# --- Service runtime data (never commit) ---
+postgres/data/
+postgres/pgdata/
+redis/data/
+redis/dump.rdb
+redis/appendonly.aof
+n8n/data/
+n8n/.n8n/
+ollama/models/
+
+# --- Logs ---
+logs/*.log
+logs/**/*.log
+!logs/.gitkeep
+
+# --- Backups ---
+backups/*
+!backups/.gitkeep
+
+# --- Local artifacts ---
+artifacts/
+.tmp/
+tmp/
+*.tmp
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# --- Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

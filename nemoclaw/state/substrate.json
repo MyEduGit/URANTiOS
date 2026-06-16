@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "type": "heartbeat",
+  "writer": "NOT_YET_WIRED",
+  "DO_NOT_TREAT_AS_LIVENESS": true,
+  "DO_NOT_TREAT_AS_LIVENESS_reason": "No process is currently writing this file on a known cadence. Substrate watchdog sidecar has been explicitly deferred. Any reader interpreting this file's mtime as 'substrate is alive' is reading wrong.",
+
+  "intended_writer": "substrate-watchdog (deferred — not yet implemented)",
+  "intended_cadence_seconds": 30,
+  "intended_payload_example": {
+    "writer": "substrate-watchdog",
+    "type": "heartbeat",
+    "interval_seconds": 30,
+    "last_tick_utc": "<ISO-8601>",
+    "containers": {
+      "nemoclaw-postgres": "<docker health status>",
+      "nemoclaw-redis": "<docker health status>",
+      "nemoclaw-n8n": "<container state>",
+      "nemoclaw-ollama": "<container state>"
+    }
+  },
+
+  "current_status": "PLACEHOLDER — no live writer; do not interpret freshness",
+  "placeholder_written_at_utc": "2026-05-07T12:44:25Z",
+
+  "remediation": "Until the substrate watchdog is implemented and writing to this file, use `docker ps` directly to check substrate liveness."
+}
