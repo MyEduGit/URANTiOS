@@ -7,19 +7,23 @@
 #
 # Hermes 4 14B is the newest-generation Hermes (Qwen3 base) with hybrid
 # reasoning, function calling, JSON mode and structured outputs. On a 32GB
-# M4 the Q5_K_M quant (~10.5GB) is the quality/speed sweet spot and leaves
-# ~20GB of memory free.
+# M4 the Q4_K_M quant (~9GB) is the recommended quality/speed balance and
+# leaves plenty of memory free. Bump the quant for more quality if you like.
+#
+# For the absolute fastest Apple-native path, see the MLX 4-bit option in
+# docs/HERMES_SETUP.md (runs via LM Studio or mlx-lm, not Ollama).
 #
 # Usage:
-#   ./install-hermes.sh                 # install Ollama + pull Hermes 4 14B (Q5_K_M)
-#   HERMES_QUANT=Q6_K ./install-hermes.sh   # higher quality (~12GB)
-#   HERMES_QUANT=Q4_K_M ./install-hermes.sh # smaller/faster (~9GB)
+#   ./install-hermes.sh                     # install Ollama + pull Hermes 4 14B (Q4_K_M)
+#   HERMES_QUANT=Q5_K_M ./install-hermes.sh # higher quality (~10.5GB)
+#   HERMES_QUANT=Q6_K   ./install-hermes.sh # near-Q6 quality (~12GB)
+#   HERMES_QUANT=Q8_0   ./install-hermes.sh # near-lossless (~15.7GB)
 
 set -euo pipefail
 
 # --- Configuration -----------------------------------------------------------
 HERMES_REPO="${HERMES_REPO:-hf.co/bartowski/NousResearch_Hermes-4-14B-GGUF}"
-HERMES_QUANT="${HERMES_QUANT:-Q5_K_M}"
+HERMES_QUANT="${HERMES_QUANT:-Q4_K_M}"
 MODEL_REF="${HERMES_REPO}:${HERMES_QUANT}"
 ALIAS="${HERMES_ALIAS:-hermes4}"   # short name to call the model by
 
