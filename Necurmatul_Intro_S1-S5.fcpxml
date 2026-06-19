@@ -20,10 +20,10 @@
                                     <text-style ref="s1b">Daniel 8 · 9 · 11 · 12</text-style>
                                 </text>
                                 <text-style-def id="s1a">
-                                    <text-style font="Helvetica Neue" fontSize="56" fontFace="Bold" fontColor="0.831373 0.686275 0.215686 1" alignment="center" lineSpacing="-8"/>
+                                    <text-style font="Poppins" fontSize="56" fontFace="Bold" fontColor="0.988235 0.827451 0.301961 1" alignment="center" lineSpacing="-8" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
                                 </text-style-def>
                                 <text-style-def id="s1b">
-                                    <text-style font="Helvetica Neue" fontSize="38" fontFace="Regular" fontColor="1 1 1 1" alignment="center"/>
+                                    <text-style font="Poppins" fontSize="38" fontFace="SemiBold" fontColor="1 1 1 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="5 315" shadowBlurRadius="9"/>
                                 </text-style-def>
                             </title>
 
@@ -35,10 +35,10 @@
                                     <text-style ref="s2b">Studiu biblic, verset cu verset</text-style>
                                 </text>
                                 <text-style-def id="s2a">
-                                    <text-style font="Helvetica Neue" fontSize="64" fontFace="Bold" fontColor="1 1 1 1" alignment="center" lineSpacing="-8"/>
+                                    <text-style font="Poppins" fontSize="64" fontFace="Bold" fontColor="1 1 1 1" alignment="center" lineSpacing="-8" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
                                 </text-style-def>
                                 <text-style-def id="s2b">
-                                    <text-style font="Helvetica Neue" fontSize="38" fontFace="Regular" fontColor="0.831373 0.686275 0.215686 1" alignment="center"/>
+                                    <text-style font="Poppins" fontSize="38" fontFace="SemiBold" fontColor="0.988235 0.827451 0.301961 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="5 315" shadowBlurRadius="9"/>
                                 </text-style-def>
                             </title>
 
@@ -50,10 +50,10 @@
                                     <text-style ref="s3b">Cuvântul pe care traducerile l-au pierdut</text-style>
                                 </text>
                                 <text-style-def id="s3a">
-                                    <text-style font="Helvetica Neue" fontSize="72" fontFace="Bold" fontColor="0.831373 0.686275 0.215686 1" alignment="center" lineSpacing="-8"/>
+                                    <text-style font="Poppins" fontSize="72" fontFace="Bold" fontColor="0.988235 0.827451 0.301961 1" alignment="center" lineSpacing="-8" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
                                 </text-style-def>
                                 <text-style-def id="s3b">
-                                    <text-style font="Helvetica Neue" fontSize="36" fontFace="Regular" fontColor="1 1 1 1" alignment="center"/>
+                                    <text-style font="Poppins" fontSize="36" fontFace="SemiBold" fontColor="1 1 1 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="5 315" shadowBlurRadius="9"/>
                                 </text-style-def>
                             </title>
 
@@ -65,7 +65,7 @@
                                     <text-style ref="s4a">Biblia spune „jertfa necurmată”…</text-style>
                                 </text>
                                 <text-style-def id="s4a">
-                                    <text-style font="Helvetica Neue" fontSize="50" fontFace="Medium" fontColor="1 1 1 1" alignment="center"/>
+                                    <text-style font="Poppins" fontSize="50" fontFace="SemiBold" fontColor="1 1 1 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
                                 </text-style-def>
                             </title>
                             <title ref="r2" lane="1" offset="710/25s" name="S4b — reveal" start="0s" duration="115/25s">
@@ -74,7 +74,7 @@
                                     <text-style ref="s4b">…dar nici „jertfă”, nici „necurmată” nu sunt în original</text-style>
                                 </text>
                                 <text-style-def id="s4b">
-                                    <text-style font="Helvetica Neue" fontSize="48" fontFace="Bold" fontColor="0.831373 0.686275 0.215686 1" alignment="center"/>
+                                    <text-style font="Poppins" fontSize="48" fontFace="Bold" fontColor="0.988235 0.827451 0.301961 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
                                 </text-style-def>
                             </title>
 
@@ -86,10 +86,10 @@
                                     <text-style ref="s5b">…și ce a fost dat la o parte</text-style>
                                 </text>
                                 <text-style-def id="s5a">
-                                    <text-style font="Helvetica Neue" fontSize="56" fontFace="Bold" fontColor="1 1 1 1" alignment="center" lineSpacing="-8"/>
+                                    <text-style font="Poppins" fontSize="56" fontFace="Bold" fontColor="1 1 1 1" alignment="center" lineSpacing="-8" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
                                 </text-style-def>
                                 <text-style-def id="s5b">
-                                    <text-style font="Helvetica Neue" fontSize="40" fontFace="Regular" fontColor="0.831373 0.686275 0.215686 1" alignment="center"/>
+                                    <text-style font="Poppins" fontSize="40" fontFace="SemiBold" fontColor="0.988235 0.827451 0.301961 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="5 315" shadowBlurRadius="9"/>
                                 </text-style-def>
                             </title>
 
