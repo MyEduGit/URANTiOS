@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+<fcpxml version="1.10">
+    <resources>
+        <format id="r1" name="FFVideoFormat1080p25" frameDuration="100/2500s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+        <effect id="r2" name="Basic Title" uid=".../Titles.localized/Bumper:Opener.localized/Basic Title.localized/Basic Title.moti"/>
+    </resources>
+    <library>
+        <event name="NECURMATUL — Intro">
+            <project name="NECURMATUL — Intro S1–S5 (lower-third overlay)">
+                <sequence format="r1" duration="1075/25s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                    <spine>
+                        <gap name="Gap" offset="0s" start="0s" duration="1075/25s">
+
+                            <!-- S1 · 0:02 -> 0:09 — Brand + orient -->
+                            <title ref="r2" lane="1" offset="50/25s" name="S1 — Brand + orient" start="0s" duration="175/25s">
+                                <text>
+                                    <text-style ref="s1a">SERIA · PARTEA I — Urâciunea Pustiirii și Jertfa Zilnică —&#10;</text-style>
+                                    <text-style ref="s1b">Daniel 8 · 9 · 11 · 12</text-style>
+                                </text>
+                                <text-style-def id="s1a">
+                                    <text-style font="Poppins" fontSize="56" fontFace="Bold" fontColor="0.988235 0.827451 0.301961 1" alignment="center" lineSpacing="-8" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
+                                </text-style-def>
+                                <text-style-def id="s1b">
+                                    <text-style font="Poppins" fontSize="38" fontFace="SemiBold" fontColor="1 1 1 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="5 315" shadowBlurRadius="9"/>
+                                </text-style-def>
+                                <adjust-transform position="0 -300"/>
+                            </title>
+
+                            <!-- S2 · 0:09 -> 0:16 — Speaker ID (lower-third name strap) -->
+                            <title ref="r2" lane="1" offset="225/25s" name="S2 — Speaker ID" start="0s" duration="175/25s">
+                                <text>
+                                    <text-style ref="s2a">Dr. Emanoil Geaboc&#10;</text-style>
+                                    <text-style ref="s2b">Studiu biblic, verset cu verset</text-style>
+                                </text>
+                                <text-style-def id="s2a">
+                                    <text-style font="Poppins" fontSize="64" fontFace="Bold" fontColor="1 1 1 1" alignment="center" lineSpacing="-8" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
+                                </text-style-def>
+                                <text-style-def id="s2b">
+                                    <text-style font="Poppins" fontSize="38" fontFace="SemiBold" fontColor="0.988235 0.827451 0.301961 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="5 315" shadowBlurRadius="9"/>
+                                </text-style-def>
+                                <adjust-transform position="0 -330"/>
+                            </title>
+
+                            <!-- S3 · 0:16 -> 0:24 — Plant the mystery -->
+                            <title ref="r2" lane="1" offset="400/25s" name="S3 — Plant the mystery" start="0s" duration="200/25s">
+                                <text>
+                                    <text-style ref="s3a">„NECURMATUL” — ha-tamid&#10;</text-style>
+                                    <text-style ref="s3b">Cuvântul pe care traducerile l-au pierdut</text-style>
+                                </text>
+                                <text-style-def id="s3a">
+                                    <text-style font="Poppins" fontSize="72" fontFace="Bold" fontColor="0.988235 0.827451 0.301961 1" alignment="center" lineSpacing="-8" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
+                                </text-style-def>
+                                <text-style-def id="s3b">
+                                    <text-style font="Poppins" fontSize="36" fontFace="SemiBold" fontColor="1 1 1 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="5 315" shadowBlurRadius="9"/>
+                                </text-style-def>
+                                <adjust-transform position="0 -300"/>
+                            </title>
+
+                            <!-- S4 · 0:24 -> 0:33 — The open loop (spans the dip) -->
+                            <!-- Split as a reveal: S4a sets it up (0:24->0:28.4), S4b lands the twist (0:28.4->0:33) -->
+                            <title ref="r2" lane="1" offset="600/25s" name="S4a — setup" start="0s" duration="110/25s">
+                                <text>
+                                    <text-style ref="s4a">Biblia spune „jertfa necurmată”…</text-style>
+                                </text>
+                                <text-style-def id="s4a">
+                                    <text-style font="Poppins" fontSize="50" fontFace="SemiBold" fontColor="1 1 1 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
+                                </text-style-def>
+                                <adjust-transform position="0 -330"/>
+                            </title>
+                            <title ref="r2" lane="1" offset="710/25s" name="S4b — reveal" start="0s" duration="115/25s">
+                                <text>
+                                    <text-style ref="s4b">…dar nici „jertfă”, nici „necurmată” nu sunt în original</text-style>
+                                </text>
+                                <text-style-def id="s4b">
+                                    <text-style font="Poppins" fontSize="48" fontFace="Bold" fontColor="0.988235 0.827451 0.301961 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
+                                </text-style-def>
+                                <adjust-transform position="0 -330"/>
+                            </title>
+
+                            <!-- S5 · 0:33 -> 0:41 — In this episode -->
+                            <title ref="r2" lane="1" offset="825/25s" name="S5 — In this episode" start="0s" duration="200/25s">
+                                <text>
+                                    <text-style ref="s5a">În acest episod: cele 4 interpretări&#10;</text-style>
+                                    <text-style ref="s5b">…și ce a fost dat la o parte</text-style>
+                                </text>
+                                <text-style-def id="s5a">
+                                    <text-style font="Poppins" fontSize="56" fontFace="Bold" fontColor="1 1 1 1" alignment="center" lineSpacing="-8" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="6 315" shadowBlurRadius="11"/>
+                                </text-style-def>
+                                <text-style-def id="s5b">
+                                    <text-style font="Poppins" fontSize="40" fontFace="SemiBold" fontColor="0.988235 0.827451 0.301961 1" alignment="center" shadowColor="0.043137 0.078431 0.149020 0.85" shadowOffset="5 315" shadowBlurRadius="9"/>
+                                </text-style-def>
+                                <adjust-transform position="0 -300"/>
+                            </title>
+
+                        </gap>
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+    </library>
+</fcpxml>
