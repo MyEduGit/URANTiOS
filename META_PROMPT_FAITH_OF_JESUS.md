@@ -81,6 +81,14 @@ Survey and clearly label as non-authoritative:
   1920s–30s liberal Protestant milieu — the phrase circulated there; document
   who said what, when, with citations.
 - Urantia secondary literature on Paper 196 and the "religion of Jesus" theme.
+- **Mircea's existing body of work** (the primary account to emphasize and
+  extend, not duplicate): the ~8,500-word journal article "THE FAITH OF JESUS:
+  A Doctrinal Reclamation" (Bible-native systematic theology; formula:
+  justification = faith IN Jesus, sanctification = the faith OF Jesus operative
+  in us); the "Faith of Jesus" movement plan (nine playlists on the nine
+  inevitabilities, 3:5.5–14); and the two-track Faith IN / Faith OF app
+  blueprint. See `FAITH_OF_JESUS_RESEARCH.md` §5. The governing strategy:
+  never correct faith in Jesus — invite it deeper, into the faith of Jesus.
 - Conclude with a **convergence map**: where post-1983 scholarship independently
   restates Paper 196's claims, and where they differ (e.g., atonement doctrine —
   see 188:4–5 for the book's rejection of ransom/appeasement).

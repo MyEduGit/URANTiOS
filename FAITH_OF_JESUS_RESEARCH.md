@@ -5,6 +5,20 @@ scholarly landscape mapped as context.**
 
 ---
 
+## 0. The Emphasis
+
+**This is the one to emphasize: the faith OF Jesus.** Christianity as it stands
+is built on faith IN Jesus — the worship of the divine Christ as object. That
+faith is not wrong; it is incomplete, and its incompleteness is precisely the
+"greatest mistake" the book names (196:2.4). The recovery the book calls for —
+and the recovery this whole body of work exists to serve — is the faith Jesus
+himself *lived*: his own childlike-but-mighty trust in the Father, which every
+mortal can appropriate (101:6.17) and share (196:1.5). Faith IN Jesus looks *at*
+him; the faith OF Jesus looks *with* him — at the Father. Everything below is
+organized to serve that emphasis.
+
+---
+
 ## 1. The Thesis
 
 The Urantia Book draws a sharp, deliberate distinction between two religions that
@@ -234,7 +248,48 @@ Sources:
 
 ---
 
-## 5. Where to go deeper
+## 5. The Existing Body of Work (Mircea's corpus)
+
+The in-depth account already exists across several works — all inspired by The
+Urantia Book, most deliberately expressed in Bible-native (NKJV) language so the
+emphasis can reach the church where it stands. This compendium is their
+canonical spine; they are its outreach.
+
+1. **Journal article — "THE FAITH OF JESUS: A Doctrinal Reclamation of Jesus'
+   Human Trust-Relationship with the Father"** (~8,500 words; Google Doc).
+   Systematic theology, entirely Bible-native: Hebrews 12:2 (Jesus as ἀρχηγός —
+   *author*, not merely object, of faith), Hebrews 5:7–8 (faith *learned*
+   through suffering), Revelation 14:12 ("the faith of Jesus"), Galatians 2:20
+   (participation). Its central formula is the bridge for Christianity as it
+   stands:
+   - **Justification = faith IN Jesus** (legal standing) — kept, not attacked
+   - **Sanctification = the faith OF Jesus operative in us** (transformation)
+   - **Glorification = perfect participation** (consummation)
+   This is 196:1.5 and 101:6.17 translated into the church's own tongue.
+   Targets: JETS, Tyndale Bulletin, Scottish Journal of Theology; Romanian
+   translation planned.
+2. **"The Faith of Jesus" movement plan** (Drive folder "The Faith of Jesus
+   Plan"): host Liam, stewards Daniel & Andrew Moga. Full operational kit —
+   host guide, interview questions for pastors across denominations, guest
+   preparation, account/upload/CapCut guides, first-week quick start — built
+   around **nine YouTube playlists, one per necessity** from the book's nine
+   inevitabilities (3:5.5–14: "Is courage desirable?…"), presented as the
+   proof of the Father's love for will-capable beings.
+3. **"Faith of Jesus" app blueprint** (curriculum export): two tracks —
+   Track 1 *Faith IN Jesus* (entry: trust, assurance) and Track 2 *Faith OF
+   Jesus* (formation: sonship-trust, God-consciousness) — joined by the
+   "no-contradiction bridge," with the full Urantia text as hidden
+   architecture and NKJV as the public display layer.
+4. **This repository** — the canonical research layer: the complete par_ref
+   corpus (§2), the synthesis (§3), and the meta-prompt
+   (`META_PROMPT_FAITH_OF_JESUS.md`) for extending the study.
+
+The shared strategy across all of it: never *correct* faith in Jesus — *invite
+it deeper*, into the faith of Jesus (the 196:2.6 unified religion).
+
+---
+
+## 6. Where to go deeper
 
 Run the companion meta-prompt: **`META_PROMPT_FAITH_OF_JESUS.md`** — a ready-to-use
 research prompt for Codex / Claude Code that extends this compendium
