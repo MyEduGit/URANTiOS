@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .cognee/
 .env
+
+# Private self-knowledge dossier — sensitive; never commit or share
+vault/**/*.private.md
+*.private.md
