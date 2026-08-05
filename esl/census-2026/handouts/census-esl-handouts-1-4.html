@@ -1,0 +1,467 @@
+<meta charset="utf-8">
+<title>Filling In the Form &mdash; Handouts 1&ndash;4</title>
+<style>
+@page { size: A4; margin: 10mm 13mm; }
+* { box-sizing: border-box; }
+body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+       font-size: 10.6pt; line-height: 1.34; color: #000; margin: 0; }
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.hdr { border-top: 3px solid #000; border-bottom: 1px solid #000;
+       padding: 2mm 0 1.6mm; margin-bottom: 2.6mm; overflow: hidden; }
+.hdr .series { font-size: 8.5pt; letter-spacing: .09em; text-transform: uppercase; }
+.hdr h1 { font-size: 16.5pt; margin: 1mm 0 0; font-weight: 700; }
+.cont { float: right; font-size: 9pt; letter-spacing: .08em;
+        text-transform: uppercase; padding-top: 1.5mm; }
+
+.sec { margin-top: 3mm; }
+.sec > h2 { font-size: 11.5pt; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .07em; border-bottom: 1px solid #000;
+            padding-bottom: 0.8mm; margin: 0 0 2mm; }
+.sec > h2 .t { float: right; font-weight: 400; font-size: 9.5pt;
+               letter-spacing: 0; text-transform: none; }
+p { margin: 0 0 1.6mm; }
+ol, ul { margin: 0 0 2mm; padding-left: 6mm; }
+li { margin-bottom: 1.1mm; }
+.q { font-weight: 600; }
+.note { font-size: 9.5pt; }
+
+.excerpt { border: 1.3px solid #000; padding: 2.8mm 3.5mm; margin: 0 0 2.4mm; }
+.excerpt .qn { font-weight: 700; font-size: 12pt; margin-right: 2mm; }
+.excerpt p { margin: 0 0 1.8mm; }
+.excerpt .src { font-size: 8pt; text-align: right; margin: 2mm 0 0; }
+.lbl { font-size: 8.5pt; letter-spacing: .04em; display: block; margin: 2mm 0 0.8mm; }
+
+.bx { display: inline-block; white-space: nowrap; vertical-align: middle; }
+.bx i { display: inline-block; width: 7mm; height: 7mm; border: 1px solid #000;
+        margin-right: -1px; vertical-align: middle; }
+.bx i.sp { border: none; width: 3.5mm; margin-right: 0; }
+.mk { display: inline-block; width: 4.6mm; height: 4.6mm; border: 1.2px solid #000;
+      vertical-align: middle; margin-right: 2mm; }
+
+table { border-collapse: collapse; width: 100%; margin: 0 0 2mm; }
+td, th { vertical-align: top; padding: 0.9mm 2mm 0.9mm 0; }
+.vocab th { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .05em;
+            text-align: left; border-bottom: 1px solid #000; padding-bottom: 1mm; }
+.vocab td { padding-top: 1.2mm; padding-bottom: 1.2mm; }
+.vocab tr td { border-bottom: 1px dotted #999; }
+.vocab .w { width: 22%; }
+.vocab .a { width: 6%; }
+.vocab .m { width: 44%; }
+.vocab .l { width: 28%; padding-right: 0; }
+.tf td:first-child { width: 6%; }
+.tf td:last-child { width: 16%; text-align: right; white-space: nowrap; }
+.grid td { border: 1px solid #000; padding: 1.2mm 2mm; }
+.grid th { border: 1px solid #000; padding: 1.6mm 2mm; text-align: left;
+           font-size: 9.5pt; text-transform: uppercase; letter-spacing: .05em; }
+.plain td:first-child { width: 47%; padding-right: 5mm; }
+
+.aside { border: 1.2px dashed #000; padding: 2.5mm 3mm; margin: 2.5mm 0 0;
+         font-size: 9.5pt; }
+.warn { border: 1.2px solid #000; border-left-width: 4px; padding: 2.5mm 3mm;
+        margin: 0 0 3mm; font-size: 9.5pt; }
+.rule { border: 1.3px solid #000; padding: 3mm; margin: 0 0 3mm; }
+.rule h3 { margin: 0 0 1.5mm; font-size: 10.5pt; text-transform: uppercase;
+           letter-spacing: .06em; }
+
+.crit { font-size: 9.5pt; margin-top: 2mm; }
+.crit span { margin-right: 6mm; white-space: nowrap; }
+
+.take { border-top: 1.4px dashed #000; margin-top: 3mm; padding-top: 2mm; }
+.take h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: .07em;
+           margin: 0 0 2mm; }
+.take .cols { display: flex; gap: 5mm; }
+.take .cols > div { flex: 1; border: 1.2px solid #000; padding: 2.5mm 3mm;
+                    font-size: 9.5pt; }
+.take .cols h3 { margin: 0 0 1.5mm; font-size: 9pt; text-transform: uppercase;
+                 letter-spacing: .06em; }
+.take .help b { display: inline-block; min-width: 46mm; }
+
+.foot { border-top: 1px solid #000; margin-top: 2.5mm; padding-top: 1.2mm;
+        font-size: 8pt; overflow: hidden; }
+.foot .pg { float: right; }
+.line { display: inline-block; border-bottom: 1px solid #000; height: 4.5mm;
+        min-width: 26mm; vertical-align: bottom; }
+.line.s { min-width: 15mm; }
+.line.f { min-width: 100%; }
+.line.l { min-width: 60mm; }
+
+/* readiness checklist */
+.ck h2 { font-size: 11.5pt; text-transform: uppercase; letter-spacing: .06em;
+         border-bottom: 1.4px solid #000; padding-bottom: 0.8mm; margin: 3.5mm 0 2mm; }
+.ck li { margin-bottom: 2.1mm; list-style: none; }
+.ck ul { padding-left: 0; }
+.ck li:before { content: "\2610"; font-size: 13pt; margin-right: 3mm; }
+.big { font-size: 13pt; font-weight: 700; }
+
+/* answer pages */
+.ansh { font-size: 10pt; text-transform: uppercase; letter-spacing: .06em;
+        border-bottom: 1px solid #000; padding-bottom: 0.6mm; margin: 2.6mm 0 1.2mm; }
+.ans { font-size: 8.3pt; line-height: 1.28; }
+.ans th { font-size: 7.6pt; text-transform: uppercase; letter-spacing: .05em;
+          text-align: left; border-bottom: 1px solid #000; padding-bottom: 0.8mm; }
+.ans td { border-bottom: 1px dotted #999; padding: 0.85mm 2mm 0.85mm 0; }
+.ans .i { width: 15%; font-weight: 600; }
+.ans .an { width: 17%; font-weight: 700; }
+.ans .s { width: 23%; }
+.ans .d { width: 45%; padding-right: 0; }
+</style>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 1</div><h1>Census night is Tuesday 11 August</h1></div><div class="sec"><h2><span class="t">3 min</span>A. Look</h2>
+<div class="excerpt">
+<p><b>It&rsquo;s time to complete your Census.</b></p>
+<p>Census night is Tuesday 11 August 2026. Everybody at this address on Census
+night must be included on this Census form, including visitors and babies.</p>
+<p>The information you provide is used to make important decisions about
+transport, schools, health care and infrastructure.</p>
+<p class="src">Census Household Form, page 1</p>
+</div>
+<p class="q">What can you see? Talk with a partner. What is this paper?</p>
+</div><div class="sec"><h2><span class="t">12 min</span>B. Words</h2><table class="vocab"><tr><th class="w">Word</th><th class="a"></th><th class="m">Meaning</th><th class="l">My language</th></tr><tr><td class="w">census</td><td class="a"><span class="line s"></span></td><td class="m">a &nbsp; you must do it &mdash; it is the law</td><td class="l">&nbsp;</td></tr><tr><td class="w">household</td><td class="a"><span class="line s"></span></td><td class="m">b &nbsp; a count of all the people in Australia</td><td class="l">&nbsp;</td></tr><tr><td class="w">form</td><td class="a"><span class="line s"></span></td><td class="m">c &nbsp; put a person&rsquo;s name on the form</td><td class="l">&nbsp;</td></tr><tr><td class="w">include</td><td class="a"><span class="line s"></span></td><td class="m">d &nbsp; secret &mdash; nobody can see your name</td><td class="l">&nbsp;</td></tr><tr><td class="w">visitor</td><td class="a"><span class="line s"></span></td><td class="m">e &nbsp; a paper with questions and boxes</td><td class="l">&nbsp;</td></tr><tr><td class="w">compulsory</td><td class="a"><span class="line s"></span></td><td class="m">f &nbsp; all the people who live in one home</td><td class="l">&nbsp;</td></tr><tr><td class="w">confidential</td><td class="a"><span class="line s"></span></td><td class="m">g &nbsp; send the form back</td><td class="l">&nbsp;</td></tr><tr><td class="w">return</td><td class="a"><span class="line s"></span></td><td class="m">h &nbsp; a person who stays for a night, but does not live here</td><td class="l">&nbsp;</td></tr></table><p class="note">Write the letter of the meaning. Write your own language in the last column.</p>
+<div class="aside"><b>&#8595; More support:</b> do the first five words only.
+&nbsp;&nbsp; <b>&#8593; More challenge:</b> write one sentence with
+<i>compulsory</i> and one with <i>confidential</i>.</div>
+</div><div class="sec"><h2><span class="t">8 min</span>C. Understand</h2>
+<p>Read the form again, and the Questions page. Circle <b>TRUE</b> or <b>FALSE</b>.</p>
+<table class="tf">
+<tr><td>1</td><td>Census night is Tuesday 11 August 2026.</td><td>TRUE / FALSE</td></tr>
+<tr><td>2</td><td>Only Australian citizens are on the form.</td><td>TRUE / FALSE</td></tr>
+<tr><td>3</td><td>Babies are on the form.</td><td>TRUE / FALSE</td></tr>
+<tr><td>4</td><td>The Census is compulsory.</td><td>TRUE / FALSE</td></tr>
+<tr><td>5</td><td>The ABS can tell your neighbour your answers.</td><td>TRUE / FALSE</td></tr>
+<tr><td>6</td><td>You can do the Census on the internet.</td><td>TRUE / FALSE</td></tr>
+<tr><td>7</td><td>Visitors are on the form.</td><td>TRUE / FALSE</td></tr>
+</table>
+</div><div class="foot"><span class="pg">Page 1 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><span class="cont">Handout 1 &middot; page 2</span><h1>Census night is Tuesday 11 August</h1></div><div class="sec"><h2><span class="t">15 min</span>D. Practise</h2>
+<p><b>1. The date.</b> Complete the sentence.</p>
+<p style="margin-left:6mm">Census night is <span class="line"></span>day,
+<span class="line s"></span> August <span class="line s"></span> .</p>
+<p><b>2. The calendar.</b> This is August 2026. Circle Census night.</p>
+<table class="grid" style="width:78mm; text-align:center">
+<tr><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th></tr>
+<tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+<tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+</table>
+<p style="margin-left:6mm">Today is <span class="line"></span> .
+How many days until Census night? <span class="line s"></span></p>
+<p><b>3. Listen and write the number.</b> Your teacher will say each number twice.</p>
+<p style="margin-left:6mm">Census help line <span class="line l"></span><br>
+Interpreter (TIS National) <span class="line l"></span><br>
+Paper form request <span class="line l"></span></p>
+<p><b>4. Ask three people in the class.</b> Then change partners and ask again.</p>
+<p style="margin-left:6mm"><i>When is Census night?</i> &nbsp;&mdash;&nbsp;
+<i>What is the Census?</i> &nbsp;&mdash;&nbsp; <i>Is it compulsory?</i></p>
+</div><div class="sec"><h2><span class="t">10 min</span>E. Do it</h2>
+<p>On Census night, these people were at 12 Graham Avenue.
+Tick <b>&#10003;</b> the people who <b>must be on this form</b>.</p>
+<table class="grid">
+<tr><td style="width:8%">1</td><td>Amal Haddad. She lives here. She slept here.</td>
+    <td style="width:12%">&nbsp;</td></tr>
+<tr><td>2</td><td>Sara, a friend from Melbourne. She slept here for one night.</td><td>&nbsp;</td></tr>
+<tr><td>3</td><td>Sami, a baby. He was born last week. He lives here.</td><td>&nbsp;</td></tr>
+<tr><td>4</td><td>Tomas. He works at night. He was at work, and he came home
+    on Wednesday morning. He is not on another form.</td><td>&nbsp;</td></tr>
+<tr><td>5</td><td>The postman. He came to the door on Wednesday at 9am.</td><td>&nbsp;</td></tr>
+<tr><td>6</td><td>Nadia. She slept at her cousin&rsquo;s house. She is on her
+    cousin&rsquo;s form.</td><td>&nbsp;</td></tr>
+</table>
+<div class="aside"><b>&#8593; More challenge:</b> why is number 4 on the form?
+Find the rule on page 3 of the Census form.</div>
+</div>
+<div class="take">
+<h2>&#9986; F. Take home</h2>
+<div class="cols">
+<div>
+<h3>Exit ticket</h3>
+Three words I can use now:<br>
+<span class="line f"></span><br>
+One thing I still need help with:<br>
+<span class="line f"></span>
+</div>
+<div class="help">
+<h3>Getting help</h3>
+<b>Census help line</b> 1800 181 227<br>
+<b>Interpreter &mdash; TIS National</b> 131 450<br>
+<b>Online help</b> census.abs.gov.au/help<br>
+<span style="font-size:9pt"><i>Could you say that again, please?</i><br>
+<i>Could you explain that in easier English?</i><br>
+<i>I need an interpreter who speaks</i> <span class="line s"></span> .</span>
+</div>
+</div>
+</div>
+<div class="foot"><span class="pg">Page 2 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 1 &mdash; Answers (1 of 2)</div><h1>Census night is Tuesday 11 August</h1></div><p class="note"><b>Try the exercises first, then check.</b> Mark your own work. Every answer here has a short reason and a longer one &mdash; read the short one first.</p><h2 class="ansh">B. Words</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">1 census</td><td class="an">b</td><td class="s">A count of all the people.</td><td class="d">The Census counts everyone in Australia on one night, so governments know how many people live where, and what they need.</td></tr><tr><td class="i">2 household</td><td class="an">f</td><td class="s">Everyone in one home.</td><td class="d">A household is all the people who live together in one home. One form covers one household.</td></tr><tr><td class="i">3 form</td><td class="an">e</td><td class="s">The paper with the questions.</td><td class="d">This form has 65 questions across 26 pages. You write your answers in the small boxes.</td></tr><tr><td class="i">4 include</td><td class="an">c</td><td class="s">Put the person on the form.</td><td class="d">If you include someone, you write their name and answer the questions for them in their own column.</td></tr><tr><td class="i">5 visitor</td><td class="an">h</td><td class="s">A guest who sleeps here.</td><td class="d">A visitor does not live here. But if they slept here on Census night, they go on this form, not their own.</td></tr><tr><td class="i">6 compulsory</td><td class="an">a</td><td class="s">You must do it.</td><td class="d">The Census is required by law &mdash; the Census and Statistics Act 1905. Page 2 of the form says so.</td></tr><tr><td class="i">7 confidential</td><td class="an">d</td><td class="s">Kept secret.</td><td class="d">The ABS must keep your information secure and cannot release it in a way that is likely to identify you.</td></tr><tr><td class="i">8 return</td><td class="an">g</td><td class="s">Send it back.</td><td class="d">Post the paper form in the Reply Paid envelope &mdash; or do it online instead and recycle the paper.</td></tr></table><h2 class="ansh">C. Understand</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">1</td><td class="an">TRUE</td><td class="s">The form says this date.</td><td class="d">Census night is printed on the front page: Tuesday 11 August 2026.</td></tr><tr><td class="i">2</td><td class="an">FALSE</td><td class="s">Everyone is counted.</td><td class="d">The Census counts everyone in Australia, including non-citizens and international visitors. Only foreign diplomats are left out.</td></tr><tr><td class="i">3</td><td class="an">TRUE</td><td class="s">Babies count too.</td><td class="d">The front page says &lsquo;including visitors and babies&rsquo;. Age makes no difference.</td></tr><tr><td class="i">4</td><td class="an">TRUE</td><td class="s">It is the law.</td><td class="d">Page 2 says the Census is compulsory, under the Census and Statistics Act 1905.</td></tr><tr><td class="i">5</td><td class="an">FALSE</td><td class="s">Nobody can see your answers.</td><td class="d">The ABS is legally required not to release information in a way that is likely to identify an individual.</td></tr><tr><td class="i">6</td><td class="an">TRUE</td><td class="s">You can use the internet.</td><td class="d">Go to census.abs.gov.au, then enter the Census number and temporary password from the front of the form.</td></tr><tr><td class="i">7</td><td class="an">TRUE</td><td class="s">Visitors are included.</td><td class="d">Anyone who slept in the dwelling on Census night goes on the form, even for one night only.</td></tr></table><div class="foot"><span class="pg">Page 3 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 1 &mdash; Answers (2 of 2)</div><h1>Census night is Tuesday 11 August</h1></div><h2 class="ansh">D. Practise</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">1</td><td class="an">Tuesday, 11 August 2026</td><td class="s">The day, the date, the year.</td><td class="d">Say it as one phrase. In Australia the day comes before the month: 11 August, not August 11.</td></tr><tr><td class="i">2</td><td class="an">11 is in the T column</td><td class="s">Second row, second column.</td><td class="d">The calendar columns are M T W T F S S. The first T is Tuesday, the second is Thursday.</td></tr><tr><td class="i">3</td><td class="an">1800 181 227 &middot; 131 450 &middot; 1800 130 250</td><td class="s">Help &middot; interpreter &middot; extra form.</td><td class="d">Australians say these in groups: <i>eighteen hundred, one-eight-one, two-two-seven</i>. Ask for it digit by digit if you need to.</td></tr><tr><td class="i">4</td><td class="an">No fixed answer</td><td class="s">Your own words.</td><td class="d">Aim for a full sentence: <i>Census night is Tuesday the eleventh of August.</i> Ask three different people.</td></tr></table><h2 class="ansh">E. Do it</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">1 Amal</td><td class="an">&#10003;</td><td class="s">She slept here.</td><td class="d">She lives here and spent the night. This is the simplest case on the form.</td></tr><tr><td class="i">2 Sara</td><td class="an">&#10003;</td><td class="s">A visitor who slept here.</td><td class="d">Visitors go on the form for the place where they slept, not on their own household&rsquo;s form.</td></tr><tr><td class="i">3 Sami</td><td class="an">&#10003;</td><td class="s">Babies count.</td><td class="d">Age makes no difference. A baby born before Census night was a person in Australia that night.</td></tr><tr><td class="i">4 Tomas</td><td class="an">&#10003;</td><td class="s">Shift workers count.</td><td class="d">Page 3 includes anyone who lives here, was at work overnight, and returned the next day without being on another form.</td></tr><tr><td class="i">5 The postman</td><td class="an">&#10007;</td><td class="s">He did not sleep here.</td><td class="d">The Census counts the <b>night</b>, not the day. Coming to the door on Wednesday morning is not Census night.</td></tr><tr><td class="i">6 Nadia</td><td class="an">&#10007;</td><td class="s">She is on another form.</td><td class="d">She slept at her cousin&rsquo;s, so she is counted there. Counting one person twice would make the numbers wrong.</td></tr></table><div class="foot"><span class="pg">Page 4 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 2</div><h1>How to write your answers</h1></div><div class="sec"><h2><span class="t">3 min</span>A. Look</h2>
+<div class="excerpt">
+<p><b>How to write your answers</b></p>
+<p>&bull;&nbsp; Use a blue or black pen only.</p>
+<p>&bull;&nbsp; Mark response boxes, like this: <span class="mk"></span>&#10007;</p>
+<p>&bull;&nbsp; Use CAPITAL letters and only use one letter per box.</p>
+<p>&bull;&nbsp; Remember to leave a space between words, like this:</p>
+<p style="margin-left:6mm"><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i class="sp"></i><i></i><i></i><i></i></span></p>
+<p>&bull;&nbsp; If you make a mistake, draw a line through the box.</p>
+<p class="src">Census Household Form, page 1</p>
+</div>
+<p class="q">Look at the boxes. How many letters go in one box?</p>
+</div><div class="sec"><h2><span class="t">12 min</span>B. Words</h2><table class="vocab"><tr><th class="w">Word</th><th class="a"></th><th class="m">Meaning</th><th class="l">My language</th></tr><tr><td class="w">capital letters</td><td class="a"><span class="line s"></span></td><td class="m">a &nbsp; something wrong</td><td class="l">&nbsp;</td></tr><tr><td class="w">box</td><td class="a"><span class="line s"></span></td><td class="m">b &nbsp; one empty box between two words</td><td class="l">&nbsp;</td></tr><tr><td class="w">mark</td><td class="a"><span class="line s"></span></td><td class="m">c &nbsp; A B C, not a b c</td><td class="l">&nbsp;</td></tr><tr><td class="w">mistake</td><td class="a"><span class="line s"></span></td><td class="m">d &nbsp; do not answer the next questions &mdash; jump to question 19</td><td class="l">&nbsp;</td></tr><tr><td class="w">a space</td><td class="a"><span class="line s"></span></td><td class="m">e &nbsp; put a cross in the box</td><td class="l">&nbsp;</td></tr><tr><td class="w">specify</td><td class="a"><span class="line s"></span></td><td class="m">f &nbsp; a small square for one letter</td><td class="l">&nbsp;</td></tr><tr><td class="w">leave blank</td><td class="a"><span class="line s"></span></td><td class="m">g &nbsp; write nothing &mdash; this question is not for you</td><td class="l">&nbsp;</td></tr><tr><td class="w">Go to 19</td><td class="a"><span class="line s"></span></td><td class="m">h &nbsp; write the answer in your own words</td><td class="l">&nbsp;</td></tr></table><p class="note">Write the letter of the meaning. Write your own language in the last column.</p></div><div class="sec"><h2><span class="t">8 min</span>C. Understand</h2>
+<p>Look at each example. Is it <b>right &#10003;</b> or <b>wrong &#10007;</b>?
+If it is wrong, say why.</p>
+<table class="grid">
+<tr><td style="width:58%"><span class="bx"><i></i><i></i><i></i><i></i><i class="sp"></i><i></i><i></i><i></i><i></i><i></i></span></td>
+    <td style="width:12%">&nbsp;</td><td>Why?</td></tr>
+<tr><td>written in small letters: <i>john smith</i></td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>two letters in one box</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>no empty box between the two words</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>written in pencil</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</div><div class="foot"><span class="pg">Page 5 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><span class="cont">Handout 2 &middot; page 2</span><h1>How to write your answers</h1></div><div class="sec"><h2><span class="t">15 min</span>D. Practise</h2>
+<p><b>1. Write these words in the boxes.</b> One letter in one box. CAPITAL letters.</p>
+<p><span class="lbl">MARY</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">JOHN SMITH</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">GRAHAM AVENUE</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><b>2. A mistake.</b> This person wrote <i>SMITT</i>. The name is <i>SMITH</i>.
+Draw a line through the wrong box and write the correct letter.</p>
+<p style="margin-left:6mm"><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><b>3. Mark the box.</b> Put a cross <span class="mk"></span> next to the correct answer.</p>
+<p style="margin-left:6mm"><span class="mk"></span> Use a blue or black pen &nbsp;&nbsp;&nbsp;
+<span class="mk"></span> Use a pencil &nbsp;&nbsp;&nbsp; <span class="mk"></span> Use a red pen</p>
+<p><b>4. Ask your partner.</b></p>
+<p style="margin-left:6mm"><i>Do I write big letters or small letters?</i>
+&nbsp;&mdash;&nbsp; <i>Do I mark one box or all the boxes?</i>
+&nbsp;&mdash;&nbsp; <i>Could you show me where to write the answer?</i></p>
+<div class="aside"><b>&#8595; More support:</b> do part 1 only. Copy the words slowly.
+&nbsp;&nbsp; <b>&#8593; More challenge:</b> write your street name in the boxes,
+then check it with a partner.</div>
+</div><div class="sec"><h2><span class="t">10 min</span>E. Do it</h2>
+<p>Write these names from the Haddad household in the boxes.
+The Census form asks for the first name and the family name in different boxes.</p>
+<p><span class="lbl">First or given name &mdash; AMAL</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">Surname or family name &mdash; HADDAD</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">First or given name &mdash; TOMAS</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">Surname or family name &mdash; SILVA</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p class="crit">Check your work:
+<span>&#9744; CAPITAL letters</span>
+<span>&#9744; one letter per box</span>
+<span>&#9744; a space between words</span></p>
+<div class="warn"><b>This page is yours.</b> If you write your own name, keep this
+page and take it home. Do not give it to the teacher.</div>
+</div>
+<div class="take">
+<h2>&#9986; F. Take home</h2>
+<div class="cols">
+<div>
+<h3>Exit ticket</h3>
+Three words I can use now:<br>
+<span class="line f"></span><br>
+One thing I still need help with:<br>
+<span class="line f"></span>
+</div>
+<div class="help">
+<h3>Getting help</h3>
+<b>Census help line</b> 1800 181 227<br>
+<b>Interpreter &mdash; TIS National</b> 131 450<br>
+<b>Online help</b> census.abs.gov.au/help<br>
+<span style="font-size:9pt"><i>Could you say that again, please?</i><br>
+<i>Could you explain that in easier English?</i><br>
+<i>I need an interpreter who speaks</i> <span class="line s"></span> .</span>
+</div>
+</div>
+</div>
+<div class="foot"><span class="pg">Page 6 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 2 &mdash; Answers (1 of 2)</div><h1>How to write your answers</h1></div><p class="note"><b>Try the exercises first, then check.</b> Mark your own work. Every answer here has a short reason and a longer one &mdash; read the short one first.</p><h2 class="ansh">B. Words</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">1 capital letters</td><td class="an">c</td><td class="s">Big letters.</td><td class="d">A B C, not a b c. The form asks for capitals on every page because a machine reads the form.</td></tr><tr><td class="i">2 box</td><td class="an">f</td><td class="s">One small square.</td><td class="d">Each box holds exactly one letter. The squares are about 7mm &mdash; practise writing small.</td></tr><tr><td class="i">3 mark</td><td class="an">e</td><td class="s">Put a cross in it.</td><td class="d">The form says &lsquo;mark response boxes&rsquo;. A cross is what it shows &mdash; not a tick, not a circle.</td></tr><tr><td class="i">4 mistake</td><td class="an">a</td><td class="s">Something wrong.</td><td class="d">Everyone makes them. The form tells you how to fix one, so a mistake is never a reason to start again.</td></tr><tr><td class="i">5 a space</td><td class="an">b</td><td class="s">One empty box.</td><td class="d">Between two words, leave one box empty. Without it, the machine reads the two words as one.</td></tr><tr><td class="i">6 specify</td><td class="an">h</td><td class="s">Write it yourself.</td><td class="d">&lsquo;Other (specify)&rsquo; appears dozens of times. It means your answer is not in the list, so write it in the boxes.</td></tr><tr><td class="i">7 leave blank</td><td class="an">g</td><td class="s">Write nothing.</td><td class="d">Some questions are not for you &mdash; for example, questions for people aged 15 or over. Leave them empty.</td></tr><tr><td class="i">8 Go to 19</td><td class="an">d</td><td class="s">Jump forward.</td><td class="d">This is a skip instruction. It saves you time: those questions do not apply to your answer.</td></tr></table><h2 class="ansh">C. Understand</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">Row 1</td><td class="an">&#10003; Right</td><td class="s">Capitals, one per box, one space.</td><td class="d">This is exactly what page 1 asks for. Everything else in the table breaks one of those rules.</td></tr><tr><td class="i">small letters</td><td class="an">&#10007; Wrong</td><td class="s">Must be CAPITALS.</td><td class="d"><i>john smith</i> should be JOHN SMITH. The form says &lsquo;Use CAPITAL letters&rsquo;.</td></tr><tr><td class="i">two in one box</td><td class="an">&#10007; Wrong</td><td class="s">One letter only.</td><td class="d">Two letters in one square cannot be read. Use the next box.</td></tr><tr><td class="i">no space</td><td class="an">&#10007; Wrong</td><td class="s">Leave one box empty.</td><td class="d">JOHNSMITH reads as one word. One empty box separates the first name from the family name.</td></tr><tr><td class="i">pencil</td><td class="an">&#10007; Wrong</td><td class="s">Pen only.</td><td class="d">The form says a blue or black pen. Pencil can smudge or fade, and may not scan.</td></tr></table><div class="foot"><span class="pg">Page 7 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 2 &mdash; Answers (2 of 2)</div><h1>How to write your answers</h1></div><h2 class="ansh">D. Practise</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">1</td><td class="an">MARY &middot; JOHN SMITH &middot; GRAHAM AVENUE</td><td class="s">Capitals, one per box.</td><td class="d">JOHN SMITH needs an empty box between the two words. GRAHAM AVENUE does too.</td></tr><tr><td class="i">2</td><td class="an">Line through the second T, write H</td><td class="s">Cross out, then correct.</td><td class="d">The form says: draw a line through the box. You do not need to start the form again, and you do not use correction fluid.</td></tr><tr><td class="i">3</td><td class="an">Blue or black pen</td><td class="s">Only these two colours.</td><td class="d">Red, green or pencil may not scan. If you only have a pencil, borrow a pen before you start.</td></tr><tr><td class="i">4</td><td class="an">No fixed answer</td><td class="s">Your own questions.</td><td class="d">Listen for the question form: <i>Do I write big letters or small letters?</i> rather than a single word.</td></tr></table><h2 class="ansh">E. Do it</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">Names</td><td class="an">AMAL &middot; HADDAD &middot; TOMAS &middot; SILVA</td><td class="s">One letter in one box, capitals.</td><td class="d">The first name and the family name go in <b>separate</b> boxes on the Census form &mdash; not on the same line. Question 6 asks for both.</td></tr></table><div class="foot"><span class="pg">Page 8 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 3</div><h1>Where do you live?</h1></div><div class="sec"><h2><span class="t">3 min</span>A. Look</h2>
+<div class="excerpt">
+<p><span class="qn">1</span><b>What is the address of this dwelling?</b>
+<span style="font-size:9.5pt">Please use CAPITAL letters only.</span></p>
+<p><span class="lbl">Apartment/Flat/Unit number (if any)</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">Street number (examples: 1&ndash;9, LOT 37)</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">Street name (examples: GRAHAM AVENUE, GEORGE STREET)</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">Suburb/Locality</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">State/Territory &nbsp;&nbsp; Postcode</span><span class="bx"><i></i><i></i><i></i></span>
+&nbsp;&nbsp;&nbsp;<span class="bx"><i></i><i></i><i></i><i></i></span></p>
+<p class="src">Census Household Form, Question 1</p>
+</div>
+<p class="q">Which box is the biggest? Why?</p>
+</div><div class="sec"><h2><span class="t">12 min</span>B. Words</h2><table class="vocab"><tr><th class="w">Word</th><th class="a"></th><th class="m">Meaning</th><th class="l">My language</th></tr><tr><td class="w">street number</td><td class="a"><span class="line s"></span></td><td class="m">a &nbsp; the small town, or the part of a city, where you live</td><td class="l">&nbsp;</td></tr><tr><td class="w">street name</td><td class="a"><span class="line s"></span></td><td class="m">b &nbsp; 12, or 3A, or LOT 37</td><td class="l">&nbsp;</td></tr><tr><td class="w">suburb / locality</td><td class="a"><span class="line s"></span></td><td class="m">c &nbsp; four numbers, for example 2165</td><td class="l">&nbsp;</td></tr><tr><td class="w">state / territory</td><td class="a"><span class="line s"></span></td><td class="m">d &nbsp; GRAHAM AVENUE, GEORGE STREET</td><td class="l">&nbsp;</td></tr><tr><td class="w">postcode</td><td class="a"><span class="line s"></span></td><td class="m">e &nbsp; your home number in a big building</td><td class="l">&nbsp;</td></tr><tr><td class="w">unit / flat / apartment</td><td class="a"><span class="line s"></span></td><td class="m">f &nbsp; NSW, VIC, QLD, SA, WA, TAS, NT, ACT</td><td class="l">&nbsp;</td></tr><tr><td class="w">dwelling</td><td class="a"><span class="line s"></span></td><td class="m">g &nbsp; the Census word for a home</td><td class="l">&nbsp;</td></tr><tr><td class="w">usual address</td><td class="a"><span class="line s"></span></td><td class="m">h &nbsp; the place where you live for six months or more</td><td class="l">&nbsp;</td></tr></table><p class="note">Write the letter of the meaning. Write your own language in the last column.</p></div><div class="sec"><h2><span class="t">8 min</span>C. Understand</h2>
+<p>Look at this address. Write the name of each part.</p>
+<table class="grid">
+<tr><td style="width:45%">UNIT 4</td><td><span class="line l"></span></td></tr>
+<tr><td>12</td><td><span class="line l"></span></td></tr>
+<tr><td>GRAHAM AVENUE</td><td><span class="line l"></span></td></tr>
+<tr><td>FAIRFIELD</td><td><span class="line l"></span></td></tr>
+<tr><td>NSW</td><td><span class="line l"></span></td></tr>
+<tr><td>2165</td><td><span class="line l"></span></td></tr>
+</table>
+</div><div class="foot"><span class="pg">Page 9 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><span class="cont">Handout 3 &middot; page 2</span><h1>Where do you live?</h1></div><div class="sec"><h2><span class="t">15 min</span>D. Practise</h2>
+<p><b>1. States and territories.</b> Match the short form to the long name.</p>
+<table class="plain">
+<tr><td>NSW &nbsp; VIC &nbsp; QLD &nbsp; SA</td>
+    <td>South Australia &nbsp;&bull;&nbsp; Queensland &nbsp;&bull;&nbsp; New South Wales
+        &nbsp;&bull;&nbsp; Victoria</td></tr>
+<tr><td>WA &nbsp; TAS &nbsp; NT &nbsp; ACT</td>
+    <td>Tasmania &nbsp;&bull;&nbsp; Australian Capital Territory
+        &nbsp;&bull;&nbsp; Western Australia &nbsp;&bull;&nbsp; Northern Territory</td></tr>
+</table>
+<p style="margin-left:6mm">Which one is your state? <span class="line"></span></p>
+<p><b>2. Put it in order.</b> These lines are mixed up. Number them 1&ndash;5
+in the correct order for the form.</p>
+<p style="margin-left:6mm">
+<span class="line s"></span> 3068 &nbsp;&nbsp;
+<span class="line s"></span> VIC &nbsp;&nbsp;
+<span class="line s"></span> 88 &nbsp;&nbsp;
+<span class="line s"></span> CLIFTON HILL &nbsp;&nbsp;
+<span class="line s"></span> QUEENS PARADE</p>
+<p><b>3. Find the mistakes.</b> A neighbour wrote this. Three things are wrong.
+Circle them and say why.</p>
+<table class="grid" style="width:80%">
+<tr><td style="width:45%">Street number</td><td>graham avenue</td></tr>
+<tr><td>Street name</td><td>12</td></tr>
+<tr><td>Suburb/Locality</td><td>FAIRFIELD</td></tr>
+<tr><td>State/Territory</td><td>NEW SOUTH WALES</td></tr>
+<tr><td>Postcode</td><td>2165</td></tr>
+</table>
+<p><b>4. Partner dictation.</b> Your teacher will give you a card with an address.
+Say it to your partner. Your partner writes it. Then change.</p>
+<div class="warn">Use the address on the card, <b>not</b> your own address.</div>
+</div><div class="sec"><h2><span class="t">10 min</span>E. Do it</h2>
+<p>The Haddad household lives at <b>Unit 4, 12 Graham Avenue, Fairfield NSW 2165</b>.
+Write their address in the Question 1 boxes.</p>
+<p><span class="lbl">Apartment/Flat/Unit number (if any)</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">Street number</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">Street name</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">Suburb/Locality</span><span class="bx"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+<p><span class="lbl">State/Territory &nbsp;&nbsp;&nbsp; Postcode</span><span class="bx"><i></i><i></i><i></i></span>
+&nbsp;&nbsp;&nbsp;<span class="bx"><i></i><i></i><i></i><i></i></span></p>
+<p class="crit">Check your work:
+<span>&#9744; CAPITAL letters</span>
+<span>&#9744; one letter per box</span>
+<span>&#9744; the right information in the right box</span></p>
+<div class="aside"><b>&#8593; More challenge:</b> invent an address for a new
+household. Give it to a partner to write in the boxes.
+&nbsp;&nbsp; The form has a special rule: a person with no address writes
+<b>NONE</b> in <i>Suburb/Locality</i>. Find it on page 6.</div>
+</div>
+<div class="take">
+<h2>&#9986; F. Take home</h2>
+<div class="cols">
+<div>
+<h3>Exit ticket</h3>
+Three words I can use now:<br>
+<span class="line f"></span><br>
+One thing I still need help with:<br>
+<span class="line f"></span>
+</div>
+<div class="help">
+<h3>Getting help</h3>
+<b>Census help line</b> 1800 181 227<br>
+<b>Interpreter &mdash; TIS National</b> 131 450<br>
+<b>Online help</b> census.abs.gov.au/help<br>
+<span style="font-size:9pt"><i>Could you say that again, please?</i><br>
+<i>Could you explain that in easier English?</i><br>
+<i>I need an interpreter who speaks</i> <span class="line s"></span> .</span>
+</div>
+</div>
+</div>
+<div class="foot"><span class="pg">Page 10 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 3 &mdash; Answers (1 of 2)</div><h1>Where do you live?</h1></div><p class="note"><b>Try the exercises first, then check.</b> Mark your own work. Every answer here has a short reason and a longer one &mdash; read the short one first.</p><h2 class="ansh">B. Words</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">1 street number</td><td class="an">b</td><td class="s">The number of your house.</td><td class="d">For example 12, or 3A, or LOT 37 in the country. It goes in its own small box, before the street name.</td></tr><tr><td class="i">2 street name</td><td class="an">d</td><td class="s">The name of your street.</td><td class="d">GRAHAM AVENUE, GEORGE STREET. Write the whole name, including AVENUE, STREET or ROAD.</td></tr><tr><td class="i">3 suburb / locality</td><td class="an">a</td><td class="s">Your part of the city or town.</td><td class="d">FAIRFIELD, CLIFTON HILL. &lsquo;Locality&rsquo; is the word used for small country places.</td></tr><tr><td class="i">4 state / territory</td><td class="an">f</td><td class="s">NSW, VIC, QLD&hellip;</td><td class="d">Australia has six states and two territories. The form wants the short form, in capitals.</td></tr><tr><td class="i">5 postcode</td><td class="an">c</td><td class="s">Four numbers.</td><td class="d">For example 2165. Every suburb has one. It goes in the last small box, next to the state.</td></tr><tr><td class="i">6 unit / flat / apartment</td><td class="an">e</td><td class="s">Your number in a building.</td><td class="d">If you live in a block, this is your own number. If you live in a house, leave it blank.</td></tr><tr><td class="i">7 dwelling</td><td class="an">g</td><td class="s">The Census word for a home.</td><td class="d">It means any place people live: a house, a flat, a caravan, a houseboat. It appears in a dozen questions.</td></tr><tr><td class="i">8 usual address</td><td class="an">h</td><td class="s">Where you really live.</td><td class="d">The form&rsquo;s rule: the place where you have lived, or intend to live, for six months or more in 2026.</td></tr></table><h2 class="ansh">C. Understand</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">UNIT 4</td><td class="an">Apartment/Flat/Unit number</td><td class="s">Your number in the building.</td><td class="d">It has its own box at the top of Question 1, before the street number.</td></tr><tr><td class="i">12</td><td class="an">Street number</td><td class="s">The number of the building.</td><td class="d">The building number on the street. Do not put it with the street name.</td></tr><tr><td class="i">GRAHAM AVENUE</td><td class="an">Street name</td><td class="s">The street.</td><td class="d">The longest box on the form, because street names are long.</td></tr><tr><td class="i">FAIRFIELD</td><td class="an">Suburb/Locality</td><td class="s">The suburb.</td><td class="d">Not the city. Sydney is not a suburb &mdash; Fairfield is.</td></tr><tr><td class="i">NSW</td><td class="an">State/Territory</td><td class="s">Three letters.</td><td class="d">Only three boxes, so the short form is the only thing that fits.</td></tr><tr><td class="i">2165</td><td class="an">Postcode</td><td class="s">Four numbers.</td><td class="d">Four boxes, four numbers. It always goes with the state.</td></tr></table><div class="foot"><span class="pg">Page 11 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 3 &mdash; Answers (2 of 2)</div><h1>Where do you live?</h1></div><h2 class="ansh">D. Practise</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">1</td><td class="an">NSW New South Wales &middot; VIC Victoria &middot; QLD Queensland &middot; SA South Australia &middot; WA Western Australia &middot; TAS Tasmania &middot; NT Northern Territory &middot; ACT Australian Capital Territory</td><td class="s">Six states, two territories.</td><td class="d">NT and ACT are territories, not states &mdash; that is why the form says &lsquo;State/Territory&rsquo;.</td></tr><tr><td class="i">2</td><td class="an">1&nbsp;88 &middot; 2&nbsp;QUEENS PARADE &middot; 3&nbsp;CLIFTON HILL &middot; 4&nbsp;VIC &middot; 5&nbsp;3068</td><td class="s">Small to big.</td><td class="d">Australian addresses go from the smallest thing to the biggest: number, street, suburb, state, postcode.</td></tr><tr><td class="i">3</td><td class="an">Three mistakes</td><td class="s">Number and street swapped; small letters; state written in full.</td><td class="d"><b>(a)</b> <i>graham avenue</i> is in the street number row and <i>12</i> in the street name row &mdash; they are swapped. <b>(b)</b> <i>graham avenue</i> is in small letters; it must be GRAHAM AVENUE. <b>(c)</b> NEW SOUTH WALES will not fit in three boxes &mdash; write NSW. The suburb and postcode are both correct.</td></tr><tr><td class="i">4</td><td class="an">No fixed answer</td><td class="s">Use the card, not your address.</td><td class="d">Listen for the parts said in the right order, and for the postcode said digit by digit.</td></tr></table><h2 class="ansh">E. Do it</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">Haddad address</td><td class="an">4 &middot; 12 &middot; GRAHAM AVENUE &middot; FAIRFIELD &middot; NSW &middot; 2165</td><td class="s">Each part in its own box.</td><td class="d">Write just <i>4</i> in the unit box, not <i>UNIT 4</i> &mdash; the label already says what the box is for. Same for the postcode: numbers only.</td></tr></table><div class="foot"><span class="pg">Page 12 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 4</div><h1>Who is in your house?</h1></div><div class="sec"><h2><span class="t">3 min</span>A. Look</h2>
+<div class="excerpt">
+<p><span class="qn">2</span><b>Who spent the night of Tuesday 11 August 2026 in
+this dwelling?</b> Mark all that apply.</p>
+<p style="margin-left:5mm"><span class="mk"></span> Me &nbsp;&nbsp; <span class="mk"></span> Spouse/partner<br>
+<span class="mk"></span> Babies, children and teenagers &nbsp;&nbsp; <span class="mk"></span> Other adult family members<br>
+<span class="mk"></span> Unrelated housemates, flatmates or boarders<br>
+<span class="mk"></span> Visitors or friends who spent the night</p>
+<p><span class="qn">3</span><b>In total, how many people spent the night
+&hellip; in this dwelling?</b> &nbsp;<span class="bx"><i></i><i></i></span></p>
+<p><span class="qn">5</span><b>In total, how many people were away &hellip;
+but usually live in this dwelling?</b> &nbsp;<span class="mk"></span> No one away &nbsp; OR &nbsp;<span class="bx"><i></i><i></i></span></p>
+<p class="src">Census Household Form, Questions 2, 3 and 5</p>
+</div>
+</div><div class="sec"><h2><span class="t">12 min</span>B. Words</h2><table class="vocab"><tr><th class="w">Word</th><th class="a"></th><th class="m">Meaning</th><th class="l">My language</th></tr><tr><td class="w">spent the night</td><td class="a"><span class="line s"></span></td><td class="m">a &nbsp; slept here on Tuesday 11 August</td><td class="l">&nbsp;</td></tr><tr><td class="w">usually lives here</td><td class="a"><span class="line s"></span></td><td class="m">b &nbsp; not here on Census night</td><td class="l">&nbsp;</td></tr><tr><td class="w">away</td><td class="a"><span class="line s"></span></td><td class="m">c &nbsp; this is their home for six months or more</td><td class="l">&nbsp;</td></tr><tr><td class="w">visitor</td><td class="a"><span class="line s"></span></td><td class="m">d &nbsp; husband, wife or partner</td><td class="l">&nbsp;</td></tr><tr><td class="w">spouse / partner</td><td class="a"><span class="line s"></span></td><td class="m">e &nbsp; a person who stays one night</td><td class="l">&nbsp;</td></tr><tr><td class="w">housemate</td><td class="a"><span class="line s"></span></td><td class="m">f &nbsp; a person who pays to live in one room in your home</td><td class="l">&nbsp;</td></tr><tr><td class="w">boarder</td><td class="a"><span class="line s"></span></td><td class="m">g &nbsp; a person who shares the home, but is not family</td><td class="l">&nbsp;</td></tr><tr><td class="w">shift worker</td><td class="a"><span class="line s"></span></td><td class="m">h &nbsp; a person who works at night</td><td class="l">&nbsp;</td></tr></table><p class="note">Write the letter of the meaning. Write your own language in the last column.</p></div><div class="sec"><h2><span class="t">8 min</span>C. Understand</h2>
+<div class="rule">
+<h3>Two rules</h3>
+<p><b>PRESENT</b> &mdash; the person <b>slept here</b> on Tuesday 11 August.
+It does not matter if they live here or not.<br>
+<span class="note">Also present: a person who lives here, was at work all night,
+and came home on Wednesday &mdash; if they are not on another form.</span></p>
+<p style="margin:0"><b>AWAY</b> &mdash; the person <b>usually lives here</b>,
+but slept somewhere else on Tuesday 11 August.</p>
+</div>
+<p>Which question? Write <b>2</b>, <b>3</b>, <b>4</b> or <b>5</b>.</p>
+<table class="tf">
+<tr><td>a</td><td>How many people slept here?</td><td><span class="line s"></span></td></tr>
+<tr><td>b</td><td>How many people were away?</td><td><span class="line s"></span></td></tr>
+<tr><td>c</td><td>Was a visitor here?</td><td><span class="line s"></span></td></tr>
+<tr><td>d</td><td>Is someone on holiday overseas?</td><td><span class="line s"></span></td></tr>
+</table>
+</div><div class="foot"><span class="pg">Page 13 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><span class="cont">Handout 4 &middot; page 2</span><h1>Who is in your house?</h1></div><div class="sec"><h2><span class="t">15 min</span>D. Practise</h2>
+<p>It is Tuesday 11 August 2026 at Unit 4, 12 Graham Avenue, Fairfield.
+Write <b>P</b> (present), <b>A</b> (away) or <b>N</b> (not on this form).</p>
+<table class="grid">
+<tr><td style="width:6%">1</td><td>Amal Haddad, 41. She lives here. She slept here.</td>
+    <td style="width:10%">&nbsp;</td></tr>
+<tr><td>2</td><td>Yusuf Haddad, 44. Amal&rsquo;s husband. He slept here.</td><td>&nbsp;</td></tr>
+<tr><td>3</td><td>Layla Haddad, 12. She lives here. She slept here.</td><td>&nbsp;</td></tr>
+<tr><td>4</td><td>Rana Haddad, 68. Amal&rsquo;s mother. She lives here. She slept here.</td><td>&nbsp;</td></tr>
+<tr><td>5</td><td>Nadia Haddad, 6. She lives here, but she slept at her
+    cousin&rsquo;s house. She is on her cousin&rsquo;s form.</td><td>&nbsp;</td></tr>
+<tr><td>6</td><td>Tomas Silva, 29. He is a boarder. He worked all night and came
+    home on Wednesday morning. He is not on another form.</td><td>&nbsp;</td></tr>
+<tr><td>7</td><td>Sara Okafor, 30. A friend from Melbourne. She slept here for one night.</td><td>&nbsp;</td></tr>
+<tr><td>8</td><td>Karim Haddad, 25. Yusuf&rsquo;s cousin. He usually lives here,
+    but he is on holiday in Lebanon.</td><td>&nbsp;</td></tr>
+<tr><td>9</td><td>Rana&rsquo;s brother. He came for dinner and went home at 9pm.</td><td>&nbsp;</td></tr>
+</table>
+<p class="note"><b>Talk about it.</b> Numbers 6 and 9 were both here on Tuesday.
+Why is one on the form, and one not? Ask your partner:
+<i>Does this person usually live here?</i> &nbsp;
+<i>Did this person sleep here?</i></p>
+</div><div class="sec"><h2><span class="t">10 min</span>E. Do it</h2>
+<p>Now complete the form for the Haddad household.</p>
+<p><b>Question 2</b> &mdash; who spent the night? Mark all that apply.</p>
+<p style="margin-left:5mm"><span class="mk"></span> Me &nbsp;&nbsp; <span class="mk"></span> Spouse/partner &nbsp;&nbsp;
+<span class="mk"></span> Babies, children and teenagers<br><span class="mk"></span> Other adult family members &nbsp;&nbsp;
+<span class="mk"></span> Unrelated housemates, flatmates or boarders<br>
+<span class="mk"></span> Visitors or friends who spent the night</p>
+<p><b>Question 3</b> &mdash; in total, how many people spent the night? &nbsp;<span class="bx"><i></i><i></i></span></p>
+<p><b>Question 5</b> &mdash; in total, how many people were away? &nbsp;
+<span class="mk"></span> No one away &nbsp; OR &nbsp;<span class="bx"><i></i><i></i></span></p>
+<p class="crit">Check your work:
+<span>&#9744; the numbers match your P and A answers</span>
+<span>&#9744; every kind of person is marked in Question 2</span></p>
+<div class="aside"><b>&#8593; More challenge:</b> the form has room for six people,
+and the Haddads have exactly six people present. What must a household with eight
+people do? Find the answer on page 3 of the form.</div>
+</div>
+<div class="take">
+<h2>&#9986; F. Take home</h2>
+<div class="cols">
+<div>
+<h3>Exit ticket</h3>
+Three words I can use now:<br>
+<span class="line f"></span><br>
+One thing I still need help with:<br>
+<span class="line f"></span>
+</div>
+<div class="help">
+<h3>Getting help</h3>
+<b>Census help line</b> 1800 181 227<br>
+<b>Interpreter &mdash; TIS National</b> 131 450<br>
+<b>Online help</b> census.abs.gov.au/help<br>
+<span style="font-size:9pt"><i>Could you say that again, please?</i><br>
+<i>Could you explain that in easier English?</i><br>
+<i>I need an interpreter who speaks</i> <span class="line s"></span> .</span>
+</div>
+</div>
+</div>
+<div class="foot"><span class="pg">Page 14 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 4 &mdash; Answers (1 of 2)</div><h1>Who is in your house?</h1></div><p class="note"><b>Try the exercises first, then check.</b> Mark your own work. Every answer here has a short reason and a longer one &mdash; read the short one first.</p><h2 class="ansh">B. Words</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">1 spent the night</td><td class="an">a</td><td class="s">Slept here on Tuesday.</td><td class="d">This is the only thing Question 2 measures. Not who lives here &mdash; who <b>slept</b> here.</td></tr><tr><td class="i">2 usually lives here</td><td class="an">c</td><td class="s">This is their home.</td><td class="d">The form&rsquo;s rule: lived, or intends to live, at this address for six months or more in 2026.</td></tr><tr><td class="i">3 away</td><td class="an">b</td><td class="s">Not here on Census night.</td><td class="d">They live here, but slept somewhere else. They go in Questions 4, 5, 58 and 59.</td></tr><tr><td class="i">4 visitor</td><td class="an">e</td><td class="s">A guest for one night.</td><td class="d">They do not live here, but they slept here, so they are counted here.</td></tr><tr><td class="i">5 spouse / partner</td><td class="an">d</td><td class="s">Husband, wife or partner.</td><td class="d">The form has separate boxes for a married spouse and a de facto partner, at Question 10.</td></tr><tr><td class="i">6 housemate</td><td class="an">g</td><td class="s">Shares the home, not family.</td><td class="d">The form says &lsquo;unrelated flatmate or co-tenant&rsquo; &mdash; someone you share with but are not related to.</td></tr><tr><td class="i">7 boarder</td><td class="an">f</td><td class="s">Pays for one room.</td><td class="d">A boarder rents a room inside someone else&rsquo;s home. They are still part of the household on Census night.</td></tr><tr><td class="i">8 shift worker</td><td class="an">h</td><td class="s">Works at night.</td><td class="d">The form names shift workers because they are the easiest people to forget: they were at work all night.</td></tr></table><h2 class="ansh">C. Understand</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">a How many slept here?</td><td class="an">3</td><td class="s">Question 3 asks the total present.</td><td class="d">Question 2 asks <b>who</b> (the kinds of people); Question 3 asks <b>how many</b>.</td></tr><tr><td class="i">b How many were away?</td><td class="an">5</td><td class="s">Question 5 asks the total away.</td><td class="d">Question 4 asks <b>who</b> was away; Question 5 asks <b>how many</b>. The same pattern as 2 and 3.</td></tr><tr><td class="i">c Was a visitor here?</td><td class="an">2</td><td class="s">Visitors are a box in Question 2.</td><td class="d">The last box in Question 2: &lsquo;Visitors or friends who spent the night&rsquo;.</td></tr><tr><td class="i">d Someone on holiday overseas?</td><td class="an">4</td><td class="s">Question 4 lists reasons for being away.</td><td class="d">One of its boxes is &lsquo;People on holiday, including people who are overseas&rsquo;.</td></tr></table><div class="foot"><span class="pg">Page 15 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
+<div class="page"><div class="hdr"><div class="series">Filling In the Form &nbsp;&middot;&nbsp; Handout 4 &mdash; Answers (2 of 2)</div><h1>Who is in your house?</h1></div><h2 class="ansh">D. Practise</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">1 Amal</td><td class="an">P</td><td class="s">Lives here, slept here.</td><td class="d">The straightforward case.</td></tr><tr><td class="i">2 Yusuf</td><td class="an">P</td><td class="s">Lives here, slept here.</td><td class="d">Person 2 on the form &mdash; the spouse of Person 1.</td></tr><tr><td class="i">3 Layla</td><td class="an">P</td><td class="s">Lives here, slept here.</td><td class="d">Children are counted the same as adults.</td></tr><tr><td class="i">4 Rana</td><td class="an">P</td><td class="s">Lives here, slept here.</td><td class="d">An adult family member, counted like everyone else.</td></tr><tr><td class="i">5 Nadia</td><td class="an">A</td><td class="s">Slept somewhere else.</td><td class="d">She usually lives here but slept at her cousin&rsquo;s, and she is on their form. She goes in Questions 4, 5, 58 and 59.</td></tr><tr><td class="i">6 Tomas</td><td class="an">P</td><td class="s">Night shift &mdash; still counted.</td><td class="d">He lives here, was at work all night, came home Wednesday, and is on no other form. Page 3 says to include him.</td></tr><tr><td class="i">7 Sara</td><td class="an">P</td><td class="s">A visitor who slept here.</td><td class="d">She lives in Melbourne, but she slept here, so she is counted here.</td></tr><tr><td class="i">8 Karim</td><td class="an">A</td><td class="s">Overseas on holiday.</td><td class="d">He usually lives here, so he is away &mdash; not missing. Question 4 lists holidays and overseas travel.</td></tr><tr><td class="i">9 Rana&rsquo;s brother</td><td class="an">N</td><td class="s">He went home to sleep.</td><td class="d">He visited on Tuesday evening but slept at his own home, so he is counted there, not here.</td></tr></table><h2 class="ansh">E. Do it</h2><table class="ans"><tr><th class="i"></th><th class="an">Answer</th><th class="s">Why &mdash; simple</th><th class="d">Why &mdash; in detail</th></tr><tr><td class="i">Question 2</td><td class="an">All six boxes</td><td class="s">One of every kind of person.</td><td class="d">Me (Amal) &middot; Spouse/partner (Yusuf) &middot; Babies, children and teenagers (Layla) &middot; Other adult family members (Rana) &middot; Unrelated housemates or boarders (Tomas) &middot; Visitors or friends (Sara).</td></tr><tr><td class="i">Question 3</td><td class="an">6</td><td class="s">Six people slept here.</td><td class="d">Amal, Yusuf, Layla, Rana, Tomas and Sara. Count your P answers in section D.</td></tr><tr><td class="i">Question 4 / 5</td><td class="an">2</td><td class="s">Two people were away.</td><td class="d">Nadia (staying with relatives) and Karim (on holiday overseas). Count your A answers. Both also need Questions 58 and 59.</td></tr></table><div class="foot"><span class="pg">Page 16 of 16</span>Adapted from the Census Household Form, &copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. Classroom practice material &mdash; not an official ABS product.</div></div>
