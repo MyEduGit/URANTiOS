@@ -111,13 +111,15 @@ Fixed six-part shape, so learners recognise the structure by Handout 3 and teach
 | Part | Time | What it is |
 |---|---|---|
 | **A. Look** | 3 min | The real form excerpt, reproduced clean. No task yet — just "what can you see?" |
-| **B. Words** | 10 min | 8–12 target items. Picture-match at A1, definition-match at A2, collocation at B1. |
-| **C. Understand** | 10 min | Comprehension of the excerpt: true/false, matching a person to a box, "which question number?" |
-| **D. Practise** | 15 min | Controlled → freer. Gap-fill, then a fictional-household task, then pair speaking. |
+| **B. Words** | 12 min | 8 target items in a four-column table: word · answer · meaning · **My language**. The last column is a wide blank for the learner's L1 gloss — it is the column that makes the vocabulary stick, and it costs nothing to print. |
+| **C. Understand** | 8 min | Comprehension of the excerpt: true/false, matching a person to a box, "which question number?" |
+| **D. Practise** | 15 min | Controlled → freer. Gap-fill, then a fictional-household task, then a functional exchange (*Do I mark one box or all the boxes?* · *Could you show me where to write the answer?*). |
 | **E. Do it** | 10 min | A realistic mini-task: complete the fictional household's section correctly. |
-| **F. Take home** | — | Detachable strip: the target words, and the ABS help numbers (**1800 181 227**, TIS **131 450**). |
+| **F. Take home** | — | Detachable strip, two panels: an **exit ticket** (three words I can use · one thing I still need help with) and a **getting help** panel — ABS **1800 181 227**, TIS **131 450**, and three ask-for-help phrases including *I need an interpreter who speaks ______.* |
 
-**Standard features on every sheet:** level tag in the corner (A1 / A2 / B1); a ⬇ *Support* box (fewer items, first-letter prompts, word bank) and a ⬆ *Extension* box (write your own, explain to a partner, whole-form scavenger hunt); the attribution footer from R5.
+**Standard features on every sheet:** a ⬇ *More support* box and a ⬆ *More challenge* box, phrased as choices rather than as levels; `Page x of y` in the footer; the attribution footer from R5.
+
+**No level tag is printed on the learner sheet.** Everyone in the room gets the same page and the same adult topic; only the language load and the expected independence change. Level mapping lives in the teacher pack, where it belongs.
 
 ---
 
@@ -181,8 +183,10 @@ Teacher pack is assembled last, from what the handouts actually turn out to need
 | `SERIES_PLAN.md` | This document — the plan |
 | `HANDOUT_TEMPLATE.md` | The reusable six-part layout spec |
 | `VOCABULARY_BANK.md` | Target lexis for all twelve handouts, tagged by level |
-| `handouts/` | The handouts themselves — not yet built |
-| `teacher-pack/` | Keys, mock form, running guide — not yet built |
+| `handouts/census-esl-handouts-1-4.html` | **Built** — Tier 1, print-ready A4, 8 pages |
+| `handouts/build-handouts-1-4.py` | The generator for the above (regenerates the HTML) |
+| `teacher-pack/TIER-1-TEACHER-PACK.md` | **Built** — keys, household reference, running guide for Handouts 1–4 |
+| Handouts 5–12 and their keys | Not yet built — see §8 |
 
 ---
 

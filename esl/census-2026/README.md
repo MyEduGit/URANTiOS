@@ -8,7 +8,9 @@ Twelve handouts, four modules, pre-A1 to B1. Designed for AMEP, TAFE, community 
 
 | File | What it is |
 |---|---|
-| **[`SERIES_PLAN.md`](SERIES_PLAN.md)** | The plan — rationale, design rules, scope and sequence, assessment, build order |
+| **[`handouts/census-esl-handouts-1-4.html`](handouts/census-esl-handouts-1-4.html)** | **Handouts 1–4, print-ready.** Open in a browser and print double-sided — 8 A4 pages, black and white |
+| **[`teacher-pack/TIER-1-TEACHER-PACK.md`](teacher-pack/TIER-1-TEACHER-PACK.md)** | Answer keys, the fictional household, and how to run the four in one week |
+| [`SERIES_PLAN.md`](SERIES_PLAN.md) | The plan — rationale, design rules, scope and sequence, assessment, build order |
 | [`HANDOUT_TEMPLATE.md`](HANDOUT_TEMPLATE.md) | The six-part layout every handout follows |
 | [`VOCABULARY_BANK.md`](VOCABULARY_BANK.md) | Target lexis for all twelve handouts, tagged by level |
 
@@ -36,7 +38,9 @@ The full set of six design rules, including how the series handles the sensitive
 
 ## Status
 
-Planning documents complete. The handouts themselves and the teacher pack are not yet built — see [`SERIES_PLAN.md` §8](SERIES_PLAN.md#8-build-order) for the recommended build order.
+**Tier 1 built and ready to print** — Handouts 1–4, the four that are time-critical before Census night, plus their teacher pack. A learner who has only these four can attempt the form: what the Census is and when, how to physically fill the boxes, the address, and who to count.
+
+Handouts 5–12 and their keys are still to build. See [`SERIES_PLAN.md` §8](SERIES_PLAN.md#8-build-order) for the order.
 
 ---
 

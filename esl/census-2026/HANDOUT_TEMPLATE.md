@@ -2,14 +2,17 @@
 
 The fixed layout every handout in the series follows. Two A4 sides, black and white, photocopy-safe. Times are for a 50-minute session.
 
+The working implementation of this template is [`handouts/build-handouts-1-4.py`](handouts/build-handouts-1-4.py), which generates the print-ready HTML for Handouts 1–4. Reuse its CSS and helper functions when building Handouts 5–12 rather than restyling from scratch.
+
 ---
 
 ## Page 1
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  FILLING IN THE FORM  ·  Handout 3                    [A1]  │
+│  FILLING IN THE FORM  ·  Handout 3                          │
 │  Where do you live?                                         │
+│  (no level tag — see "Levels" below)                        │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  A. LOOK                                            3 min   │
@@ -21,14 +24,21 @@ The fixed layout every handout in the series follows. Two A4 sides, black and wh
 │                                                             │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│  B. WORDS                                          10 min   │
+│  B. WORDS                                          12 min   │
 │  ───────────────────────────────────────────────────────    │
-│  8–12 target items.                                         │
-│    A1 → match word to picture / to a labelled diagram       │
-│    A2 → match word to short definition                      │
-│    B1 → complete the collocation, then use it in a sentence │
+│  8 target items in four columns:                            │
 │                                                             │
-│  ⬇ SUPPORT: 6 items, word bank supplied, first letter given │
+│    WORD        │    │  MEANING          │  MY LANGUAGE      │
+│    ────────────┼────┼───────────────────┼──────────────     │
+│    postcode    │ __ │  a  four numbers… │                   │
+│                                                             │
+│  The MY LANGUAGE column is a wide blank for the learner's   │
+│  own-language gloss. Give two minutes with a phone or       │
+│  bilingual dictionary before feedback; learners sharing an  │
+│  L1 should compare, because the disagreements are where     │
+│  the teaching is.                                           │
+│                                                             │
+│  ⬇ MORE SUPPORT: first five words only                      │
 │                                                             │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
@@ -53,9 +63,11 @@ The fixed layout every handout in the series follows. Two A4 sides, black and wh
 │    1. gap-fill with the target words                        │
 │    2. a task about the fictional household                  │
 │       (the Haddad family — never the learner)               │
-│    3. pair speaking, using the question form                │
-│       e.g. "What's your postcode?" — practised on           │
-│       invented cards, not real details                      │
+│    3. a functional exchange, repeated with two or three     │
+│       different partners with less support each time —      │
+│       e.g. "Do I mark one box or all the boxes?",           │
+│       "Could you show me where to write the answer?"        │
+│       Practised on invented cards, not real details.        │
 │                                                             │
 │  ⚠ On sensitive handouts (6, 7, 11, and any income or       │
 │    health content) step 3 is replaced with a second         │
@@ -72,30 +84,34 @@ The fixed layout every handout in the series follows. Two A4 sides, black and wh
 │    □ CAPITAL LETTERS      □ one letter per box              │
 │    □ information in the right box                           │
 │                                                             │
-│  ⬆ EXTENSION: write a second household of your own          │
+│  ⬆ MORE CHALLENGE: write a second household of your own     │
 │    invention and swap with a partner to complete.           │
 │                                                             │
 ├─────────────────────────────────────────────────────────────┤
 │  ✂ - - - - - - - - - - - - - - - - - - - - - - - - - - - -  │
 │  F. TAKE HOME                                               │
 │                                                             │
-│  My new words:  ________  ________  ________  ________      │
-│                                                             │
-│  Need help with the Census?                                 │
-│    Census help line      1800 181 227                       │
-│    Interpreter (TIS)     131 450                            │
-│    www.census.abs.gov.au/help                               │
+│  ┌── EXIT TICKET ──────────┐ ┌── GETTING HELP ────────────┐ │
+│  │ Three words I can use   │ │ Census help  1800 181 227  │ │
+│  │ now: ________________   │ │ TIS National      131 450  │ │
+│  │ One thing I still need  │ │ census.abs.gov.au/help     │ │
+│  │ help with: ___________  │ │ "Could you explain that    │ │
+│  │                         │ │  in easier English?"       │ │
+│  │                         │ │ "I need an interpreter     │ │
+│  │                         │ │  who speaks _________ ."   │ │
+│  └─────────────────────────┘ └────────────────────────────┘ │
 │                                                             │
 ├─────────────────────────────────────────────────────────────┤
-│  Adapted from the Census Household Form,                    │
-│  © Commonwealth of Australia 2026,                          │
-│  Australian Bureau of Statistics.                           │
+│  Adapted from the Census Household Form,        Page x of y │
+│  © Commonwealth of Australia 2026, ABS.                     │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## Production notes
+
+**Levels.** No level tag is printed on the learner sheet. Everyone in the room gets the same page and the same adult topic; only the language load and the expected independence change, via the ⬇ *More support* and ⬆ *More challenge* boxes — both phrased as choices, not as levels. The level mapping lives in the teacher pack.
 
 **Typography.** One sans-serif face throughout. Body 12pt minimum — many learners are reading in a second script. Form excerpts set in a boxed, monospaced style that visually echoes the real letter-per-box grid, because recognising that grid *is* part of the learning.
 
