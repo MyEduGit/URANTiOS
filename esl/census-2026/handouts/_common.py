@@ -10,33 +10,33 @@ def bxw(*counts):
 MK = '<span class="mk"></span>'
 
 CSS = """
-@page { size: A4; margin: 12mm 14mm; }
+@page { size: A4; margin: 10mm 13mm; }
 * { box-sizing: border-box; }
 body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-       font-size: 11pt; line-height: 1.4; color: #000; margin: 0; }
+       font-size: 10.6pt; line-height: 1.34; color: #000; margin: 0; }
 .page { page-break-after: always; }
 .page:last-child { page-break-after: auto; }
 
 .hdr { border-top: 3px solid #000; border-bottom: 1px solid #000;
-       padding: 2.5mm 0 2mm; margin-bottom: 3.5mm; overflow: hidden; }
+       padding: 2mm 0 1.6mm; margin-bottom: 2.6mm; overflow: hidden; }
 .hdr .series { font-size: 8.5pt; letter-spacing: .09em; text-transform: uppercase; }
 .hdr h1 { font-size: 16.5pt; margin: 1mm 0 0; font-weight: 700; }
 .cont { float: right; font-size: 9pt; letter-spacing: .08em;
         text-transform: uppercase; padding-top: 1.5mm; }
 
-.sec { margin-top: 4mm; }
+.sec { margin-top: 3mm; }
 .sec > h2 { font-size: 11.5pt; font-weight: 700; text-transform: uppercase;
             letter-spacing: .07em; border-bottom: 1px solid #000;
-            padding-bottom: 1mm; margin: 0 0 2.5mm; }
+            padding-bottom: 0.8mm; margin: 0 0 2mm; }
 .sec > h2 .t { float: right; font-weight: 400; font-size: 9.5pt;
                letter-spacing: 0; text-transform: none; }
-p { margin: 0 0 2mm; }
+p { margin: 0 0 1.6mm; }
 ol, ul { margin: 0 0 2mm; padding-left: 6mm; }
-li { margin-bottom: 1.4mm; }
+li { margin-bottom: 1.1mm; }
 .q { font-weight: 600; }
 .note { font-size: 9.5pt; }
 
-.excerpt { border: 1.3px solid #000; padding: 3.5mm 4mm; margin: 0 0 3mm; }
+.excerpt { border: 1.3px solid #000; padding: 2.8mm 3.5mm; margin: 0 0 2.4mm; }
 .excerpt .qn { font-weight: 700; font-size: 12pt; margin-right: 2mm; }
 .excerpt p { margin: 0 0 1.8mm; }
 .excerpt .src { font-size: 8pt; text-align: right; margin: 2mm 0 0; }
@@ -50,10 +50,10 @@ li { margin-bottom: 1.4mm; }
       vertical-align: middle; margin-right: 2mm; }
 
 table { border-collapse: collapse; width: 100%; margin: 0 0 2mm; }
-td, th { vertical-align: top; padding: 1.1mm 2mm 1.1mm 0; }
+td, th { vertical-align: top; padding: 0.9mm 2mm 0.9mm 0; }
 .vocab th { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .05em;
             text-align: left; border-bottom: 1px solid #000; padding-bottom: 1mm; }
-.vocab td { padding-top: 1.6mm; padding-bottom: 1.6mm; }
+.vocab td { padding-top: 1.2mm; padding-bottom: 1.2mm; }
 .vocab tr td { border-bottom: 1px dotted #999; }
 .vocab .w { width: 22%; }
 .vocab .a { width: 6%; }
@@ -61,7 +61,7 @@ td, th { vertical-align: top; padding: 1.1mm 2mm 1.1mm 0; }
 .vocab .l { width: 28%; padding-right: 0; }
 .tf td:first-child { width: 6%; }
 .tf td:last-child { width: 16%; text-align: right; white-space: nowrap; }
-.grid td { border: 1px solid #000; padding: 1.6mm 2mm; }
+.grid td { border: 1px solid #000; padding: 1.2mm 2mm; }
 .grid th { border: 1px solid #000; padding: 1.6mm 2mm; text-align: left;
            font-size: 9.5pt; text-transform: uppercase; letter-spacing: .05em; }
 .plain td:first-child { width: 47%; padding-right: 5mm; }
@@ -77,7 +77,7 @@ td, th { vertical-align: top; padding: 1.1mm 2mm 1.1mm 0; }
 .crit { font-size: 9.5pt; margin-top: 2mm; }
 .crit span { margin-right: 6mm; white-space: nowrap; }
 
-.take { border-top: 1.4px dashed #000; margin-top: 4.5mm; padding-top: 2.5mm; }
+.take { border-top: 1.4px dashed #000; margin-top: 3mm; padding-top: 2mm; }
 .take h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: .07em;
            margin: 0 0 2mm; }
 .take .cols { display: flex; gap: 5mm; }
@@ -87,7 +87,7 @@ td, th { vertical-align: top; padding: 1.1mm 2mm 1.1mm 0; }
                  letter-spacing: .06em; }
 .take .help b { display: inline-block; min-width: 46mm; }
 
-.foot { border-top: 1px solid #000; margin-top: 3.5mm; padding-top: 1.5mm;
+.foot { border-top: 1px solid #000; margin-top: 2.5mm; padding-top: 1.2mm;
         font-size: 8pt; overflow: hidden; }
 .foot .pg { float: right; }
 .line { display: inline-block; border-bottom: 1px solid #000; height: 4.5mm;
@@ -97,20 +97,20 @@ td, th { vertical-align: top; padding: 1.1mm 2mm 1.1mm 0; }
 .line.l { min-width: 60mm; }
 
 /* readiness checklist */
-.ck h2 { font-size: 12pt; text-transform: uppercase; letter-spacing: .06em;
-         border-bottom: 1.4px solid #000; padding-bottom: 1mm; margin: 5mm 0 2.5mm; }
-.ck li { margin-bottom: 2.6mm; list-style: none; }
+.ck h2 { font-size: 11.5pt; text-transform: uppercase; letter-spacing: .06em;
+         border-bottom: 1.4px solid #000; padding-bottom: 0.8mm; margin: 3.5mm 0 2mm; }
+.ck li { margin-bottom: 2.1mm; list-style: none; }
 .ck ul { padding-left: 0; }
 .ck li:before { content: "\\2610"; font-size: 13pt; margin-right: 3mm; }
 .big { font-size: 13pt; font-weight: 700; }
 
 /* answer pages */
-.ansh { font-size: 10.5pt; text-transform: uppercase; letter-spacing: .06em;
-        border-bottom: 1px solid #000; padding-bottom: 0.8mm; margin: 3.5mm 0 1.5mm; }
-.ans { font-size: 8.6pt; line-height: 1.32; }
+.ansh { font-size: 10pt; text-transform: uppercase; letter-spacing: .06em;
+        border-bottom: 1px solid #000; padding-bottom: 0.6mm; margin: 2.6mm 0 1.2mm; }
+.ans { font-size: 8.3pt; line-height: 1.28; }
 .ans th { font-size: 7.6pt; text-transform: uppercase; letter-spacing: .05em;
           text-align: left; border-bottom: 1px solid #000; padding-bottom: 0.8mm; }
-.ans td { border-bottom: 1px dotted #999; padding: 1.1mm 2mm 1.1mm 0; }
+.ans td { border-bottom: 1px dotted #999; padding: 0.85mm 2mm 0.85mm 0; }
 .ans .i { width: 15%; font-weight: 600; }
 .ans .an { width: 17%; font-weight: 700; }
 .ans .s { width: 23%; }

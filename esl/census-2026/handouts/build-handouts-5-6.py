@@ -105,16 +105,14 @@ do5 = f"""
 <p>Complete this part of the form for <b>Person 6 &mdash; Tomas Silva</b>, the boarder.
 He is 29. He was born in Brazil and came to Australia in 2019. At home he speaks
 Portuguese. He speaks English well.</p>
-<p><span class="lbl">Q6 &nbsp; First or given name</span>{bx(14)}</p>
-<p><span class="lbl">Q6 &nbsp; Surname or family name</span>{bx(14)}</p>
-<p><span class="lbl">Q7 &nbsp; Age &nbsp;&nbsp; years</span>{bx(3)}</p>
+<p><span class="lbl">Q6 &nbsp; First or given name &nbsp;&middot;&nbsp; Surname or family name</span>
+{bx(12)} &nbsp; {bx(12)}</p>
+<p><span class="lbl">Q7 &nbsp; Age (years) &nbsp;&middot;&nbsp; Q18 &nbsp; Year first arrived in Australia</span>
+{bx(3)} &nbsp;&nbsp;&nbsp; {bx(4)}</p>
 <p><span class="lbl">Q10 &nbsp; Relationship to Person 1</span>
-{MK} Child of Person 1 &nbsp;&nbsp; {MK} Unrelated flatmate or co-tenant of Person 1
-&nbsp;&nbsp; {MK} Other relationship (specify)</p>
+{MK} Child of Person 1 &nbsp; {MK} Unrelated flatmate or co-tenant &nbsp; {MK} Other (specify)</p>
 <p><span class="lbl">Q17 &nbsp; Country of birth</span>
-{MK} Australia &nbsp; {MK} England &nbsp; {MK} New Zealand &nbsp; {MK} India
-&nbsp; {MK} Other (specify) {bx(10)}</p>
-<p><span class="lbl">Q18 &nbsp; Year first arrived in Australia</span>{bx(4)}</p>
+{MK} Australia &nbsp; {MK} England &nbsp; {MK} India &nbsp; {MK} Other (specify) {bx(10)}</p>
 <p><span class="lbl">Q21 &nbsp; Language other than English at home</span>
 {MK} No, English only &nbsp;&nbsp; {MK} Yes, other language (specify) {bx(12)}</p>
 <p><span class="lbl">Q22 &nbsp; How well does the person speak English?</span>
@@ -197,15 +195,14 @@ prac6 = """
 <p><b>Role-play.</b> Student A calls the help line. Student B answers.
 Do it three times, with three different partners. Each time, use fewer notes.</p>
 <table class="grid">
-<tr><th style="width:50%">Student A &mdash; you are calling</th>
-    <th>Student B &mdash; you work at the help line</th></tr>
-<tr><td><b>Call 1.</b> There are nine people in your house on Census night.</td>
-    <td>Tell them to do it online, or call 1800 130 250 for an extra form.</td></tr>
-<tr><td><b>Call 2.</b> You do not understand the questions in English.</td>
-    <td>Tell them about TIS National, 131 450.</td></tr>
-<tr><td><b>Call 3.</b> You will be away on holiday on Census night, and the
-    house will be empty.</td>
-    <td>Tell them to go to census.abs.gov.au/help, or call 1800 181 227.</td></tr>
+<tr><th style="width:50%">A &mdash; you are calling</th>
+    <th>B &mdash; you work at the help line</th></tr>
+<tr><td><b>1.</b> Nine people in your house on Census night.</td>
+    <td>Do it online, or call 1800 130 250 for an extra form.</td></tr>
+<tr><td><b>2.</b> You do not understand the English.</td>
+    <td>TIS National, 131 450.</td></tr>
+<tr><td><b>3.</b> You will be away; the house will be empty.</td>
+    <td>census.abs.gov.au/help, or call 1800 181 227.</td></tr>
 </table>
 <div class="aside"><b>&#8595; More support:</b> read the sentences from the box.
 &nbsp;&nbsp; <b>&#8593; More challenge:</b> close the handout. Student B asks one

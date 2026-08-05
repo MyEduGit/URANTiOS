@@ -31,7 +31,7 @@ def answers_page(num, title, blocks, part=None, of=None):
 # ═══════════════════════════════════════════════════════════════════════════
 # HANDOUT 1
 # ═══════════════════════════════════════════════════════════════════════════
-H1 = answers_page(1, "Census night is Tuesday 11 August", [
+H1_B = [
  ("B. Words", [
   ("1 census", "b", "A count of all the people.",
    "The Census counts everyone in Australia on one night, so governments know how many people live where, and what they need."),
@@ -91,12 +91,12 @@ H1 = answers_page(1, "Census night is Tuesday 11 August", [
   ("6 Nadia", "&#10007;", "She is on another form.",
    "She slept at her cousin&rsquo;s, so she is counted there. Counting one person twice would make the numbers wrong."),
  ]),
-])
+]
 
 # ═══════════════════════════════════════════════════════════════════════════
 # HANDOUT 2
 # ═══════════════════════════════════════════════════════════════════════════
-H2 = answers_page(2, "How to write your answers", [
+H2_B = [
  ("B. Words", [
   ("1 capital letters", "c", "Big letters.",
    "A B C, not a b c. The form asks for capitals on every page because a machine reads the form."),
@@ -144,12 +144,12 @@ H2 = answers_page(2, "How to write your answers", [
    "One letter in one box, capitals.",
    "The first name and the family name go in <b>separate</b> boxes on the Census form &mdash; not on the same line. Question 6 asks for both."),
  ]),
-])
+]
 
 # ═══════════════════════════════════════════════════════════════════════════
 # HANDOUT 3
 # ═══════════════════════════════════════════════════════════════════════════
-H3 = answers_page(3, "Where do you live?", [
+H3_B = [
  ("B. Words", [
   ("1 street number", "b", "The number of your house.",
    "For example 12, or 3A, or LOT 37 in the country. It goes in its own small box, before the street name."),
@@ -200,12 +200,12 @@ H3 = answers_page(3, "Where do you live?", [
    "Each part in its own box.",
    "Write just <i>4</i> in the unit box, not <i>UNIT 4</i> &mdash; the label already says what the box is for. Same for the postcode: numbers only."),
  ]),
-])
+]
 
 # ═══════════════════════════════════════════════════════════════════════════
 # HANDOUT 4
 # ═══════════════════════════════════════════════════════════════════════════
-H4 = answers_page(4, "Who is in your house?", [
+H4_B = [
  ("B. Words", [
   ("1 spent the night", "a", "Slept here on Tuesday.",
    "This is the only thing Question 2 measures. Not who lives here &mdash; who <b>slept</b> here."),
@@ -259,12 +259,12 @@ H4 = answers_page(4, "Who is in your house?", [
   ("Question 4 / 5", "2", "Two people were away.",
    "Nadia (staying with relatives) and Karim (on holiday overseas). Count your A answers. Both also need Questions 58 and 59."),
  ]),
-])
+]
 
 # ═══════════════════════════════════════════════════════════════════════════
 # HANDOUT 5 — two pages
 # ═══════════════════════════════════════════════════════════════════════════
-H5a = answers_page(5, "Going through the form", [
+H5a_B = [
  ("B. Words", [
   ("1 question number", "b", "The number at the start.",
    "Questions run 1 to 65. Use the number to find your place, and to ask for help: <i>I don&rsquo;t understand Question 23.</i>"),
@@ -311,9 +311,9 @@ H5a = answers_page(5, "Going through the form", [
    "Call, do not guess.",
    "If a question is hard because your situation is unusual, call 1800 181 227, or 131 450 for an interpreter. A guess makes the count wrong."),
  ]),
-], part=1, of=2)
+]
 
-H5b = answers_page(5, "Going through the form", [
+H5b_B = [
  ("D. Practise &mdash; 1. Follow the arrow", [
   ("Q17 born in Australia", "Go to 19", "You skip Question 18.",
    "Question 18 asks the year you first arrived in Australia. If you were born here, there is no arrival year."),
@@ -367,12 +367,12 @@ H5b = answers_page(5, "Going through the form", [
   ("Q22 English", "Well", "Not &lsquo;Very well&rsquo;.",
    "The four choices are Very well, Well, Not well, Not at all. Because he answered &lsquo;Yes&rsquo; at Question 21, this question applies."),
  ]),
-], part=2, of=2)
+]
 
 # ═══════════════════════════════════════════════════════════════════════════
 # HANDOUT 6
 # ═══════════════════════════════════════════════════════════════════════════
-H6 = answers_page(6, "Getting help, and being ready", [
+H6_B = [
  ("B. Words", [
   ("1 help line", "d", "A number to call.",
    "1800 181 227. It is free from an Australian landline, and the people there are there to help you."),
@@ -420,6 +420,33 @@ H6 = answers_page(6, "Getting help, and being ready", [
   ("The one rule", "Call, do not guess", "1800 181 227.",
    "A wrong answer counts your household wrongly. Asking is free, it is confidential, and it is what the number is for."),
  ]),
-])
+]
 
-ANSWERS = {1: [H1], 2: [H2], 3: [H3], 4: [H4], 5: [H5a, H5b], 6: [H6]}
+TITLES = {
+    1: "Census night is Tuesday 11 August",
+    2: "How to write your answers",
+    3: "Where do you live?",
+    4: "Who is in your house?",
+    5: "Going through the form",
+    6: "Getting help, and being ready",
+}
+
+def _split(num, blocks, cuts):
+    """Slice a handout's answer blocks across pages so nothing is squeezed."""
+    parts, prev = [], 0
+    for c in cuts + [len(blocks)]:
+        parts.append(blocks[prev:c]); prev = c
+    n = len(parts)
+    return [answers_page(num, TITLES[num], b,
+                         part=(i + 1 if n > 1 else None), of=(n if n > 1 else None))
+            for i, b in enumerate(parts)]
+
+# Two answer pages per handout keeps the type large enough to read.
+ANSWERS = {
+    1: _split(1, H1_B, [2]),
+    2: _split(2, H2_B, [2]),
+    3: _split(3, H3_B, [2]),
+    4: _split(4, H4_B, [2]),
+    5: _split(5, H5a_B + H5b_B, [2, 5]),
+    6: _split(6, H6_B, [2]),
+}

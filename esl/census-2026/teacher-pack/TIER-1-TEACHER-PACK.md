@@ -1,10 +1,10 @@
 # Teacher Pack — Handouts 1–4
 
-Covers the Tier 1 handouts in [`../handouts/census-esl-handouts-1-4.html`](../handouts/census-esl-handouts-1-4.html): the four to run **before Census night, Tuesday 11 August 2026**.
+Covers the four handouts in `census-esl-handouts-1-4.pdf`: the four to run **before Census night, Tuesday 11 August 2026**.
 
-Print the handout file double-sided: twelve A4 pages, three per handout — two of exercises, then an answer page.
+Print `census-esl-handouts-1-4.pdf` double-sided: sixteen A4 pages, four per handout — two of exercises, then two answer pages.
 
-**The answer pages are in the learner file, by design.** Every answer carries a short reason and a fuller one, so learners can mark their own work and understand why. If you would rather withhold them, they are pages **3, 6, 9 and 12** — omit those from the print range.
+**The answer pages are in the learner file, by design.** Every answer carries a short reason and a fuller one, so learners can mark their own work and understand why. To withhold them, print only pages 1–2, 5–6, 9–10 and 13–14.
 
 ---
 

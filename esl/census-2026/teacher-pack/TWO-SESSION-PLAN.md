@@ -6,12 +6,23 @@
 
 | Print | For | Pages |
 |---|---|---|
-| [`handouts/census-esl-handouts-1-4.html`](../handouts/census-esl-handouts-1-4.html) | **Tonight** | 12 A4, double-sided → 6 sheets |
-| [`handouts/census-esl-handouts-5-6.html`](../handouts/census-esl-handouts-5-6.html) | **Monday** | 8 A4, double-sided → 4 sheets |
+| `census-esl-handouts-1-4.pdf` | **Tonight** | 16 A4, double-sided → 8 sheets |
+| `census-esl-handouts-5-6.pdf` | **Monday** | 10 A4, double-sided → 5 sheets |
 
-**Every handout ends with its own answer page**, and every answer carries a short reason and a fuller one. Learners mark their own work — that is the point, since checking your own form is the real-world skill. To withhold them, skip pages **3, 6, 9, 12** in the Wednesday file and pages **3, 4, 7** in the Monday file.
+**Every handout ends with its own answer pages**, and every answer carries a short reason and a fuller one. Learners mark their own work — that is the point, since checking your own form is the real-world skill.
 
-Page 8 of the Monday file is **My Census Plan** — the take-home checklist. Print it single-sided as well, one per learner, and hand it out at the very end. If a learner keeps only one piece of paper from the whole week, that's the one.
+| | Exercises | Answers |
+|---|---|---|
+| Handout 1 | pp. 1–2 | pp. 3–4 |
+| Handout 2 | pp. 5–6 | pp. 7–8 |
+| Handout 3 | pp. 9–10 | pp. 11–12 |
+| Handout 4 | pp. 13–14 | pp. 15–16 |
+| Handout 5 | pp. 1–2 | pp. 3–5 |
+| Handout 6 | pp. 6–7 | pp. 8–9 |
+
+To withhold the answers, print only pages 1–2, 5–6, 9–10, 13–14 of the Wednesday file and 1–2, 6–7, 10 of the Monday file.
+
+Page 10 of the Monday file is **My Census Plan** — the take-home checklist. Print it single-sided as well, one per learner, and hand it out at the very end. If a learner keeps only one piece of paper from the whole week, that's the one.
 
 ## Bring
 
