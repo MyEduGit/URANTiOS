@@ -3,9 +3,9 @@
 
 import pathlib, sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from _common import bx, MK, CSS, header, sec, vocab, make_foot, TAKE, document
+from answers import ANSWERS
+from _common import bx, MK, CSS, header, sec, vocab, TAKE, document
 
-foot = make_foot(5)
 pages = []
 
 # ══════════════════════════════════════════════════════════════════ HANDOUT 5
@@ -66,7 +66,7 @@ difficult, call 1800 181 227 &mdash; do not guess.</span></p>
 pages.append(header(5, "Going through the form")
              + sec("A", "Look", "5 min", look5)
              + sec("B", "Words", "12 min", words5)
-             + sec("C", "Understand", "10 min", und5) + foot(1))
+             + sec("C", "Understand", "10 min", und5))
 
 prac5 = f"""
 <p><b>1. Follow the arrow.</b> The form tells you when to skip questions.
@@ -127,7 +127,7 @@ Portuguese. He speaks English well.</p>
 
 pages.append(header(5, "Going through the form", cont=True)
              + sec("D", "Practise", "18 min", prac5)
-             + sec("E", "Do it", "12 min", do5) + TAKE + foot(2))
+             + sec("E", "Do it", "12 min", do5) + TAKE)
 
 # ══════════════════════════════════════════════════════════════════ HANDOUT 6
 look6 = """
@@ -146,14 +146,14 @@ Relay Service.</p>
 """
 
 words6 = vocab([
-    ("help line", "a &nbsp; a person who changes your language into English"),
-    ("interpreter", "b &nbsp; a telephone number to call for help"),
-    ("Census number", "c &nbsp; the number on the front of your form"),
-    ("temporary password", "d &nbsp; a short password, to use one time"),
-    ("online", "e &nbsp; on the internet"),
-    ("paper form", "f &nbsp; the Census on paper, in an envelope"),
-    ("unoccupied", "g &nbsp; nobody lives here / nobody is here"),
-    ("submit", "h &nbsp; send your finished form to the ABS"),
+    ("help line", "a &nbsp; on the internet"),
+    ("interpreter", "b &nbsp; a person who changes your language into English"),
+    ("Census number", "c &nbsp; send your finished form to the ABS"),
+    ("temporary password", "d &nbsp; a telephone number to call for help"),
+    ("online", "e &nbsp; the Census on paper, in an envelope"),
+    ("paper form", "f &nbsp; nobody lives here / nobody is here"),
+    ("unoccupied", "g &nbsp; the number on the front of your form"),
+    ("submit", "h &nbsp; a short password, to use one time"),
 ]) + "Write your own language in the last column.</p>"
 
 und6 = """
@@ -178,7 +178,7 @@ und6 = """
 pages.append(header(6, "Getting help, and being ready")
              + sec("A", "Look", "4 min", look6)
              + sec("B", "Words", "12 min", words6)
-             + sec("C", "Understand", "10 min", und6) + foot(3))
+             + sec("C", "Understand", "10 min", und6))
 
 prac6 = """
 <div class="rule">
@@ -238,7 +238,7 @@ do6 = """
 
 pages.append(header(6, "Getting help, and being ready", cont=True)
              + sec("D", "Practise", "20 min", prac6)
-             + sec("E", "Do it &mdash; my Census plan", "10 min", do6) + TAKE + foot(4))
+             + sec("E", "Do it &mdash; my Census plan", "10 min", do6) + TAKE)
 
 # ══════════════════════════════════════════════════════════════ CHECKLIST A4
 checklist = """
@@ -286,7 +286,11 @@ communication difficulty? Contact the ABS through the <b>National Relay Service<
 </div>
 """
 
-pages.append(checklist + foot(5))
+pages.append(checklist)
+
+# interleave: each handout's two pages, then its answers; checklist stays last
+_p = pages
+pages = _p[0:2] + ANSWERS[5] + _p[2:4] + ANSWERS[6] + _p[4:]
 
 out = pathlib.Path(__file__).parent / 'census-esl-handouts-5-6.html'
 out.write_text(document(pages, 'Filling In the Form &mdash; Handouts 5&ndash;6 and Census Plan'))

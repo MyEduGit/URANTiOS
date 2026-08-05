@@ -2,7 +2,9 @@
 
 Covers the Tier 1 handouts in [`../handouts/census-esl-handouts-1-4.html`](../handouts/census-esl-handouts-1-4.html): the four to run **before Census night, Tuesday 11 August 2026**.
 
-Print the handout file double-sided: each handout is two A4 sides, eight pages total.
+Print the handout file double-sided: twelve A4 pages, three per handout — two of exercises, then an answer page.
+
+**The answer pages are in the learner file, by design.** Every answer carries a short reason and a fuller one, so learners can mark their own work and understand why. If you would rather withhold them, they are pages **3, 6, 9 and 12** — omit those from the print range.
 
 ---
 
@@ -66,7 +68,7 @@ Number 4 is the one to discuss. The form's rule: include anyone who lives at the
 
 ## Handout 2 — How to write your answers
 
-**B. Words** — 1 a · 2 b · 3 c · 4 d · 5 e · 6 f · 7 g · 8 h
+**B. Words** — 1 c · 2 f · 3 e · 4 a · 5 b · 6 h · 7 g · 8 d
 
 *Specify* and *Go to* are the two with the longest reach. *Other (specify)* appears dozens of times across the form; *Go to 19* is a skip instruction, and following a skip is a reading skill many learners have never been taught.
 

@@ -103,6 +103,18 @@ td, th { vertical-align: top; padding: 1.1mm 2mm 1.1mm 0; }
 .ck ul { padding-left: 0; }
 .ck li:before { content: "\\2610"; font-size: 13pt; margin-right: 3mm; }
 .big { font-size: 13pt; font-weight: 700; }
+
+/* answer pages */
+.ansh { font-size: 10.5pt; text-transform: uppercase; letter-spacing: .06em;
+        border-bottom: 1px solid #000; padding-bottom: 0.8mm; margin: 3.5mm 0 1.5mm; }
+.ans { font-size: 8.6pt; line-height: 1.32; }
+.ans th { font-size: 7.6pt; text-transform: uppercase; letter-spacing: .05em;
+          text-align: left; border-bottom: 1px solid #000; padding-bottom: 0.8mm; }
+.ans td { border-bottom: 1px dotted #999; padding: 1.1mm 2mm 1.1mm 0; }
+.ans .i { width: 15%; font-weight: 600; }
+.ans .an { width: 17%; font-weight: 700; }
+.ans .s { width: 23%; }
+.ans .d { width: 45%; padding-right: 0; }
 """
 
 def header(num, title, cont=False, series="Filling In the Form"):
@@ -156,7 +168,15 @@ One thing I still need help with:<br>
 """
 
 def document(pages, title):
+    """Assembles the pages and stamps "Page x of y" on every one."""
+    total = len(pages)
+    body = []
+    for i, p in enumerate(pages, 1):
+        f = ('<div class="foot"><span class="pg">Page ' + str(i) + ' of ' + str(total)
+             + '</span>Adapted from the Census Household Form, '
+             '&copy; Commonwealth of Australia 2026, Australian Bureau of Statistics. '
+             'Classroom practice material &mdash; not an official ABS product.</div>')
+        body.append(f'<div class="page">{p}{f}</div>')
     return ('<meta charset="utf-8">\n'
             f'<title>{title}</title>\n'
-            f'<style>{CSS}</style>\n'
-            + '\n'.join(f'<div class="page">{p}</div>' for p in pages))
+            f'<style>{CSS}</style>\n' + '\n'.join(body))

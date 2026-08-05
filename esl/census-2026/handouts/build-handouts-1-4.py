@@ -3,9 +3,9 @@
 
 import pathlib, sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from _common import bx, bxw, MK, header, sec, vocab, make_foot, TAKE, document
+from answers import ANSWERS
+from _common import bx, bxw, MK, header, sec, vocab, TAKE, document
 
-foot = make_foot(8)
 
 pages = []
 
@@ -53,7 +53,7 @@ und1 = """
 pages.append(header(1, "Census night is Tuesday 11 August")
              + sec("A", "Look", "3 min", look1)
              + sec("B", "Words", "12 min", words1)
-             + sec("C", "Understand", "8 min", und1) + foot(1))
+             + sec("C", "Understand", "8 min", und1))
 
 prac1 = """
 <p><b>1. The date.</b> Complete the sentence.</p>
@@ -96,7 +96,7 @@ Find the rule on page 3 of the Census form.</div>
 
 pages.append(header(1, "Census night is Tuesday 11 August", cont=True)
              + sec("D", "Practise", "15 min", prac1)
-             + sec("E", "Do it", "10 min", do1) + TAKE + foot(2))
+             + sec("E", "Do it", "10 min", do1) + TAKE)
 
 # ══════════════════════════════════════════════════════════════════ HANDOUT 2
 look2 = f"""
@@ -114,14 +114,14 @@ look2 = f"""
 """
 
 words2 = vocab([
-    ("capital letters", "a &nbsp; A B C, not a b c"),
-    ("box", "b &nbsp; a small square for one letter"),
-    ("mark", "c &nbsp; put a cross in the box"),
-    ("mistake", "d &nbsp; something wrong"),
-    ("a space", "e &nbsp; one empty box between two words"),
-    ("specify", "f &nbsp; write the answer in your own words"),
+    ("capital letters", "a &nbsp; something wrong"),
+    ("box", "b &nbsp; one empty box between two words"),
+    ("mark", "c &nbsp; A B C, not a b c"),
+    ("mistake", "d &nbsp; do not answer the next questions &mdash; jump to question 19"),
+    ("a space", "e &nbsp; put a cross in the box"),
+    ("specify", "f &nbsp; a small square for one letter"),
     ("leave blank", "g &nbsp; write nothing &mdash; this question is not for you"),
-    ("Go to 19", "h &nbsp; do not answer the next questions &mdash; jump to question 19"),
+    ("Go to 19", "h &nbsp; write the answer in your own words"),
 ]) + "Write your own language in the last column.</p>"
 
 und2 = f"""
@@ -140,7 +140,7 @@ If it is wrong, say why.</p>
 pages.append(header(2, "How to write your answers")
              + sec("A", "Look", "3 min", look2)
              + sec("B", "Words", "12 min", words2)
-             + sec("C", "Understand", "8 min", und2) + foot(3))
+             + sec("C", "Understand", "8 min", und2))
 
 prac2 = f"""
 <p><b>1. Write these words in the boxes.</b> One letter in one box. CAPITAL letters.</p>
@@ -179,7 +179,7 @@ page and take it home. Do not give it to the teacher.</div>
 
 pages.append(header(2, "How to write your answers", cont=True)
              + sec("D", "Practise", "15 min", prac2)
-             + sec("E", "Do it", "10 min", do2) + TAKE + foot(4))
+             + sec("E", "Do it", "10 min", do2) + TAKE)
 
 # ══════════════════════════════════════════════════════════════════ HANDOUT 3
 look3 = f"""
@@ -223,7 +223,7 @@ und3 = """
 pages.append(header(3, "Where do you live?")
              + sec("A", "Look", "3 min", look3)
              + sec("B", "Words", "12 min", words3)
-             + sec("C", "Understand", "8 min", und3) + foot(5))
+             + sec("C", "Understand", "8 min", und3))
 
 prac3 = """
 <p><b>1. States and territories.</b> Match the short form to the long name.</p>
@@ -279,7 +279,7 @@ household. Give it to a partner to write in the boxes.
 
 pages.append(header(3, "Where do you live?", cont=True)
              + sec("D", "Practise", "15 min", prac3)
-             + sec("E", "Do it", "10 min", do3) + TAKE + foot(6))
+             + sec("E", "Do it", "10 min", do3) + TAKE)
 
 # ══════════════════════════════════════════════════════════════════ HANDOUT 4
 look4 = f"""
@@ -331,7 +331,7 @@ but slept somewhere else on Tuesday 11 August.</p>
 pages.append(header(4, "Who is in your house?")
              + sec("A", "Look", "3 min", look4)
              + sec("B", "Words", "12 min", words4)
-             + sec("C", "Understand", "8 min", und4) + foot(7))
+             + sec("C", "Understand", "8 min", und4))
 
 prac4 = """
 <p>It is Tuesday 11 August 2026 at Unit 4, 12 Graham Avenue, Fairfield.
@@ -377,7 +377,12 @@ people do? Find the answer on page 3 of the form.</div>
 
 pages.append(header(4, "Who is in your house?", cont=True)
              + sec("D", "Practise", "15 min", prac4)
-             + sec("E", "Do it", "10 min", do4) + TAKE + foot(8))
+             + sec("E", "Do it", "10 min", do4) + TAKE)
+
+# interleave: each handout's two pages, then its answer page(s)
+_p, pages = pages, []
+for i, n in enumerate([1, 2, 3, 4]):
+    pages += _p[i * 2:i * 2 + 2] + ANSWERS[n]
 
 out = pathlib.Path(__file__).parent / 'census-esl-handouts-1-4.html'
 out.write_text(document(pages, 'Filling In the Form &mdash; Handouts 1&ndash;4'))

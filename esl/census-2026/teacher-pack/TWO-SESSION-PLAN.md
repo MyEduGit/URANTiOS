@@ -6,10 +6,12 @@
 
 | Print | For | Pages |
 |---|---|---|
-| [`handouts/census-esl-handouts-1-4.html`](../handouts/census-esl-handouts-1-4.html) | **Tonight** | 8 A4, double-sided → 4 sheets |
-| [`handouts/census-esl-handouts-5-6.html`](../handouts/census-esl-handouts-5-6.html) | **Monday** | 5 A4, double-sided → 3 sheets |
+| [`handouts/census-esl-handouts-1-4.html`](../handouts/census-esl-handouts-1-4.html) | **Tonight** | 12 A4, double-sided → 6 sheets |
+| [`handouts/census-esl-handouts-5-6.html`](../handouts/census-esl-handouts-5-6.html) | **Monday** | 8 A4, double-sided → 4 sheets |
 
-Page 5 of the Monday file is **My Census Plan** — the take-home checklist. Print it single-sided as well, one per learner, and hand it out at the very end. If a learner keeps only one piece of paper from the whole course, that's the one.
+**Every handout ends with its own answer page**, and every answer carries a short reason and a fuller one. Learners mark their own work — that is the point, since checking your own form is the real-world skill. To withhold them, skip pages **3, 6, 9, 12** in the Wednesday file and pages **3, 4, 7** in the Monday file.
+
+Page 8 of the Monday file is **My Census Plan** — the take-home checklist. Print it single-sided as well, one per learner, and hand it out at the very end. If a learner keeps only one piece of paper from the whole week, that's the one.
 
 ## Bring
 
@@ -55,7 +57,7 @@ Keys are in [`TIER-1-TEACHER-PACK.md`](TIER-1-TEACHER-PACK.md).
 
 ## Keys — Handout 5, Going through the form
 
-**B. Words** — 1 b · 2 d · 3 a · 4 e · 5 f · 6 g · 7 c · 8 h
+**B. Words** — 1 b · 2 d · 3 a · 4 e · 5 f · 6 g · 7 c · 8 h  *(also printed on the learner answer page)*
 
 **C. Understand** — a **21** · b **48** · c **61** · d **17** · e **24** · f **60**
 
@@ -75,7 +77,7 @@ The three-questions box is worth slowing down for. *Optional* (Q24, religion) an
 
 ## Keys — Handout 6, Getting help, and being ready
 
-**B. Words** — 1 b · 2 a · 3 c · 4 d · 5 e · 6 f · 7 g · 8 h
+**B. Words** — 1 d · 2 b · 3 g · 4 h · 5 a · 6 e · 7 f · 8 c
 
 **C. Understand** — 1 c · 2 d · 3 a · 4 b · 5 e
 
