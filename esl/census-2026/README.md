@@ -6,10 +6,15 @@ Twelve handouts, four modules, pre-A1 to B1. Designed for AMEP, TAFE, community 
 
 ## Start here
 
+> ### Teaching it this week?
+> Go straight to **[`teacher-pack/TWO-SESSION-PLAN.md`](teacher-pack/TWO-SESSION-PLAN.md)** — everything compressed into the two sessions before Census night, with a print list and all keys.
+
 | File | What it is |
 |---|---|
-| **[`handouts/census-esl-handouts-1-4.html`](handouts/census-esl-handouts-1-4.html)** | **Handouts 1–4, print-ready.** Open in a browser and print double-sided — 8 A4 pages, black and white |
-| **[`teacher-pack/TIER-1-TEACHER-PACK.md`](teacher-pack/TIER-1-TEACHER-PACK.md)** | Answer keys, the fictional household, and how to run the four in one week |
+| **[`handouts/census-esl-handouts-1-4.html`](handouts/census-esl-handouts-1-4.html)** | **Session 1, print-ready.** Handouts 1–4 — 8 A4 pages, print double-sided |
+| **[`handouts/census-esl-handouts-5-6.html`](handouts/census-esl-handouts-5-6.html)** | **Session 2, print-ready.** Handouts 5–6 plus the *My Census Plan* take-home checklist — 5 A4 pages |
+| **[`teacher-pack/TWO-SESSION-PLAN.md`](teacher-pack/TWO-SESSION-PLAN.md)** | The two-session running order, print list, and keys for Handouts 5–6 |
+| **[`teacher-pack/TIER-1-TEACHER-PACK.md`](teacher-pack/TIER-1-TEACHER-PACK.md)** | Keys for Handouts 1–4, and the fictional household |
 | [`SERIES_PLAN.md`](SERIES_PLAN.md) | The plan — rationale, design rules, scope and sequence, assessment, build order |
 | [`HANDOUT_TEMPLATE.md`](HANDOUT_TEMPLATE.md) | The six-part layout every handout follows |
 | [`VOCABULARY_BANK.md`](VOCABULARY_BANK.md) | Target lexis for all twelve handouts, tagged by level |
@@ -38,9 +43,12 @@ The full set of six design rules, including how the series handles the sensitive
 
 ## Status
 
-**Tier 1 built and ready to print** — Handouts 1–4, the four that are time-critical before Census night, plus their teacher pack. A learner who has only these four can attempt the form: what the Census is and when, how to physically fill the boxes, the address, and who to count.
+**Handouts 1–6 built and ready to print**, covering everything needed before Census night across two sessions:
 
-Handouts 5–12 and their keys are still to build. See [`SERIES_PLAN.md` §8](SERIES_PLAN.md#8-build-order) for the order.
+- **Session 1** — what the Census is and when, how to physically fill the boxes, the address, and who to count. A learner who attends only this can attempt the form.
+- **Session 2** — navigating all 65 questions and the skip instructions, which questions are optional, getting help in your own language, and a take-home *My Census Plan* checklist.
+
+Handouts 7–12 go deeper into the work, education, health, transport and housing blocks. They aren't urgent — those are ordinary settlement-English topics that stay useful all year. See [`SERIES_PLAN.md` §8](SERIES_PLAN.md#8-build-order).
 
 ---
 

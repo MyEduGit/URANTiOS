@@ -183,10 +183,14 @@ Teacher pack is assembled last, from what the handouts actually turn out to need
 | `SERIES_PLAN.md` | This document — the plan |
 | `HANDOUT_TEMPLATE.md` | The reusable six-part layout spec |
 | `VOCABULARY_BANK.md` | Target lexis for all twelve handouts, tagged by level |
-| `handouts/census-esl-handouts-1-4.html` | **Built** — Tier 1, print-ready A4, 8 pages |
-| `handouts/build-handouts-1-4.py` | The generator for the above (regenerates the HTML) |
-| `teacher-pack/TIER-1-TEACHER-PACK.md` | **Built** — keys, household reference, running guide for Handouts 1–4 |
-| Handouts 5–12 and their keys | Not yet built — see §8 |
+| `handouts/census-esl-handouts-1-4.html` | **Built** — Session 1, print-ready A4, 8 pages |
+| `handouts/census-esl-handouts-5-6.html` | **Built** — Session 2 + *My Census Plan* checklist, 5 pages |
+| `handouts/_common.py`, `handouts/build-*.py` | Shared layout module and the two generators |
+| `teacher-pack/TWO-SESSION-PLAN.md` | **Built** — the two-session running order, print list, keys for 5–6 |
+| `teacher-pack/TIER-1-TEACHER-PACK.md` | **Built** — keys and household reference for 1–4 |
+| Handouts 7–12 and their keys | Not yet built — see §8 |
+
+**Note on Handouts 5 and 6.** The plan's Module C/D handouts (7–12) go deep on one block of the form each. Handouts 5 and 6 as built are different: a *navigation* handout covering all 65 questions at survey level, and a *help-seeking and readiness* handout. They were built to fit a two-session window before Census night, and they front-load the content that expires on 11 August. The original Handout 5 (the person-by-person household grid) folds into Handout 9's territory when the deeper series resumes.
 
 ---
 
